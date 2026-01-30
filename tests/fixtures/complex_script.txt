@@ -1,0 +1,10 @@
+# Complex test script
+Set Variable [ $counter ; Value: 1 ]
+If [ $counter > 10 ]
+    Perform Script [ "ProcessData" ; Parameter: $counter ]
+    Go to Layout [ "Results" ]
+    Set Field [ "Status" ; Value: "Complete" ]
+Else
+    Set Variable [ $counter ; Value: $counter + 1 ]
+End If
+

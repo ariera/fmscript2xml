@@ -1,0 +1,6 @@
+# Simple test script
+Set Variable [ $LastError ; Value: 0 ]
+If [ Get ( FoundCount ) = 0 ]
+    Exit Script [ Text Result: $ScriptResult ]
+End If
+

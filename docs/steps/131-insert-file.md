@@ -1,0 +1,98 @@
+---
+id: 131
+name: "Insert File"
+category: Fields
+status: draft
+input_patterns:
+  - "Insert File [ ... ]"
+fm_name: "Insert File"
+xml:
+  step_name: "Insert File"
+  enable_default: True
+  wrapper: step-only
+---
+
+## Description
+
+{PathList} can consist of multiple absolute or relative paths, the first valid
+
+        one of which is used at execution time.
+
+**Note**: This step may reference database-specific IDs (layout, table, field, etc.).
+See `meta/layout-and-object-ids.md` for the policy on handling these IDs.
+
+## Mapping rules
+
+- `name="Insert File"` in the `<Step>` element.
+- `enable="True"` unless the step is explicitly disabled in the text.
+- `id="131"` for all `Insert File` steps.
+- `<Calculation>` contains the calculation expression, wrapped in `<![CDATA[ ... ]]>`.
+- **Do not** include a `Field id="…"` attribute; see `meta/layout-and-object-ids.md`.
+- `<Field>` element specifies the target field.
+- **Conditional elements**: Some elements may only appear under certain conditions:
+  - `{PathList}` - appears conditionally
+  - `{For a field as the target:
+         <Field table="f4" id="2" name="test"/>
+         }` - appears conditionally
+  - `{For a variable as the target:
+         <Field>$VariableName</Field>
+         }` - appears conditionally
+
+## Examples
+
+### Output (XML, step-only)
+
+```xml
+<Step enable="True" id="131" name="Insert File">
+  
+          
+  <UniversalPathList type="Reference">...</UniversalPathList>
+  
+         ...
+ ...
+          
+  <Repetition>
+    
+             
+    <Calculation>
+               &quot;Value&quot;
+             </Calculation>
+    
+           
+  </Repetition>
+  
+        
+  <DialogOptions asFile="True" enable="True">
+    
+        
+    <Storage type="UserChoice"/>
+    
+        
+    <Compress type="UserChoice"/>
+    					
+    <FilterList>
+      
+        
+      <Filter id="0">
+        
+        
+        <name>
+          
+        
+          <Calculation>&quot;All Files&quot;</Calculation>
+          
+        
+        </name>
+        
+        *.*
+        
+      </Filter>
+      
+        
+    </FilterList>
+  </DialogOptions>
+  
+        
+</Step>
+
+```
