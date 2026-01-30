@@ -897,6 +897,81 @@ class SendMailHandler(StepHandler):
         return [step_elem]
 
 
+class SetFieldByNameHandler(StepHandler):
+    """Handler for Set Field By Name steps."""
+
+    def generate(
+        self,
+        step: ParsedStep,
+        step_def: StepDefinition
+    ) -> List[ET.Element]:
+        # Check if step is disabled (// prefix)
+        enabled = step_def.enable_default and not step.is_disabled
+        step_elem = create_step_element(
+            step_def.id,
+            step_def.xml_step_name,
+            enabled
+        )
+
+        # First parameter: TargetName (field name calculation)
+        target_name = step.params.get('0', '')
+        if target_name:
+            target_elem = ET.Element('TargetName')
+            calc_elem = create_cdata_element(target_name)
+            target_elem.append(calc_elem)
+            step_elem.append(target_elem)
+
+        # Second parameter: Result (value calculation)
+        result = step.params.get('1', '')
+        if result:
+            result_elem = ET.Element('Result')
+            calc_elem = create_cdata_element(result)
+            result_elem.append(calc_elem)
+            step_elem.append(result_elem)
+
+        return [step_elem]
+
+
+class CommitRecordsRequestsHandler(StepHandler):
+    """Handler for Commit Records/Requests steps."""
+
+    def generate(
+        self,
+        step: ParsedStep,
+        step_def: StepDefinition
+    ) -> List[ET.Element]:
+        # Check if step is disabled (// prefix)
+        enabled = step_def.enable_default and not step.is_disabled
+        step_elem = create_step_element(
+            step_def.id,
+            step_def.xml_step_name,
+            enabled
+        )
+
+        # NoInteract - "With dialog: On/Off" -> state="False/True"
+        with_dialog = step.params.get('With dialog', 'On')
+        no_interact_state = 'True' if with_dialog.lower() == 'off' else 'False'
+
+        no_interact_elem = ET.Element('NoInteract')
+        no_interact_elem.set('state', no_interact_state)
+        step_elem.append(no_interact_elem)
+
+        # Check for "Force Commit" option
+        force_commit = step.params.get('0', '')
+        if force_commit and 'force' in force_commit.lower():
+            # Option state="true" for Force Commit
+            option_elem = ET.Element('Option')
+            option_elem.set('state', 'true')
+            step_elem.append(option_elem)
+
+            # ESSForceCommit state="True"
+            ess_elem = ET.Element('ESSForceCommit')
+            ess_elem.set('state', 'True')
+            step_elem.append(ess_elem)
+
+        return [step_elem]
+
+
 # Registry of handlers
 HANDLERS = {
     'Comment': CommentHandler(),
@@ -918,6 +993,8 @@ HANDLERS = {
     'Show Custom Dialog': ShowCustomDialogHandler(),
     'Open URL': OpenURLHandler(),
     'Send Mail': SendMailHandler(),
+    'Set Field By Name': SetFieldByNameHandler(),
+    'Commit Records/Requests': CommitRecordsRequestsHandler(),
 }
 
 
