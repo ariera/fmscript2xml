@@ -49,10 +49,12 @@ class CommentHandler(StepHandler):
         step: ParsedStep,
         step_def: StepDefinition
     ) -> List[ET.Element]:
+        # Check if step is disabled (// prefix)
+        enabled = step_def.enable_default and not step.is_disabled
         step_elem = create_step_element(
             step_def.id,
             step_def.xml_step_name,
-            step_def.enable_default
+            enabled
         )
 
         if step.is_comment:
@@ -75,10 +77,12 @@ class SetVariableHandler(StepHandler):
         step: ParsedStep,
         step_def: StepDefinition
     ) -> List[ET.Element]:
+        # Check if step is disabled (// prefix)
+        enabled = step_def.enable_default and not step.is_disabled
         step_elem = create_step_element(
             step_def.id,
             step_def.xml_step_name,
-            step_def.enable_default
+            enabled
         )
 
         # Variable name - PRESERVE the $ prefix
@@ -99,9 +103,6 @@ class SetVariableHandler(StepHandler):
         if var_name and not var_name.startswith('$'):
             var_name = '$' + var_name
 
-        name_elem = create_text_element('Name', var_name)
-        step_elem.append(name_elem)
-
         # Value (calculation) - preserve exactly as written
         value = step.params.get('Value', step.params.get('1', ''))
         # If value is empty string, preserve it as ""
@@ -120,6 +121,10 @@ class SetVariableHandler(StepHandler):
         rep_elem.append(rep_calc)
         step_elem.append(rep_elem)
 
+        # Name comes last (matching FileMaker's XML order)
+        name_elem = create_text_element('Name', var_name)
+        step_elem.append(name_elem)
+
         return [step_elem]
 
 
@@ -131,10 +136,12 @@ class IfHandler(StepHandler):
         step: ParsedStep,
         step_def: StepDefinition
     ) -> List[ET.Element]:
+        # Check if step is disabled (// prefix)
+        enabled = step_def.enable_default and not step.is_disabled
         step_elem = create_step_element(
             step_def.id,
             step_def.xml_step_name,
-            step_def.enable_default
+            enabled
         )
 
         # Calculation (condition)
@@ -157,10 +164,12 @@ class ElseIfHandler(StepHandler):
         step: ParsedStep,
         step_def: StepDefinition
     ) -> List[ET.Element]:
+        # Check if step is disabled (// prefix)
+        enabled = step_def.enable_default and not step.is_disabled
         step_elem = create_step_element(
             step_def.id,
             step_def.xml_step_name,
-            step_def.enable_default
+            enabled
         )
 
         # Calculation (condition) - same as If
@@ -183,10 +192,12 @@ class ElseHandler(StepHandler):
         step: ParsedStep,
         step_def: StepDefinition
     ) -> List[ET.Element]:
+        # Check if step is disabled (// prefix)
+        enabled = step_def.enable_default and not step.is_disabled
         step_elem = create_step_element(
             step_def.id,
             step_def.xml_step_name,
-            step_def.enable_default
+            enabled
         )
         return [step_elem]
 
@@ -199,10 +210,12 @@ class SetErrorCaptureHandler(StepHandler):
         step: ParsedStep,
         step_def: StepDefinition
     ) -> List[ET.Element]:
+        # Check if step is disabled (// prefix)
+        enabled = step_def.enable_default and not step.is_disabled
         step_elem = create_step_element(
             step_def.id,
             step_def.xml_step_name,
-            step_def.enable_default
+            enabled
         )
 
         # Get the state from params - "On" or "Off"
@@ -229,10 +242,12 @@ class NewWindowHandler(StepHandler):
         step: ParsedStep,
         step_def: StepDefinition
     ) -> List[ET.Element]:
+        # Check if step is disabled (// prefix)
+        enabled = step_def.enable_default and not step.is_disabled
         step_elem = create_step_element(
             step_def.id,
             step_def.xml_step_name,
-            step_def.enable_default
+            enabled
         )
 
         # LayoutDestination - default to CurrentLayout
@@ -311,10 +326,12 @@ class CloseWindowHandler(StepHandler):
         step: ParsedStep,
         step_def: StepDefinition
     ) -> List[ET.Element]:
+        # Check if step is disabled (// prefix)
+        enabled = step_def.enable_default and not step.is_disabled
         step_elem = create_step_element(
             step_def.id,
             step_def.xml_step_name,
-            step_def.enable_default
+            enabled
         )
 
         # LimitToWindowsOfCurrentFile - default to True
@@ -354,10 +371,12 @@ class EnterPreviewModeHandler(StepHandler):
         step: ParsedStep,
         step_def: StepDefinition
     ) -> List[ET.Element]:
+        # Check if step is disabled (// prefix)
+        enabled = step_def.enable_default and not step.is_disabled
         step_elem = create_step_element(
             step_def.id,
             step_def.xml_step_name,
-            step_def.enable_default
+            enabled
         )
 
         # Pause state - "On"/"Off" -> "True"/"False"
@@ -379,10 +398,12 @@ class PrintHandler(StepHandler):
         step: ParsedStep,
         step_def: StepDefinition
     ) -> List[ET.Element]:
+        # Check if step is disabled (// prefix)
+        enabled = step_def.enable_default and not step.is_disabled
         step_elem = create_step_element(
             step_def.id,
             step_def.xml_step_name,
-            step_def.enable_default
+            enabled
         )
 
         # NoInteract - "With dialog: On/Off" -> state="False/True"
@@ -415,10 +436,12 @@ class EndIfHandler(StepHandler):
         step: ParsedStep,
         step_def: StepDefinition
     ) -> List[ET.Element]:
+        # Check if step is disabled (// prefix)
+        enabled = step_def.enable_default and not step.is_disabled
         step_elem = create_step_element(
             step_def.id,
             step_def.xml_step_name,
-            step_def.enable_default
+            enabled
         )
         return [step_elem]
 
@@ -431,10 +454,12 @@ class ExitScriptHandler(StepHandler):
         step: ParsedStep,
         step_def: StepDefinition
     ) -> List[ET.Element]:
+        # Check if step is disabled (// prefix)
+        enabled = step_def.enable_default and not step.is_disabled
         step_elem = create_step_element(
             step_def.id,
             step_def.xml_step_name,
-            step_def.enable_default
+            enabled
         )
 
         # Text Result (optional)
@@ -478,10 +503,12 @@ class PerformScriptHandler(StepHandler):
             comment_elem = create_helper_comment_step(step.raw_text)
             elements.append(comment_elem)
 
+        # Check if step is disabled (// prefix)
+        enabled = step_def.enable_default and not step.is_disabled
         step_elem = create_step_element(
             step_def.id,
             step_def.xml_step_name,
-            step_def.enable_default
+            enabled
         )
 
         # Script parameter (optional)
@@ -533,10 +560,12 @@ class GoToLayoutHandler(StepHandler):
         comment_elem = create_helper_comment_step(step.raw_text)
         elements.append(comment_elem)
 
+        # Check if step is disabled (// prefix)
+        enabled = step_def.enable_default and not step.is_disabled
         step_elem = create_step_element(
             step_def.id,
             step_def.xml_step_name,
-            step_def.enable_default
+            enabled
         )
 
         # Layout name/calculation
@@ -601,10 +630,12 @@ class SetFieldHandler(StepHandler):
             comment_elem = create_helper_comment_step(step.raw_text)
             elements.append(comment_elem)
 
+        # Check if step is disabled (// prefix)
+        enabled = step_def.enable_default and not step.is_disabled
         step_elem = create_step_element(
             step_def.id,
             step_def.xml_step_name,
-            step_def.enable_default
+            enabled
         )
 
         # Field name
@@ -640,10 +671,12 @@ class PerformFindHandler(StepHandler):
         comment_elem = create_helper_comment_step(step.raw_text)
         elements.append(comment_elem)
 
+        # Check if step is disabled (// prefix)
+        enabled = step_def.enable_default and not step.is_disabled
         step_elem = create_step_element(
             step_def.id,
             step_def.xml_step_name,
-            step_def.enable_default
+            enabled
         )
 
         # Restore state (default True)
@@ -686,10 +719,12 @@ class ShowCustomDialogHandler(StepHandler):
             comment_elem = create_helper_comment_step(step.raw_text)
             elements.append(comment_elem)
 
+        # Check if step is disabled (// prefix)
+        enabled = step_def.enable_default and not step.is_disabled
         step_elem = create_step_element(
             step_def.id,
             step_def.xml_step_name,
-            step_def.enable_default
+            enabled
         )
 
         # Title
@@ -747,10 +782,12 @@ class OpenURLHandler(StepHandler):
         step: ParsedStep,
         step_def: StepDefinition
     ) -> List[ET.Element]:
+        # Check if step is disabled (// prefix)
+        enabled = step_def.enable_default and not step.is_disabled
         step_elem = create_step_element(
             step_def.id,
             step_def.xml_step_name,
-            step_def.enable_default
+            enabled
         )
 
         # NoInteract element for "With dialog" option
@@ -778,10 +815,12 @@ class SendMailHandler(StepHandler):
         step: ParsedStep,
         step_def: StepDefinition
     ) -> List[ET.Element]:
+        # Check if step is disabled (// prefix)
+        enabled = step_def.enable_default and not step.is_disabled
         step_elem = create_step_element(
             step_def.id,
             step_def.xml_step_name,
-            step_def.enable_default
+            enabled
         )
 
         # NoInteract element for "With dialog" option
@@ -908,10 +947,12 @@ def generate_xml(
         return handler.generate(step, step_def)
 
     # Default handler: create basic step element
+    # Check if step is disabled (// prefix)
+    enabled = step_def.enable_default and not step.is_disabled
     step_elem = create_step_element(
         step_def.id,
         step_def.xml_step_name,
-        step_def.enable_default
+        enabled
     )
 
     # Add parameters as child elements (generic handling)

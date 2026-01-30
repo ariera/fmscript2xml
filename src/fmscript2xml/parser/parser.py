@@ -19,6 +19,7 @@ class ParsedStep:
     line_number: int = 0
     is_comment: bool = False
     comment_text: str = ""
+    is_disabled: bool = False
 
 
 class Parser:
@@ -79,6 +80,24 @@ class Parser:
                 i += 1
                 continue
 
+            # Disabled steps (// prefix) - FileMaker uses // to mark disabled steps
+            is_disabled = False
+            if line.startswith('//'):
+                is_disabled = True
+                # Remove // prefix and any following whitespace
+                line = line[2:].strip()
+                # Also update the original line for raw_text
+                original_line = lines[i]
+                if original_line.strip().startswith('//'):
+                    # Find the position of // in the original line
+                    double_slash_pos = original_line.find('//')
+                    # Keep the // in raw_text but remove it from the parsed line
+                    original_line = original_line[:double_slash_pos] + original_line[double_slash_pos + 2:].lstrip()
+                if not line:
+                    # Line was just // with nothing after - skip it
+                    i += 1
+                    continue
+
             # Check if this looks like a continuation line (starts with closing bracket/paren)
             # or doesn't have alphabetic characters in first part
             if line.startswith((']', ')')) or (not any(c.isalpha() for c in line[:20]) and '[' not in line and not line[0].isupper()):
@@ -105,6 +124,8 @@ class Parser:
             # Parse the (possibly multi-line) step
             step = self._parse_step(full_line, line_num)
             if step:
+                # Mark as disabled if // prefix was detected
+                step.is_disabled = is_disabled
                 # Only add if step has a valid name (not empty)
                 if step.name.strip():
                     self.steps.append(step)
