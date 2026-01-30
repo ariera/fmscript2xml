@@ -48,18 +48,19 @@ def remove_ids(element: ET.Element, requires_db_ids: bool) -> None:
 def remove_helper_comments(root: ET.Element) -> None:
     """Remove helper comment steps that begin with 'Original:'."""
     to_remove = []
-    for step in list(root):
-        if step.tag != "Step":
-            continue
-        if step.attrib.get("name") != "Comment":
-            continue
-        text_elem = step.find("Text")
-        if text_elem is None:
-            continue
-        if (text_elem.text or "").strip().startswith("Original:"):
-            to_remove.append(step)
-    for step in to_remove:
-        root.remove(step)
+    for parent in root.iter():
+        for step in list(parent):
+            if step.tag != "Step":
+                continue
+            if step.attrib.get("name") != "Comment":
+                continue
+            text_elem = step.find("Text")
+            if text_elem is None:
+                continue
+            if (text_elem.text or "").strip().startswith("Original:"):
+                to_remove.append((parent, step))
+    for parent, step in to_remove:
+        parent.remove(step)
 
 
 def remove_platform_data(root: ET.Element) -> None:

@@ -1,26 +1,26 @@
 ---
 id: 118
-name: "<span class="
+name: "Open Hosts"
 category: Open Menu Item
 status: draft
 input_patterns:
-  - "<span class= [ ... ]"
-fm_name: "<span class="
+  - "Open Hosts [ ... ]"
+fm_name: "Open Hosts"
 xml:
-  step_name: "<span class="
+  step_name: "Open Hosts"
   enable_default: True
   wrapper: step-only
 ---
 
 ## Description
 
-FileMaker script step: <span class=
+FileMaker script step: Open Hosts
 
 ## Mapping rules
 
-- `name="<span class="` in the `<Step>` element.
+- `name="Open Hosts"` in the `<Step>` element.
 - `enable="True"` unless the step is explicitly disabled in the text.
-- `id="118"` for all `<span class=` steps.
+- `id="118"` for all `Open Hosts` steps.
 
 ## Examples
 

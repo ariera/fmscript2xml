@@ -1,5 +1,5 @@
 id: 118
-name: <span class=
+name: Open Hosts
 area: Open Menu Item
 ddr_xml: "<Step id=\"118\" name=\"Open Hosts\" enable=\"True\">\n          <StepText>Script\
   \ step text</StepText>\n        </Step>"

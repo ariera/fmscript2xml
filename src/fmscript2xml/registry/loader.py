@@ -229,7 +229,26 @@ class StepRegistry:
         """Get step definition by name."""
         if not self._loaded:
             self.load_all()
-        return self._definitions.get(step_name)
+
+        # Try exact match first
+        step_def = self._definitions.get(step_name)
+        if step_def:
+            return step_def
+
+        # Try with trailing space (parser strips trailing spaces, but registry might have them)
+        if not step_name.endswith(' '):
+            step_def = self._definitions.get(step_name + ' ')
+            if step_def:
+                return step_def
+
+        # Try without trailing space (registry has space, but parser strips it)
+        step_name_stripped = step_name.rstrip()
+        if step_name_stripped != step_name:
+            step_def = self._definitions.get(step_name_stripped)
+            if step_def:
+                return step_def
+
+        return None
 
     def get_by_id(self, step_id: int) -> Optional[StepDefinition]:
         """Get step definition by ID."""

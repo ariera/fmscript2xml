@@ -103,6 +103,10 @@ class SetVariableHandler(StepHandler):
         if var_name and not var_name.startswith('$'):
             var_name = '$' + var_name
 
+        # Name element (must come first based on FileMaker's XML structure)
+        name_elem = create_text_element('Name', var_name)
+        step_elem.append(name_elem)
+
         # Value (calculation) - preserve exactly as written
         value = step.params.get('Value', step.params.get('1', ''))
         # If value is empty string, preserve it as ""
@@ -120,10 +124,6 @@ class SetVariableHandler(StepHandler):
         rep_calc = create_cdata_element(repetition)
         rep_elem.append(rep_calc)
         step_elem.append(rep_elem)
-
-        # Name comes last (matching FileMaker's XML order)
-        name_elem = create_text_element('Name', var_name)
-        step_elem.append(name_elem)
 
         return [step_elem]
 
@@ -503,10 +503,11 @@ class PerformScriptHandler(StepHandler):
             comment_elem = create_helper_comment_step(step.raw_text)
             elements.append(comment_elem)
 
+        enabled = step_def.enable_default and not step.is_disabled
         step_elem = create_step_element(
             step_def.id,
             step_def.xml_step_name,
-            step_def.enable_default
+            enabled
         )
 
         # Script parameter (optional)
@@ -558,10 +559,11 @@ class GoToLayoutHandler(StepHandler):
         comment_elem = create_helper_comment_step(step.raw_text)
         elements.append(comment_elem)
 
+        enabled = step_def.enable_default and not step.is_disabled
         step_elem = create_step_element(
             step_def.id,
             step_def.xml_step_name,
-            step_def.enable_default
+            enabled
         )
 
         # Layout name/calculation
@@ -626,22 +628,35 @@ class SetFieldHandler(StepHandler):
             comment_elem = create_helper_comment_step(step.raw_text)
             elements.append(comment_elem)
 
+        enabled = step_def.enable_default and not step.is_disabled
         step_elem = create_step_element(
             step_def.id,
             step_def.xml_step_name,
-            step_def.enable_default
+            enabled
         )
 
-        # Field name
-        field_name = step.params.get('Field', step.params.get('0', ''))
+        # Field name (may be empty for "active field" usage)
+        field_name = step.params.get('Field', '')
+        value = step.params.get('Value', '')
+
+        if not field_name:
+            # If no explicit Field and only one positional param, treat it as the value
+            if '0' in step.params and '1' not in step.params and not value:
+                value = step.params.get('0', '')
+            else:
+                field_name = step.params.get('0', '')
+                value = step.params.get('1', value)
+        else:
+            value = step.params.get('1', value)
+
         if field_name.startswith('"') and field_name.endswith('"'):
             field_name = field_name[1:-1]
 
-        field_elem = create_field_element(field_name, omit_id=True)
-        step_elem.append(field_elem)
+        if field_name:
+            field_elem = create_field_element(field_name, omit_id=True)
+            step_elem.append(field_elem)
 
         # Value (calculation)
-        value = step.params.get('Value', step.params.get('1', ''))
         rep_elem = ET.Element('Repetition')
         calc_elem = create_cdata_element(value)
         rep_elem.append(calc_elem)
@@ -665,10 +680,11 @@ class PerformFindHandler(StepHandler):
         comment_elem = create_helper_comment_step(step.raw_text)
         elements.append(comment_elem)
 
+        enabled = step_def.enable_default and not step.is_disabled
         step_elem = create_step_element(
             step_def.id,
             step_def.xml_step_name,
-            step_def.enable_default
+            enabled
         )
 
         # Restore state - only add if explicitly specified or if there are other params
@@ -688,18 +704,19 @@ class PerformFindHandler(StepHandler):
         # If params are empty, don't add Restore element
 
         # Query structure (simplified - real implementation would parse find criteria)
-        # For now, create a basic query structure
-        query_elem = ET.Element('Query')
-        query_elem.set('table', step.params.get('Table', ''))
+        # Only add query if parameters are provided
+        if step.params:
+            query_elem = ET.Element('Query')
+            query_elem.set('table', step.params.get('Table', ''))
 
-        # RequestRow (simplified)
-        request_elem = ET.Element('RequestRow')
-        request_elem.set('operation', 'Include')
+            # RequestRow (simplified)
+            request_elem = ET.Element('RequestRow')
+            request_elem.set('operation', 'Include')
 
-        # Criteria would be parsed from parameters
-        # For MVP, just create empty structure
-        query_elem.append(request_elem)
-        step_elem.append(query_elem)
+            # Criteria would be parsed from parameters
+            # For MVP, just create empty structure
+            query_elem.append(request_elem)
+            step_elem.append(query_elem)
 
         elements.append(step_elem)
         return elements
@@ -931,6 +948,41 @@ class SetFieldByNameHandler(StepHandler):
         return [step_elem]
 
 
+class InstallOnTimerScriptHandler(StepHandler):
+    """Handler for Install OnTimer Script steps."""
+
+    def generate(
+        self,
+        step: ParsedStep,
+        step_def: StepDefinition
+    ) -> List[ET.Element]:
+        enabled = step_def.enable_default and not step.is_disabled
+        step_elem = create_step_element(
+            step_def.id,
+            step_def.xml_step_name,
+            enabled
+        )
+
+        # Script name (positional 0)
+        script_name = step.params.get('Script', step.params.get('0', ''))
+        if script_name.startswith('"') and script_name.endswith('"'):
+            script_name = script_name[1:-1]
+        if script_name:
+            script_elem = ET.Element('Script')
+            script_elem.set('name', script_name)
+            step_elem.append(script_elem)
+
+        # Interval (positional 1)
+        interval = step.params.get('Interval', step.params.get('1', ''))
+        if interval:
+            interval_elem = ET.Element('Interval')
+            calc_elem = create_cdata_element(interval)
+            interval_elem.append(calc_elem)
+            step_elem.append(interval_elem)
+
+        return [step_elem]
+
+
 class CommitRecordsRequestsHandler(StepHandler):
     """Handler for Commit Records/Requests steps."""
 
@@ -993,6 +1045,7 @@ HANDLERS = {
     'Open URL': OpenURLHandler(),
     'Send Mail': SendMailHandler(),
     'Set Field By Name': SetFieldByNameHandler(),
+    'Install OnTimer Script': InstallOnTimerScriptHandler(),
     'Commit Records/Requests': CommitRecordsRequestsHandler(),
 }
 

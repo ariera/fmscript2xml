@@ -54,6 +54,10 @@ class Parser:
         while i < len(lines):
             line_num = i + 1
             line = lines[i].strip()
+            # Normalize HTML entities in sanitized inputs (e.g., &lt;Table Missing&gt;)
+            # so parsing doesn't split on entity semicolons.
+            import html
+            line = html.unescape(line)
 
             # Skip empty lines
             if not line:
@@ -105,17 +109,21 @@ class Parser:
                 i += 1
                 continue
 
-            # Check for ellipsis truncation marker - if found, truncate the line at that point
+            # Check for ellipsis truncation marker - if found, preserve it but close brackets
             # This handles files that have been truncated with … marker
+            # The ellipsis should be preserved in the calculation as FileMaker exports it that way
             if '…' in line:
-                # Truncate at ellipsis and try to close any open brackets
+                # Find ellipsis position
                 ellipsis_pos = line.find('…')
-                truncated_line = line[:ellipsis_pos].strip()
+                # Keep everything up to and including the ellipsis
+                truncated_line = line[:ellipsis_pos + 1].strip()
 
-                # Try to close brackets if needed
-                open_brackets = truncated_line.count('[') - truncated_line.count(']')
+                # Try to close brackets if needed (but preserve ellipsis in the content)
+                # Count brackets before the ellipsis
+                before_ellipsis = line[:ellipsis_pos]
+                open_brackets = before_ellipsis.count('[') - before_ellipsis.count(']')
                 if open_brackets > 0:
-                    # Add closing brackets
+                    # Add closing brackets after the ellipsis
                     truncated_line += ']' * open_brackets
 
                 line = truncated_line

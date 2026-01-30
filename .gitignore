@@ -137,3 +137,6 @@ dmypy.json
 # Example folders to ignore
 examples/WWW_Import/
 examples/EMBO_Central/
+
+# Ignore real_world fixtures
+tests/fixtures/real_world/**

@@ -39,10 +39,14 @@ def load_ddr_ir(steps_dir: Path) -> Dict[int, Dict]:
         if not data or "id" not in data:
             continue
 
+        # Skip obsolete steps - don't load them at all
+        step_name = data.get("name", "")
+        if step_name.startswith("#[OBSOLETE]"):
+            continue
+
         step_id = int(data["id"])
         steps[step_id] = data
 
-        step_name = data.get("name")
         if step_name:
             name_index[_normalize_step_name(step_name)] = step_id
 
