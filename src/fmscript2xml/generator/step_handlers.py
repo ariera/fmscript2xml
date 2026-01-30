@@ -149,6 +149,32 @@ class IfHandler(StepHandler):
         return [step_elem]
 
 
+class ElseIfHandler(StepHandler):
+    """Handler for Else If steps."""
+
+    def generate(
+        self,
+        step: ParsedStep,
+        step_def: StepDefinition
+    ) -> List[ET.Element]:
+        step_elem = create_step_element(
+            step_def.id,
+            step_def.xml_step_name,
+            step_def.enable_default
+        )
+
+        # Calculation (condition) - same as If
+        calc = step.params.get('Calculation', step.params.get('0', ''))
+        if not calc and step.params:
+            # Try to get first param as calculation
+            calc = list(step.params.values())[0]
+
+        calc_elem = create_cdata_element(calc)
+        step_elem.append(calc_elem)
+
+        return [step_elem]
+
+
 class ElseHandler(StepHandler):
     """Handler for Else steps."""
 
@@ -502,6 +528,7 @@ HANDLERS = {
     'Comment': CommentHandler(),
     'Set Variable': SetVariableHandler(),
     'If': IfHandler(),
+    'Else If': ElseIfHandler(),
     'Else': ElseHandler(),
     'End If': EndIfHandler(),
     'Exit Script': ExitScriptHandler(),
@@ -552,8 +579,13 @@ def generate_xml(
             calc_elem = create_cdata_element(str(value))
             step_elem.append(calc_elem)
         else:
-            # Named parameter
-            param_elem = ET.Element(key)
+            # Named parameter - sanitize element name (XML element names cannot contain spaces)
+            # Replace spaces with camelCase or remove them
+            element_name = key.replace(' ', '')  # Simple approach: remove spaces
+            # If empty after removing spaces, use a default name
+            if not element_name:
+                element_name = 'Parameter'
+            param_elem = ET.Element(element_name)
             param_elem.text = str(value)
             step_elem.append(param_elem)
 

@@ -1,0 +1,33 @@
+<?xml version="1.0" ?>
+<fmxmlsnippet type="FMObjectList">
+  <Step enable="True" id="68" name="If">
+    <Calculation><![CDATA[LeftWords ( GetRepetition ( Contacts::Side Placeholder ; Get ( ScriptParameter ) ) ; 1 ) = "Website"]]></Calculation>
+  </Step>
+  <Step enable="True" id="111" name="Open URL">
+    <Withdialog>Off</Withdialog>
+    <Calculation><![CDATA[Contacts::Website]]></Calculation>
+  </Step>
+  <Step enable="True" id="125" name="Else If">
+    <Calculation><![CDATA[LeftWords ( GetRepetition ( Contacts::Side Placeholder ; Get ( ScriptParameter ) ) ; 1 ) = "Office"  or LeftWords ( GetRepetition ( Contacts::Side Placeholder ; Get ( ScriptParameter ) ) ; 1 ) = "Personal"]]></Calculation>
+  </Step>
+  <Step enable="True" id="63" name="Send Mail">
+    <Calculation><![CDATA[Send via E-mail Client]]></Calculation>
+    <Withdialog>On</Withdialog>
+    <To>Contacts::Name for Labels &amp; &quot; &lt;&quot; &amp; MiddleWords ( GetRepetition ( Contacts::Side Placeholder ; Get ( ScriptParameter ) ) ; 2 ; 999 ) &amp; &quot;&gt;&quot;</To>
+    <Subject>&quot;From &quot; &amp; Get ( UserName )</Subject>
+    <Message>&quot;Dear &quot; &amp; Contacts::Name for Labels &amp; &quot;,¶¶¶¶&quot; &amp; &quot;Best Regards¶¶&quot; &amp; Get ( UserName )</Message>
+  </Step>
+  <Step enable="True" id="125" name="Else If">
+    <Calculation><![CDATA[LeftWords ( GetRepetition ( Contacts::Side Placeholder ; Get ( ScriptParameter ) ) ; 1 ) = Contacts::Video App]]></Calculation>
+  </Step>
+  <Step enable="True" id="111" name="Open URL">
+    <Withdialog>Off</Withdialog>
+    <Calculation><![CDATA[Contacts::Video App & "://" & Contacts::Video]]></Calculation>
+  </Step>
+  <Step enable="True" id="69" name="Else"/>
+  <Step enable="True" id="111" name="Open URL">
+    <Withdialog>Off</Withdialog>
+    <Calculation><![CDATA[Case 	( 		LeftWords ( GetRepetition ( Contacts::Side Placeholder ; Get ( ScriptParameter ) ) ; 1 ) = "Work" ; 		MapAddressWeb 	( 				Contacts::Work Address 1 ; 				Contacts::Work Address 2 ; 				Contacts::Work City ; 				Contacts::Work State ; 				…]]></Calculation>
+  </Step>
+  <Step enable="True" id="70" name="End If"/>
+</fmxmlsnippet>

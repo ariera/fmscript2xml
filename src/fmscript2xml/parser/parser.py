@@ -200,7 +200,42 @@ class Parser:
                 continue
 
             # Check if it's a key-value pair
-            colon_pos = part.find(':')
+            # Look for colon, but skip :: (table reference separator in FileMaker)
+            # and colons inside quoted strings
+            colon_pos = -1
+            i = 0
+            in_string = False
+            string_char = None
+            while i < len(part):
+                char = part[i]
+
+                # Handle string literals
+                if char in ('"', "'") and (i == 0 or part[i - 1] != '\\'):
+                    if not in_string:
+                        in_string = True
+                        string_char = char
+                    elif char == string_char:
+                        in_string = False
+                        string_char = None
+                    i += 1
+                    continue
+
+                if in_string:
+                    i += 1
+                    continue
+
+                if char == ':':
+                    # Check if it's :: (table reference) or single : (parameter separator)
+                    if i + 1 < len(part) and part[i + 1] == ':':
+                        # Skip :: (table reference)
+                        i += 2
+                        continue
+                    else:
+                        # Found single colon - this is a parameter separator
+                        colon_pos = i
+                        break
+                i += 1
+
             if colon_pos != -1:
                 key = part[:colon_pos].strip()
                 value = part[colon_pos + 1:].strip()

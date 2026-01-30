@@ -162,16 +162,23 @@ def main():
     import sys
     import argparse
     from pathlib import Path
+    from . import __version__
 
     parser = argparse.ArgumentParser(
-        description='Convert FileMaker script to XML',
+        description=f'Convert FileMaker script to XML (version {__version__})',
         formatter_class=argparse.RawDescriptionHelpFormatter,
-        epilog="""
+        epilog=f"""
 Examples:
   %(prog)s script.txt              # Creates script.txt.xml
   %(prog)s script.txt -o output.xml # Creates output.xml
   %(prog)s script.txt --validate    # Only validates, no output
+  %(prog)s script.txt --clipboard   # Converts and copies to clipboard (macOS only)
         """
+    )
+    parser.add_argument(
+        '--version',
+        action='version',
+        version=f'%(prog)s {__version__}'
     )
     parser.add_argument('input', help='Input file (plain text)')
     parser.add_argument(
@@ -187,6 +194,17 @@ Examples:
         '--continue-on-error',
         action='store_true',
         help='Continue processing on errors'
+    )
+    parser.add_argument(
+        '-c', '--clipboard',
+        action='store_true',
+        help='Copy result to clipboard as FileMaker objects (macOS only). '
+             'Can be pasted directly into FileMaker Pro.'
+    )
+    parser.add_argument(
+        '--no-file',
+        action='store_true',
+        help='Do not write output file (use with --clipboard)'
     )
 
     args = parser.parse_args()
@@ -229,15 +247,40 @@ Examples:
     try:
         xml = converter.convert(text, stop_on_error=not args.continue_on_error)
 
-        # Write output
-        try:
-            with open(output_path, 'w', encoding='utf-8') as f:
-                f.write(xml)
-            print(f"Successfully converted to: {output_path}")
-            return 0
-        except Exception as e:
-            print(f"Error writing output file: {e}", file=sys.stderr)
-            return 1
+        # Write output file (unless --no-file is specified)
+        if not args.no_file:
+            try:
+                with open(output_path, 'w', encoding='utf-8') as f:
+                    f.write(xml)
+                print(f"Successfully converted to: {output_path}")
+            except Exception as e:
+                print(f"Error writing output file: {e}", file=sys.stderr)
+                return 1
+
+        # Copy to clipboard if requested
+        if args.clipboard:
+            try:
+                from .fmclip import (
+                    set_clipboard_fm_objects,
+                    UnsupportedPlatformError,
+                    InvalidXMLError,
+                    FMClipError
+                )
+
+                set_clipboard_fm_objects(xml)
+                print("✓ Copied to clipboard as FileMaker objects. Ready to paste into FileMaker Pro.")
+
+            except UnsupportedPlatformError:
+                print("Error: Clipboard functionality is only available on macOS.", file=sys.stderr)
+                return 1
+            except InvalidXMLError as e:
+                print(f"Error: Invalid XML for FileMaker: {e}", file=sys.stderr)
+                return 1
+            except FMClipError as e:
+                print(f"Error copying to clipboard: {e}", file=sys.stderr)
+                return 1
+
+        return 0
 
     except UnknownStepError as e:
         print(f"Error: {e}", file=sys.stderr)
