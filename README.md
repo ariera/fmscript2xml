@@ -18,6 +18,16 @@ This parser uses deterministic parsing rules and loads step definitions from the
 
 ## Installation
 
+### Install from GitHub
+
+```bash
+pip install git+https://github.com/ariera/fmscript2xml.git
+```
+
+### Install from Local Copy
+
+If you have cloned the repository locally:
+
 ```bash
 pip install -e .
 ```
