@@ -1,0 +1,11 @@
+Set Error Capture [ On ]
+Set Variable [ $$SCRIPT_TRIGGER ; Value: "Off" ]
+New Window [ Style: Floating Document ; Name: "Contact List" ; Height: 820 ; Width: 630 ; Top: Get ( WindowTop ) + 20 ; Left: Get ( WindowLeft ) + Get ( WindowWidth ) - 650 ]
+Go to Layout [ “Contact List” ; Animation: None ]
+Perform Script [ Specified: From list ; “Trigger | Sort Contact List [Get Script Parameter]” ; Parameter: $$PLATFORM ]
+If [ Get ( SystemPlatform ) = 3 ]
+Print [ Restore: Select Your Printer ; With dialog: On ]
+Close Window [ Current Window ]
+Else
+Enter Preview Mode [ Pause: Off ]
+End If

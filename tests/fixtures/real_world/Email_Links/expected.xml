@@ -1,0 +1,30 @@
+<?xml version="1.0" ?>
+<fmxmlsnippet type="FMObjectList">
+  <Step enable="True" id="68" name="If">
+    <Calculation><![CDATA[LeftWords ( GetRepetition ( Contacts::Email Placeholder ; Get ( ScriptParameter ) ) ; 1 ) = "Office"  or LeftWords ( GetRepetition ( Contacts::Email Placeholder ; Get ( ScriptParameter ) ) ; 1 ) = "Personal"]]></Calculation>
+  </Step>
+  <Step enable="True" id="63" name="Send Mail">
+    <NoInteract state="False"/>
+    <To UseFoundSet="False">
+      <Calculation><![CDATA[Contacts::Name for Labels & " <" & MiddleWords ( GetRepetition ( Contacts::Email Placeholder ; Get ( ScriptParameter ) ) ; 2 ; 999 ) & ">"]]></Calculation>
+    </To>
+    <Subject>
+      <Calculation><![CDATA["From " & Get ( UserName )]]></Calculation>
+    </Subject>
+    <Message>
+      <Calculation><![CDATA["Dear " & Contacts::Name for Labels & ",¶¶¶¶" & "Best Regards¶¶" & Get ( UserName )]]></Calculation>
+    </Message>
+    <MultipleEmails state="False"/>
+    <SendViaSMTP state="False"/>
+    <SMTPEncryptionType type="SMTPEncryptionNone"/>
+    <SMTPAuthenticationType type="SMTPAuthenticationNone"/>
+  </Step>
+  <Step enable="True" id="125" name="Else If">
+    <Calculation><![CDATA[LeftWords ( GetRepetition ( Contacts::Email Placeholder ; Get ( ScriptParameter ) ) ; 1 ) = Contacts::Video App]]></Calculation>
+  </Step>
+  <Step enable="True" id="111" name="Open URL">
+    <NoInteract state="True"/>
+    <Calculation><![CDATA[Contacts::Video App & "://" & Contacts::Video]]></Calculation>
+  </Step>
+  <Step enable="True" id="70" name="End If"/>
+</fmxmlsnippet>

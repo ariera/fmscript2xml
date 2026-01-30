@@ -1,0 +1,5 @@
+If [ LeftWords ( GetRepetition ( Contacts::Email Placeholder ; Get ( ScriptParameter ) ) ; 1 ) = "Office"  or LeftWords ( GetRepetition ( Contacts::Email Placeholder ; Get ( ScriptParameter ) ) ; 1 ) = "Personal" ]
+Send Mail [ Send via E-mail Client ; With dialog: On ; To: Contacts::Name for Labels & " <" & MiddleWords ( GetRepetition ( Contacts::Email Placeholder ; Get ( ScriptParameter ) ) ; 2 ; 999 ) & ">" ; Subject: "From " & Get ( UserName ) ; Message: "Dear " & Contacts::Name for Labels & ",¶¶¶¶" & "Best Regards¶¶" & Get ( UserName ) ]
+Else If [ LeftWords ( GetRepetition ( Contacts::Email Placeholder ; Get ( ScriptParameter ) ) ; 1 ) = Contacts::Video App ]
+Open URL [ With dialog: Off ; Contacts::Video App & "://" & Contacts::Video ]
+End If
