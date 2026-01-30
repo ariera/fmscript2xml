@@ -5,6 +5,47 @@ Converts XML to FileMaker's native clipboard format using macOS AppleScript.
 This allows pasting script steps directly into FileMaker Pro.
 
 macOS only - requires osascript.
+
+Why AppleScript is Required
+===========================
+
+This module relies on AppleScript because FileMaker Pro uses a proprietary binary
+clipboard format that is only accessible through macOS's clipboard type system.
+
+The conversion mechanism works as follows:
+
+1. FileMaker Pro registers clipboard type handlers (UTIs) when installed:
+   - XMSS (Script Steps)
+   - XMSC (Scripts and Script Groups)
+   - XMFN (Custom Functions)
+   - XMFD (Fields)
+   - XMTB (Base Tables)
+   - XMVL (Value Lists)
+   - XML2 (Layout Objects, FM12+)
+
+2. AppleScript's type coercion triggers these handlers:
+   - Reading a file "as «class XMSS»" converts XML → binary clipboard format
+   - Reading clipboard "as «class XMSS»" converts binary → XML
+
+3. The key operation is: `read xmlFilePath as «class {obj_code}»`
+   This leverages FileMaker's own conversion handlers registered with macOS.
+
+Alternative Approaches (Not Viable)
+-----------------------------------
+
+1. Direct Pasteboard API (PyObjC): Would require reverse-engineering FileMaker's
+   proprietary binary format, which is undocumented and version-dependent.
+
+2. Native Python implementation: Would need to reimplement FileMaker's conversion
+   logic, violating terms of service and requiring constant maintenance.
+
+3. Current approach (osascript): Uses FileMaker's own handlers, is reliable
+   across versions, and requires minimal maintenance.
+
+The AppleScript dependency is therefore a fundamental requirement, not an
+implementation choice. The only alternative would be a native macOS app using
+Objective-C/Swift with the same Pasteboard APIs, but it would still require
+FileMaker's registered handlers for the conversion.
 """
 
 import subprocess
