@@ -111,16 +111,16 @@ class Parser:
                 # Truncate at ellipsis and try to close any open brackets
                 ellipsis_pos = line.find('…')
                 truncated_line = line[:ellipsis_pos].strip()
-                
+
                 # Try to close brackets if needed
                 open_brackets = truncated_line.count('[') - truncated_line.count(']')
                 if open_brackets > 0:
                     # Add closing brackets
                     truncated_line += ']' * open_brackets
-                
+
                 line = truncated_line
                 # Continue parsing this truncated line as a step
-            
+
             # Try to parse as a step
             # If it has an opening bracket, collect continuation lines until brackets are balanced
             full_line = line
@@ -141,7 +141,7 @@ class Parser:
                             bracket_count = 0
                         else:
                             bracket_count += next_line.count('[') - next_line.count(']')
-                    
+
                     if next_line:  # Skip empty continuation lines
                         full_line += ' ' + next_line
                         bracket_count += next_line.count('[') - next_line.count(']')
