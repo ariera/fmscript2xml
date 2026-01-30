@@ -1,0 +1,25 @@
+id: 99
+name: Go to Portal Row
+area: Navigation
+ddr_xml: "<Step id=\"99\" name=\"Go to Portal Row\" enable=\"True\">\n           <StepText>Script\
+  \ step text</StepText>\n           <NoInteract state=\"True\"/>\n           <SelectAll\
+  \ state=\"False\"/>\n           <Exit state=\"False\"/>\n           <RowPageLocation\
+  \ value=\"ByCalculation\"/>\n           <DisplayCalculation>\n               <Chunk\n\
+  \        type=\"FunctionRef\">Abs</Chunk>\n               <Chunk\n        type=\"\
+  NoRef\">(13)</Chunk>\n           </DisplayCalculation>\n           <Calculation>\n\
+  \              <![CDATA[CalcString]]>\n           </Calculation>\n        </Step>"
+xml_values: []
+xml_description: "<p><NoInteract> and <Calculation> nodes are present when\n\n   \
+  \       <RowPageLocation value> attribute is \"ByCalculation\".</p>\n<p> <Exit>\
+  \ element is only present when <RowPageLocation value> is\n\n          \"Next\"\
+  \ or \"Previous\".</p>\n<p> <Exit state> indicates whether script execution should\
+  \ be terminated if\n\n          there is no next/previous row in the portal (that\
+  \ is, if the current row is the\n\n          last/first one in the portal).</p>"
+version: null
+conditional_elements: []
+requires_db_ids: false
+fmxmlsnippet_xml: "<Step enable=\"True\" id=\"99\" name=\"Go to Portal Row\">\n  \
+  \         <NoInteract state=\"True\"/>\n           <SelectAll state=\"False\"/>\n\
+  \           <Exit state=\"False\"/>\n           <RowPageLocation value=\"ByCalculation\"\
+  />\n           <Calculation>\n              <![CDATA[CalcString]]>\n           </Calculation>\n\
+  \        </Step>"

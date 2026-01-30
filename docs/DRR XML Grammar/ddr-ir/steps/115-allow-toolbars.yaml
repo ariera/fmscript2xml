@@ -1,0 +1,12 @@
+id: 115
+name: Allow Toolbars
+area: Miscellaneous
+ddr_xml: "<Step id=\"115\" name=\"Allow Toolbars\" enable=\"True\">\n          <StepText>Script\
+  \ step text</StepText>\n          <Set state=\"True\"/>\n        </Step>"
+xml_values: []
+xml_description: null
+version: null
+conditional_elements: []
+requires_db_ids: false
+fmxmlsnippet_xml: "<Step enable=\"True\" id=\"115\" name=\"Allow Toolbars\">\n   \
+  \       <Set state=\"True\"/>\n        </Step>"

@@ -1,0 +1,45 @@
+id: 28
+name: Perform Find
+area: Found Sets
+ddr_xml: "<Step id=\"28\" name=\"Perform Find\" enable=\"True\">\n          <StepText>Script\
+  \ step text</StepText>\n          <Restore state=\"True\"/>\n          <Query table=\"\
+  test123\">\n            <RequestRow operation=\"Include\">\n              <Criteria>\n\
+  \                <Text>&gt; 11</Text>\n                <Field name=\"f2\" id=\"\
+  2\"\n        repetition=\"2\" table=\"test123\"/>\n              </Criteria>\n \
+  \             <Criteria>\n                <Text>&lt; 23</Text>\n               \
+  \ <Field name=\"f3\" id=\"2\"\n        repetition=\"2\" table=\"test123\"/>\n  \
+  \            </Criteria>\n            </RequestRow>\n            <RequestRow operation=\"\
+  Exclude\">\n              <Criteria>\n                <Text>&gt;\n        &quot;wow&quot;</Text>\n\
+  \                <Field name=\"f3\" id=\"2\"\n        repetition=\"2\" table=\"\
+  test123\"/>\n              </Criteria>\n              <Criteria>\n             \
+  \   <Text>&gt;\n        test</Text>\n                <Field name=\"f4\" id=\"2\"\
+  \n        repetition=\"2\" table=\"test123\"/>\n              </Criteria>\n    \
+  \          <Criteria>\n                <Text>&gt; &quot;hello\n        there </Text>\n\
+  \                <Field name=\"f5\" id=\"2\"\n        repetition=\"2\" table=\"\
+  test123\"/>\n              </Criteria>\n            </RequestRow>\n          </Query>\n\
+  \        </Step>"
+xml_values: []
+xml_description: "<p>Query node can have 1 or more RequestRow sub-nodes.</p>\n<p>Each\
+  \ RequestRow node can in turn have 1 or more Criteria sub-nodes.</p>\n<p> <Text>\
+  \ contains the actual criteria itself that will be applied to\n\n          <Field>.\
+  \ </p>\n<p> <Field repetition> is only output if > 1.\n\n</p>"
+version: null
+conditional_elements: []
+requires_db_ids: true
+fmxmlsnippet_xml: "<Step enable=\"True\" id=\"28\" name=\"Perform Find\">\n      \
+  \    <Restore state=\"True\"/>\n          <Query table=\"test123\">\n          \
+  \  <RequestRow operation=\"Include\">\n              <Criteria>\n              \
+  \  <Text>&gt; 11</Text>\n                <Field name=\"f2\" id=\"2\"\n        repetition=\"\
+  2\" table=\"test123\"/>\n              </Criteria>\n              <Criteria>\n \
+  \               <Text>&lt; 23</Text>\n                <Field name=\"f3\" id=\"2\"\
+  \n        repetition=\"2\" table=\"test123\"/>\n              </Criteria>\n    \
+  \        </RequestRow>\n            <RequestRow operation=\"Exclude\">\n       \
+  \       <Criteria>\n                <Text>&gt;\n        &quot;wow&quot;</Text>\n\
+  \                <Field name=\"f3\" id=\"2\"\n        repetition=\"2\" table=\"\
+  test123\"/>\n              </Criteria>\n              <Criteria>\n             \
+  \   <Text>&gt;\n        test</Text>\n                <Field name=\"f4\" id=\"2\"\
+  \n        repetition=\"2\" table=\"test123\"/>\n              </Criteria>\n    \
+  \          <Criteria>\n                <Text>&gt; &quot;hello\n        there </Text>\n\
+  \                <Field name=\"f5\" id=\"2\"\n        repetition=\"2\" table=\"\
+  test123\"/>\n              </Criteria>\n            </RequestRow>\n          </Query>\n\
+  \        </Step>"

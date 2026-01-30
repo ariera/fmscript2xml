@@ -1,0 +1,17 @@
+id: 152
+name: Save Records as Snapshot Link
+area: Records
+ddr_xml: "<Step id=\"152\" name=\"Save Records as Snapshot Link\" enable=\"True\"\
+  >\n             <CreateEmail state=\"True\"/>\n             <CreateDirectories state=\"\
+  True\"/>\n             <UniversalPathList>{PathList}</UniversalPathList>\n     \
+  \        <SaveType value=\"BrowsedRecords\"/>\n         </Step>"
+xml_values: []
+xml_description: null
+version: null
+conditional_elements:
+- '{PathList}'
+requires_db_ids: false
+fmxmlsnippet_xml: "<Step enable=\"True\" id=\"152\" name=\"Save Records as Snapshot\
+  \ Link\">\n             <CreateEmail state=\"True\"/>\n             <CreateDirectories\
+  \ state=\"True\"/>\n             <UniversalPathList>{PathList}</UniversalPathList>\n\
+  \             <SaveType value=\"BrowsedRecords\"/>\n         </Step>"

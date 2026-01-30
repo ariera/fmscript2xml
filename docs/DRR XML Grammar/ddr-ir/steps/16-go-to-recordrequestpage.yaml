@@ -1,0 +1,24 @@
+id: 16
+name: Go to Record/Request/Page
+area: Navigation
+ddr_xml: "<Step id=\"16\" name=\"Go to Record/Request/Page\" enable=\"True\">\n  \
+  \        <StepText>Script step text</StepText>\n          <NoInteract state=\"True\"\
+  />\n          <Exit state=\"False\"/>\n          <RowPageLocation value=\"ByCalculation\"\
+  />\n          <DisplayCalculation>\n               <Chunk\n        type=\"FunctionRef\"\
+  >Abs</Chunk>\n               <Chunk\n        type=\"NoRef\">(13)</Chunk>\n     \
+  \     </DisplayCalculation>\n          <Calculation>\n             <![CDATA[CalcString]]>\n\
+  \          </Calculation>\n        </Step>"
+xml_values: []
+xml_description: "<NoInteract> and <Calculation> nodes are present when\n\n      \
+  \  <RowPageLocation value> attribute is \"ByCalculation\".\n\n\n\n        <Exit>\
+  \ element is only present when <RowPageLocation value> is\n\n        \"Next\" or\
+  \ \"Previous\".\n\n\n\n        <Exit state> indicates whether script execution should\
+  \ be terminated if\n\n        there is no next/previous record/request/page (that\
+  \ is, if the current\n\n        record/request/page is the last/first one)."
+version: null
+conditional_elements: []
+requires_db_ids: false
+fmxmlsnippet_xml: "<Step enable=\"True\" id=\"16\" name=\"Go to Record/Request/Page\"\
+  >\n          <NoInteract state=\"True\"/>\n          <Exit state=\"False\"/>\n \
+  \         <RowPageLocation value=\"ByCalculation\"/>\n          <Calculation>\n\
+  \             <![CDATA[CalcString]]>\n          </Calculation>\n        </Step>"

@@ -1,0 +1,12 @@
+id: 44
+name: Exit Application
+area: Miscellaneous
+ddr_xml: "<Step id=\"44\" name=\"Exit Application\" enable=\"True\">\n          <StepText>Script\
+  \ step text</StepText>\n        </Step>"
+xml_values: []
+xml_description: null
+version: null
+conditional_elements: []
+requires_db_ids: false
+fmxmlsnippet_xml: "<Step enable=\"True\" id=\"44\" name=\"Exit Application\">\n  \
+  \      </Step>"

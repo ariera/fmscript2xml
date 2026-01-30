@@ -1,0 +1,13 @@
+id: 51
+name: Revert Record/Request
+area: Records
+ddr_xml: "<Step id=\"51\" name=\"Revert Record/Request\" enable=\"True\">\n      \
+  \    <StepText>Script step text</StepText>\n          <NoInteract state=\"True\"\
+  />\n        </Step>"
+xml_values: []
+xml_description: null
+version: null
+conditional_elements: []
+requires_db_ids: false
+fmxmlsnippet_xml: "<Step enable=\"True\" id=\"51\" name=\"Revert Record/Request\"\
+  >\n          <NoInteract state=\"True\"/>\n        </Step>"

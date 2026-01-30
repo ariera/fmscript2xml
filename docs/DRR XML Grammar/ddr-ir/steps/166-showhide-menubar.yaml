@@ -1,0 +1,14 @@
+id: 166
+name: Show/Hide Menubar
+area: Windows
+ddr_xml: "<Step id=\"166\" name=\"Show/Hide Menubar\" enable=\"True\">\n         \
+  \ <StepText>Show/Hide Menubar</StepText>\n          <Lock state=\"True\"/>\n   \
+  \       <ShowHide value=\"Toggle\"/>\n        </Step>"
+xml_values: []
+xml_description: null
+version: null
+conditional_elements: []
+requires_db_ids: false
+fmxmlsnippet_xml: "<Step enable=\"True\" id=\"166\" name=\"Show/Hide Menubar\">\n\
+  \          <Lock state=\"True\"/>\n          <ShowHide value=\"Toggle\"/>\n    \
+  \    </Step>"

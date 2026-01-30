@@ -1,0 +1,13 @@
+id: 154
+name: Sort Records by Field
+area: Found Sets
+ddr_xml: "<Step enable=\"True\" id=\"154\" name=\"Sort Records by Field\">\n     \
+  \   <StepText>Sort Records by Field [ Ascending ]</StepText>\n        <SortRecordsByField\
+  \ value=\"SortAscending\"/>\n        </Step>"
+xml_values: []
+xml_description: null
+version: null
+conditional_elements: []
+requires_db_ids: false
+fmxmlsnippet_xml: "<Step enable=\"True\" id=\"154\" name=\"Sort Records by Field\"\
+  >\n        <SortRecordsByField value=\"SortAscending\"/>\n        </Step>"

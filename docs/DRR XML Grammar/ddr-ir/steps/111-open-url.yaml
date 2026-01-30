@@ -1,0 +1,17 @@
+id: 111
+name: Open URL
+area: Miscellaneous
+ddr_xml: "<Step id=\"111\" name=\"Open URL\" enable=\"True\">\n          <StepText>Script\
+  \ step text</StepText>\n          <NoInteract state=\"True\"/>\n          <DisplayCalculation>\n\
+  \               <Chunk\n        type=\"FunctionRef\">Abs</Chunk>\n             \
+  \  <Chunk\n        type=\"NoRef\">(13)</Chunk>\n           </DisplayCalculation>\n\
+  \          <Calculation>\n            <![CDATA[\"https://www.filemaker.com\"]]>\n\
+  \          </Calculation>\n        </Step>"
+xml_values: []
+xml_description: null
+version: null
+conditional_elements: []
+requires_db_ids: false
+fmxmlsnippet_xml: "<Step enable=\"True\" id=\"111\" name=\"Open URL\">\n         \
+  \ <NoInteract state=\"True\"/>\n          <Calculation>\n            <![CDATA[\"\
+  https://www.filemaker.com\"]]>\n          </Calculation>\n        </Step>"

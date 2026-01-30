@@ -1,0 +1,12 @@
+id: 183
+name: <span class=
+area: Open Menu Item
+ddr_xml: "<Step id=\"183\" name=\"Open My Apps\" enable=\"True\">\n          <StepText>Script\
+  \ step text</StepText>\n        </Step>"
+xml_values: []
+xml_description: null
+version: newto16
+conditional_elements: []
+requires_db_ids: false
+fmxmlsnippet_xml: "<Step enable=\"True\" id=\"183\" name=\"Open My Apps\">\n     \
+  \   </Step>"

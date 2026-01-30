@@ -1,0 +1,14 @@
+id: 29
+name: Show/Hide Toolbars
+area: Windows
+ddr_xml: "<Step id=\"29\" name=\"Show/Hide Toolbars\" enable=\"True\">\n         \
+  \ <StepText>Script step text</StepText>\n          <Lock state=\"True\"/>\n    \
+  \      <ShowHide value=\"Hide\"/>\n        </Step>"
+xml_values: []
+xml_description: null
+version: null
+conditional_elements: []
+requires_db_ids: false
+fmxmlsnippet_xml: "<Step enable=\"True\" id=\"29\" name=\"Show/Hide Toolbars\">\n\
+  \          <Lock state=\"True\"/>\n          <ShowHide value=\"Hide\"/>\n      \
+  \  </Step>"

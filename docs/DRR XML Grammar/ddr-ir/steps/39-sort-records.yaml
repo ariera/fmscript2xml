@@ -1,0 +1,36 @@
+id: 39
+name: Sort Records
+area: Found Sets
+ddr_xml: "<Step id=\"39\" name=\"Sort Records\" enable=\"True\">\n          <StepText>Script\
+  \ step text</StepText>\n          <NoInteract state=\"False\"/>\n          <Restore\
+  \ state=\"True\"/>\n          <SortList>\n            <Sort type=\"Descending\"\
+  >\n                <Field name=\"f1\" id=\"1\"\n        table=\"test123\"/>\n  \
+  \          </Sort>\n            <Sort type=\"Ascending\">\n                <Field\
+  \ name=\"f4\" id=\"2\"\n        table=\"test123\"/>\n              <SummaryField>\n\
+  \                <Field name=\"summary\" id=\"3\"\n        table=\"test123\"/>\n\
+  \              </SummaryField>\n              <OverrideLanguage language=\"Japanese\"\
+  />\n            </Sort>\n            <Sort type=\"Custom\">\n                <Field\
+  \ name=\"f5\" id=\"4\"\n        table=\"test123\"/>\n              <ValueList name=\"\
+  New Value List\"\n        id=\"1\"/>\n            </Sort>\n          </SortList>\n\
+  \        </Step>"
+xml_values: []
+xml_description: '<p><ValueList> node exists if <Sort type> is Custom</p>
+
+  <p> <SummaryField> and <OverrideLanguage> sub-nodes are optional.
+
+
+  </p>'
+version: null
+conditional_elements: []
+requires_db_ids: true
+fmxmlsnippet_xml: "<Step enable=\"True\" id=\"39\" name=\"Sort Records\">\n      \
+  \    <NoInteract state=\"False\"/>\n          <Restore state=\"True\"/>\n      \
+  \    <SortList>\n            <Sort type=\"Descending\">\n                <Field\
+  \ name=\"f1\" id=\"1\"\n        table=\"test123\"/>\n            </Sort>\n     \
+  \       <Sort type=\"Ascending\">\n                <Field name=\"f4\" id=\"2\"\n\
+  \        table=\"test123\"/>\n              <SummaryField>\n                <Field\
+  \ name=\"summary\" id=\"3\"\n        table=\"test123\"/>\n              </SummaryField>\n\
+  \              <OverrideLanguage language=\"Japanese\"/>\n            </Sort>\n\
+  \            <Sort type=\"Custom\">\n                <Field name=\"f5\" id=\"4\"\
+  \n        table=\"test123\"/>\n              <ValueList name=\"New Value List\"\n\
+  \        id=\"1\"/>\n            </Sort>\n          </SortList>\n        </Step>"

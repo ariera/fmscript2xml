@@ -1,0 +1,20 @@
+id: 137
+name: Enable Account
+area: Account
+ddr_xml: "<ScriptStep id=\"137\" name=\"Enable Account\" enable=\"True\">\n      \
+  \    <StepText>Script step text</StepText>\n          <AccountOperation value=\"\
+  Activate\"/>\n          <AccountName>\n           <DisplayCalculation>\n       \
+  \        <Chunk\n        type=\"FunctionRef\">Abs</Chunk>\n               <Chunk\n\
+  \        type=\"NoRef\">(13)</Chunk>\n           </DisplayCalculation>\n       \
+  \     <Calculation>\n              <![CDATA[{CalcString}]]>\n            </Calculation>\n\
+  \          </AccountName>\n        </Step>"
+xml_values: []
+xml_description: null
+version: null
+conditional_elements:
+- '{CalcString}'
+requires_db_ids: true
+fmxmlsnippet_xml: "<ScriptStep id=\"137\" name=\"Enable Account\" enable=\"True\"\
+  >\n          <AccountOperation value=\"Activate\"/>\n          <AccountName>\n \
+  \           <Calculation>\n              <![CDATA[{CalcString}]]>\n            </Calculation>\n\
+  \          </AccountName>\n        </Step>"

@@ -1,0 +1,40 @@
+id: 131
+name: Insert File
+area: Fields
+ddr_xml: "<Step id=\"131\" name=\"Insert File\" enable=\"True\">\n          <StepText>Script\
+  \ step text</StepText>\n          <UniversalPathList\n        type=\"Reference\"\
+  >{PathList}</UniversalPathList>\n         {For a field as the target:\n        \
+  \ <Field table=\"f4\" id=\"2\" name=\"test\"/>\n         }\n {For a variable as\
+  \ the target:\n         <Field>$VariableName</Field>\n         }\n          <Repetition>\n\
+  \             <DisplayCalculation>\n               <Chunk\n        type=\"FunctionRef\"\
+  >Abs</Chunk>\n               <Chunk\n        type=\"NoRef\">(13)</Chunk>\n     \
+  \        </DisplayCalculation>\n             <Calculation>\n               <![CDATA[\"\
+  Value\"]]>\n             </Calculation>\n           </Repetition>\n        <DialogOptions\
+  \ asFile=\"True\" enable=\"True\">\n        <Storage type=\"UserChoice\"/>\n   \
+  \     <Compress type=\"UserChoice\"/>\t\t\t\t\t<FilterList>\n        <Filter id=\"\
+  0\">\n        <name>\n        <Calculation><![CDATA[\"All Files\"]]></Calculation>\n\
+  \        <DisplayCalculation>\n        <Chunk type=\"NoRef\">&quot;All Files&quot;</Chunk>\n\
+  \        </DisplayCalculation>\n        </name>\n        *.*\n        </Filter>\n\
+  \        </FilterList></DialogOptions>\n        </Step>"
+xml_values: []
+xml_description: "{PathList} can consist of multiple absolute or relative paths, the\
+  \ first valid\n\n        one of which is used at execution time."
+version: null
+conditional_elements:
+- '{PathList}'
+- "{For a field as the target:\n         <Field table=\"f4\" id=\"2\" name=\"test\"\
+  />\n         }"
+- "{For a variable as the target:\n         <Field>$VariableName</Field>\n       \
+  \  }"
+requires_db_ids: true
+fmxmlsnippet_xml: "<Step enable=\"True\" id=\"131\" name=\"Insert File\">\n      \
+  \    <UniversalPathList\n        type=\"Reference\">{PathList}</UniversalPathList>\n\
+  \         {For a field as the target:\n         <Field table=\"f4\" id=\"2\" name=\"\
+  test\"/>\n         }\n {For a variable as the target:\n         <Field>$VariableName</Field>\n\
+  \         }\n          <Repetition>\n             <Calculation>\n              \
+  \ <![CDATA[\"Value\"]]>\n             </Calculation>\n           </Repetition>\n\
+  \        <DialogOptions asFile=\"True\" enable=\"True\">\n        <Storage type=\"\
+  UserChoice\"/>\n        <Compress type=\"UserChoice\"/>\t\t\t\t\t<FilterList>\n\
+  \        <Filter id=\"0\">\n        <name>\n        <Calculation><![CDATA[\"All\
+  \ Files\"]]></Calculation>\n        </name>\n        *.*\n        </Filter>\n  \
+  \      </FilterList></DialogOptions>\n        </Step>"

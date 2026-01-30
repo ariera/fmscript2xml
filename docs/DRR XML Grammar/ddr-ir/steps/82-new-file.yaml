@@ -1,0 +1,11 @@
+id: 82
+name: New File
+area: Files
+ddr_xml: "<Step id=\"82\" name=\"New File\" enable=\"True\">\n          <StepText>Script\
+  \ step text</StepText>\n        </Step>"
+xml_values: []
+xml_description: null
+version: null
+conditional_elements: []
+requires_db_ids: false
+fmxmlsnippet_xml: "<Step enable=\"True\" id=\"82\" name=\"New File\">\n        </Step>"

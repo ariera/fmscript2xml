@@ -1,0 +1,24 @@
+id: 147
+name: Set Field By Name
+area: Fields
+ddr_xml: " <Step id=\"147\" name=\"Set Field By Name\" enable=\"True\">\n        \
+  \  <StepText>Script step text</StepText>\n<TargetName>\n          <Calculation>\n\
+  \          <![CDATA[CalcString]]>\n          </Calculation>\n          <DisplayCalculation>\n\
+  \          <Chunk type=\"NoRef\"></Chunk>\n          </DisplayCalculation>\n   \
+  \       </TargetName>\n <Result>\n             <Calculation>\n                 \
+  \ <![CDATA[CalcString]]>\n             </Calculation>\n             <DisplayCalculation>\n\
+  \                <Chunk type=\"FunctionRef\">Abs</Chunk>\n                <Chunk\
+  \ type=\"NoRef\">(13)</Chunk>\n            </DisplayCalculation>\n          </Result>\n\
+  </Step>"
+xml_values: []
+xml_description: '<p><TargetName> specifies the target field''s name</p>
+
+  <p><Result> specifies the value to be placed in that field. </p>'
+version: null
+conditional_elements: []
+requires_db_ids: false
+fmxmlsnippet_xml: " <Step enable=\"True\" id=\"147\" name=\"Set Field By Name\">\n\
+  <TargetName>\n          <Calculation>\n          <![CDATA[CalcString]]>\n      \
+  \    </Calculation>\n          </TargetName>\n <Result>\n             <Calculation>\n\
+  \                  <![CDATA[CalcString]]>\n             </Calculation>\n       \
+  \   </Result>\n</Step>"

@@ -1,0 +1,25 @@
+id: 132
+name: Export Field Contents
+area: Fields
+ddr_xml: "<Step id=\"132\" name=\"Export Field Contents\" enable=\"True\">\n     \
+  \     <StepText>Script step text</StepText>\n          <AutoOpen state=\"True\"\
+  />\n          <CreateEmail state=\"True\"/>\n          <CreateDirectories state=\"\
+  True\"/>\n          <UniversalPathList>{PathList}</UniversalPathList>\n        \
+  \  <Field name=\"FieldName\" id=\"2\" table=\"TableName\"/>\n          <Repetition>\n\
+  \             <DisplayCalculation>\n               <Chunk\n        type=\"FunctionRef\"\
+  >Abs</Chunk>\n               <Chunk\n        type=\"NoRef\">(13)</Chunk>\n     \
+  \        </DisplayCalculation>\n             <Calculation>\n               <![CDATA[\"\
+  Value\"]]>\n             </Calculation>\n           </Repetition>\n        </Step>"
+xml_values: []
+xml_description: "{PathList} can consist of multiple absolute or relative paths, the\
+  \ first valid\n\n        one of which is used at execution time."
+version: null
+conditional_elements:
+- '{PathList}'
+requires_db_ids: true
+fmxmlsnippet_xml: "<Step enable=\"True\" id=\"132\" name=\"Export Field Contents\"\
+  >\n          <AutoOpen state=\"True\"/>\n          <CreateEmail state=\"True\"/>\n\
+  \          <CreateDirectories state=\"True\"/>\n          <UniversalPathList>{PathList}</UniversalPathList>\n\
+  \          <Field name=\"FieldName\" id=\"2\" table=\"TableName\"/>\n          <Repetition>\n\
+  \             <Calculation>\n               <![CDATA[\"Value\"]]>\n            \
+  \ </Calculation>\n           </Repetition>\n        </Step>"

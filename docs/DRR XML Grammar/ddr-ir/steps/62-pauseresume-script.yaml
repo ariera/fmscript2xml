@@ -1,0 +1,16 @@
+id: 62
+name: Pause/Resume Script
+area: Control
+ddr_xml: "<Step name=\"Pause/Resume Script\" id=\"62\" enable=\"True\">\n        \
+  \   <StepText>Script step text</StepText>\n           <DisplayCalculation>\n   \
+  \          <Chunk type=\"FunctionRef\">Abs</Chunk>\n             <Chunk type=\"\
+  NoRef\">(13)</Chunk>\n           </DisplayCalculation>\n           <Calculation>\n\
+  \              <![CDATA[120]]>\n           </Calculation>\n        </Step>"
+xml_values: []
+xml_description: <Calculation> node exists when <PauseTime value> is "ForDuration".
+version: null
+conditional_elements: []
+requires_db_ids: false
+fmxmlsnippet_xml: "<Step enable=\"True\" id=\"62\" name=\"Pause/Resume Script\">\n\
+  \           <Calculation>\n              <![CDATA[120]]>\n           </Calculation>\n\
+  \        </Step>"

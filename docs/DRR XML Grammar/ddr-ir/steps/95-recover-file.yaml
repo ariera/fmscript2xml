@@ -1,0 +1,16 @@
+id: 95
+name: Recover File
+area: Files
+ddr_xml: "<Step id=\"95\" name=\"Recover File\" enable=\"True\">\n          <StepText>Script\
+  \ step text</StepText>\n          <NoInteract state=\"True\"/>\n          <UniversalPathList>{PathList}</UniversalPathList>\n\
+  \        </Step>"
+xml_values: []
+xml_description: "{PathList} can consist of multiple absolute or relative paths, the\
+  \ first valid\n\n        one of which is used at execution time."
+version: null
+conditional_elements:
+- '{PathList}'
+requires_db_ids: false
+fmxmlsnippet_xml: "<Step enable=\"True\" id=\"95\" name=\"Recover File\">\n      \
+  \    <NoInteract state=\"True\"/>\n          <UniversalPathList>{PathList}</UniversalPathList>\n\
+  \        </Step>"

@@ -1,0 +1,12 @@
+id: 165
+name: Open Manage Themes
+area: Open Menu Item
+ddr_xml: "<Step id=\"165\" name=\"Open Manage Themes\" enable=\"True\">\n        \
+  \  <StepText>Script step text</StepText>\n        </Step>"
+xml_values: []
+xml_description: null
+version: null
+conditional_elements: []
+requires_db_ids: false
+fmxmlsnippet_xml: "<Step enable=\"True\" id=\"165\" name=\"Open Manage Themes\">\n\
+  \        </Step>"

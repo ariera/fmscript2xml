@@ -1,0 +1,12 @@
+id: 30
+name: View As
+area: Windows
+ddr_xml: "<Step id=\"30\" name=\"View As\" enable=\"True\">\n          <StepText>Script\
+  \ step text</StepText>\n           <View value=\"Form\"/>\n        </Step>"
+xml_values: []
+xml_description: null
+version: null
+conditional_elements: []
+requires_db_ids: false
+fmxmlsnippet_xml: "<Step enable=\"True\" id=\"30\" name=\"View As\">\n           <View\
+  \ value=\"Form\"/>\n        </Step>"

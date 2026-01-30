@@ -1,0 +1,11 @@
+id: 50
+name: Select All
+area: Editing
+ddr_xml: "<Step id=\"50\" name=\"Select All\" enable=\"True\">\n          <StepText>Script\
+  \ step text</StepText>\n        </Step>"
+xml_values: []
+xml_description: null
+version: null
+conditional_elements: []
+requires_db_ids: false
+fmxmlsnippet_xml: "<Step enable=\"True\" id=\"50\" name=\"Select All\">\n        </Step>"

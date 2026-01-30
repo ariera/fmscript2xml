@@ -1,0 +1,15 @@
+id: 119
+name: Move/Resize Window
+area: Windows
+ddr_xml: "<Step id=\"119\" name=\"Move/Resize Window\" enable=\"True\">\n        \
+  \  <StepText>Script step text</StepText>\n          <Window value=\"Current\"/>\n\
+  \          {See New Window for remaining XML}\n        </Step>"
+xml_values: []
+xml_description: '{See New Window.}'
+version: null
+conditional_elements:
+- '{See New Window for remaining XML}'
+requires_db_ids: false
+fmxmlsnippet_xml: "<Step enable=\"True\" id=\"119\" name=\"Move/Resize Window\">\n\
+  \          <Window value=\"Current\"/>\n          {See New Window for remaining\
+  \ XML}\n        </Step>"

@@ -1,0 +1,16 @@
+id: 72
+name: Exit Loop If
+area: Control
+ddr_xml: "<Step id=\"72\" name=\"Exit Loop If\" enable=\"True\">\n           <StepText>Script\
+  \ step text</StepText>\n            <DisplayCalculation>\n             <Chunk type=\"\
+  FunctionRef\">Abs</Chunk>\n             <Chunk type=\"NoRef\">(13)</Chunk>\n   \
+  \        </DisplayCalculation>\n           <Calculation>\n              <![CDATA[CalcString]]>\n\
+  \           </Calculation>\n        </Step>"
+xml_values: []
+xml_description: null
+version: null
+conditional_elements: []
+requires_db_ids: false
+fmxmlsnippet_xml: "<Step enable=\"True\" id=\"72\" name=\"Exit Loop If\">\n      \
+  \     <Calculation>\n              <![CDATA[CalcString]]>\n           </Calculation>\n\
+  \        </Step>"

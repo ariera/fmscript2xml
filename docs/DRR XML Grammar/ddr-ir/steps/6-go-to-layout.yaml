@@ -1,0 +1,31 @@
+id: 6
+name: Go to Layout
+area: Navigation
+ddr_xml: "<Step id=\"6\" name=\"Go to Layout\" enable=\"True\">\n           <StepText>Script\
+  \ step text</StepText>\n          <LayoutDestination value=\"SelectedLayout\"/>\n\
+  \          <Layout name=\"LayoutName\" id=\"1\"/>\n            <DisplayCalculation>\n\
+  \               <Chunk\n        type=\"FunctionRef\">Abs</Chunk>\n             \
+  \  <Chunk\n        type=\"NoRef\">(13)</Chunk>\n            </DisplayCalculation>\n\
+  \            <Calculation>\n              <![CDATA[CalcString]]>\n            </Calculation>\n\
+  \          </Layout>\n  <Animation value={AnimationID}/>\n        </Step>"
+xml_values: []
+xml_description: '<p><Layout> element is output only if <LayoutLocation value> is
+  not "OriginalLayout."</p>
+
+  <p> <Calculation> element is output only if <LayoutDestination value> is "LayoutNameByCalc"
+  or "LayoutNumberByCalc".</p>
+
+  <p> <Layout id> is required in case there is more than one layout with the same
+  name.</p>
+
+  <p class="newto16"><Animation> element is output only if an animation value other
+  than "None" was selected for the script step.</p>'
+version: null
+conditional_elements:
+- '{AnimationID}'
+requires_db_ids: true
+fmxmlsnippet_xml: "<Step enable=\"True\" id=\"6\" name=\"Go to Layout\">\n       \
+  \   <LayoutDestination value=\"SelectedLayout\"/>\n          <Layout name=\"LayoutName\"\
+  \ id=\"1\"/>\n            <Calculation>\n              <![CDATA[CalcString]]>\n\
+  \            </Calculation>\n          </Layout>\n  <Animation value={AnimationID}/>\n\
+  \        </Step>"

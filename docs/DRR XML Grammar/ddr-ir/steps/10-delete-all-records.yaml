@@ -1,0 +1,13 @@
+id: 10
+name: Delete All Records
+area: Records
+ddr_xml: "<Step id=\"10\" name=\"Delete All Records\" enable=\"True\">\n         \
+  \ <StepText>Script step text</StepText>\n          <NoInteract state=\"True\"/>\n\
+  \        </Step>"
+xml_values: []
+xml_description: null
+version: null
+conditional_elements: []
+requires_db_ids: false
+fmxmlsnippet_xml: "<Step enable=\"True\" id=\"10\" name=\"Delete All Records\">\n\
+  \          <NoInteract state=\"True\"/>\n        </Step>"

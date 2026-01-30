@@ -1,0 +1,12 @@
+id: 31
+name: Adjust Window
+area: Windows
+ddr_xml: "<Step id=\"31\" name=\"Adjust Window\" enable=\"True\">\n          <StepText>Script\
+  \ step text</StepText>\n          <WindowState value=\"Maximize\"/>\n        </Step>"
+xml_values: []
+xml_description: null
+version: null
+conditional_elements: []
+requires_db_ids: false
+fmxmlsnippet_xml: "<Step enable=\"True\" id=\"31\" name=\"Adjust Window\">\n     \
+  \     <WindowState value=\"Maximize\"/>\n        </Step>"

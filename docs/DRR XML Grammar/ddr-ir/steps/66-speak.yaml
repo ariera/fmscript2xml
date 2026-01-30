@@ -1,0 +1,24 @@
+id: 66
+name: Speak
+area: Miscellaneous
+ddr_xml: "<Step id=\"66\" name=\"Speak\" enable=\"True\">\n           <StepText>Script\
+  \ step text</StepText>\n           <SpeechOptions VoiceCreator={voice creator} VoiceId={voice\n\
+  \        id}\n              VoiceName={voice name}\n        WaitForCompletion=\"\
+  True\"/>\n           <DisplayCalculation>\n               <Chunk\n        type=\"\
+  FunctionRef\">Abs</Chunk>\n               <Chunk\n        type=\"NoRef\">(13)</Chunk>\n\
+  \           </DisplayCalculation>\n           <Calculation>\n             <![CDATA[CalcString]]>\n\
+  \           </Calculation>\n        </Step>"
+xml_values: []
+xml_description: "<SpeechOptions VoiceName> \n\n        is only generated on the Mac\
+  \ and contains redundant information that only\n\n        serves to make DDR reports\
+  \ (in particular HTML ones) more readable."
+version: null
+conditional_elements:
+- '{voice creator}'
+- "{voice\n        id}"
+- '{voice name}'
+requires_db_ids: false
+fmxmlsnippet_xml: "<Step enable=\"True\" id=\"66\" name=\"Speak\">\n           <SpeechOptions\
+  \ VoiceCreator={voice creator} VoiceId={voice\n        id}\n              VoiceName={voice\
+  \ name}\n        WaitForCompletion=\"True\"/>\n           <Calculation>\n      \
+  \       <![CDATA[CalcString]]>\n           </Calculation>\n        </Step>"

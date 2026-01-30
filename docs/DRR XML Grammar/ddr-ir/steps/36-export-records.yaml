@@ -1,0 +1,80 @@
+id: 36
+name: Export Records
+area: Records
+ddr_xml: "<Step id=\"36\" name=\"Export Records\" enable=\"True\">\n          <StepText>Script\
+  \ step text</StepText>\n          <NoInteract state=\"True\"/>\n          <Restore\
+  \ state=\"True\"/>\n          <AutoOpen state=\"True\"/>\n          <CreateEmail\
+  \ state=\"True\"/>\n          <CreateDirectories state=\"True\"/>\n        {for\
+  \ non XML file data source (specified in UniversalPathList) :\n        }\n     \
+  \   {for XML file data source (specified in UniversalPathList) :\n            <XSLFile>\n\
+  \              <UniversalPathList>{PathList}</UniversalPathList>\n           </XSLFile>\n\
+  \            <XSLHttp>{http}</XSLHttp>\n            <XSLCalc>\n              <DisplayCalculation>\n\
+  \                <Chunk\n        type=\"FunctionRef\">Abs</Chunk>\n            \
+  \    <Chunk\n        type=\"NoRef\">(13)</Chunk>\n              </DisplayCalculation>\n\
+  \              <Calculation>\n                <![CDATA[CalcString]]>\n         \
+  \     </Calculation>\n            </XSLCalc>\n        }\n        {for Excel file\
+  \ data source (specified in UniversalPathList) :\n          See <SaveType>, <UseFieldNames>,\n\
+  \          <WorkSheet>, <Title>, <Subject>, and\n        <Author>\n          from\
+  \ Save Records as Excel.\n        }\n          <UniversalPathList>{PathList}</UniversalPathList>\n\
+  \          <CreateDirectories state=\"True\"/>\n          <ExportOptions\n     \
+  \       CharacterSet=\"Windows\"/>\n            FormatUsingCurrentLayout=\"True\"\
+  />\n          </ExportOptions>\n          <ExportEntries>\n            <ExportEntry>\n\
+  \              <Field name={FieldName} id=\"2\"\n        repetition=\"2\" table={Table}/>\n\
+  \              <Field name={FieldName} id=\"2\"\n        repetition=\"2\" table={Table}/>\n\
+  \            </ExportEntry>\n            ...\n          </ExportEntries>\n     \
+  \     <SummaryFields>\n            <Field name={FieldName} id=\"2\" repetition=\"\
+  2\"\n        table={Table}/>\n            <Field name={FieldName} id=\"2\" repetition=\"\
+  2\"\n        table={Table}/>\n            ...\n          </SummaryFields>\n    \
+  \    </Step>"
+xml_values: []
+xml_description: "<p><XSLFile> is only present if <Profile XSLType> is \"XSLFile\"\
+  </p>\n<p> <XSLHttp> is only present if <Profile XSLType> is \"XSLHttp\"</p>\n<p>\
+  \ <XSLCalc> is only present if <Profile XSLType> is \"XSLCalculation\"</p>\n<p>{PathList}\
+  \ can consist of multiple absolute or relative paths, the first valid\n\n      \
+  \    one of which is used at execution time.</p>\n<p> <ExportEntry> node normally\
+  \ contains only one <Field> sub-node\n\n          (identifying a field to be exported)\
+  \ but will contain a second one if the first\n\n          is a summary field and\
+  \ the user requested that exported records be grouped by\n\n          some field,\
+  \ in which case the second field is a \"summarize by\" field.</p>\n<p> <Field repetition>\
+  \ is only output if > 1</p>"
+version: null
+conditional_elements:
+- "{for non XML file data source (specified in UniversalPathList) :\n        }"
+- "{for XML file data source (specified in UniversalPathList) :\n            <XSLFile>\n\
+  \              <UniversalPathList>{PathList}"
+- '{http}'
+- "{for Excel file data source (specified in UniversalPathList) :\n          See <SaveType>,\
+  \ <UseFieldNames>,\n          <WorkSheet>, <Title>, <Subject>, and\n        <Author>\n\
+  \          from Save Records as Excel.\n        }"
+- '{PathList}'
+- '{FieldName}'
+- '{Table}'
+- '{FieldName}'
+- '{Table}'
+- '{FieldName}'
+- '{Table}'
+- '{FieldName}'
+- '{Table}'
+requires_db_ids: true
+fmxmlsnippet_xml: "<Step enable=\"True\" id=\"36\" name=\"Export Records\">\n    \
+  \      <NoInteract state=\"True\"/>\n          <Restore state=\"True\"/>\n     \
+  \     <AutoOpen state=\"True\"/>\n          <CreateEmail state=\"True\"/>\n    \
+  \      <CreateDirectories state=\"True\"/>\n        {for non XML file data source\
+  \ (specified in UniversalPathList) :\n        }\n        {for XML file data source\
+  \ (specified in UniversalPathList) :\n            <XSLFile>\n              <UniversalPathList>{PathList}</UniversalPathList>\n\
+  \           </XSLFile>\n            <XSLHttp>{http}</XSLHttp>\n            <XSLCalc>\n\
+  \              <Calculation>\n                <![CDATA[CalcString]]>\n         \
+  \     </Calculation>\n            </XSLCalc>\n        }\n        {for Excel file\
+  \ data source (specified in UniversalPathList) :\n          See <SaveType>, <UseFieldNames>,\n\
+  \          <WorkSheet>, <Title>, <Subject>, and\n        <Author>\n          from\
+  \ Save Records as Excel.\n        }\n          <UniversalPathList>{PathList}</UniversalPathList>\n\
+  \          <CreateDirectories state=\"True\"/>\n          <ExportOptions\n     \
+  \       CharacterSet=\"Windows\"/>\n            FormatUsingCurrentLayout=\"True\"\
+  />\n          </ExportOptions>\n          <ExportEntries>\n            <ExportEntry>\n\
+  \              <Field name={FieldName} id=\"2\"\n        repetition=\"2\" table={Table}/>\n\
+  \              <Field name={FieldName} id=\"2\"\n        repetition=\"2\" table={Table}/>\n\
+  \            </ExportEntry>\n            ...\n          </ExportEntries>\n     \
+  \     <SummaryFields>\n            <Field name={FieldName} id=\"2\" repetition=\"\
+  2\"\n        table={Table}/>\n            <Field name={FieldName} id=\"2\" repetition=\"\
+  2\"\n        table={Table}/>\n            ...\n          </SummaryFields>\n    \
+  \    </Step>"

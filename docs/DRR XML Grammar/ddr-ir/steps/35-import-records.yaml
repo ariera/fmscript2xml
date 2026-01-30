@@ -1,0 +1,104 @@
+id: 35
+name: Import Records
+area: Records
+ddr_xml: "<Step id=\"35\" name=\"Import Records\" enable=\"True\">\n            <StepText>Script\
+  \ step text</StepText>\n            <NoInteract state=\"True\"/>\n            <NotWinStep\
+  \ state=\"True\"/>\n            <Restore state=\"True\"/>\n            <VerifySSLCertificates\
+  \ state=\"True\"/>\n            <DataSourceType value=\"File\"/>\n          {for\
+  \ Excel file data source (specified in <UniversalPathList>) :\n          }\n   \
+  \       {for non-Excel file data source (specified in <UniversalPathList>) :\n \
+  \         }\n          {for folder data source (specified in <UniversalPathList>)\
+  \ :\n          }\n          {for image capture data source :\n          }\n {for\
+  \ XML data source :\n              <XMLFile>{PathList}</XMLFile>\n             \
+  \ <XMLHttp>{http}</XMLHttp>\n              <XMLCalc>\n                <DisplayCalculation>\n\
+  \                  <Chunk\n          type=\"FunctionRef\">Abs</Chunk>\n        \
+  \          <Chunk\n          type=\"NoRef\">(13)</Chunk>\n                </DisplayCalculation>\n\
+  \                <Calculation>\n                  <![CDATA[CalcString]]>\n     \
+  \           </Calculation>\n              </XMLCalc>\n              <XSLFile>\n\
+  \                <UniversalPathList>{PathList}</UniversalPathList>\n           \
+  \   </XSLFile>\n              <XSLHttp>{http}</XSLHttp>\n              <XSLCalc>\n\
+  \                <DisplayCalculation>\n                  <Chunk\n          type=\"\
+  FunctionRef\">Abs</Chunk>\n                  <Chunk\n          type=\"NoRef\">(13)</Chunk>\n\
+  \                </DisplayCalculation>\n                <Calculation>\n        \
+  \          <![CDATA[CalcString]]>\n                </Calculation>\n            \
+  \  </XSLCalc>\n          }\n          {for ODBC data source :\n              <QueryCalc>\n\
+  \                <DisplayCalculation>\n                  <Chunk\n          type=\"\
+  FunctionRef\">Abs</Chunk>\n                  <Chunk\n          type=\"NoRef\">(13)</Chunk>\n\
+  \                </DisplayCalculation>\n                <Calculation>\n        \
+  \          <![CDATA[CalcString]]>\n                </Calculation>\n            \
+  \  </QueryCalc>\n              <Query>{QueryText}</Query>\n          }\n       \
+  \     <UniversalPathList>{PathList}</UniversalPathList>\n            <ImportOptions\
+  \ method=\"UpdateOnMatch\" SplitRepetitions=\"True\"\n          AutoEnter=\"True\"\
+  \ AddRemainingRecords=\"True\" MatchFieldNames=\"True\"\n               CharacterSet=\"\
+  Windows\"/>\n            <Table name={Table} id=\"1\"/>\n            <TargetFields>\n\
+  \              <Field name={FieldName} id=\"1\" map=\"Import\"/>\n             \
+  \ <Field/>\n              <Field name={FieldName} id=\"2\" map=\"Match\"/>\n   \
+  \           ...\n            </TargetFields>\n          </Step>"
+xml_values: []
+xml_description: "<p><AddRemainingRecords> is only meaningful when method value is\n\
+  \n          \"UpdateOnMatch\".\n\n\n\n          <TargetFields> contains a list of\
+  \ all fields in the destination table.\n\n          Entries that are blank are represented\
+  \ by an empty field node </Field>.\n\n\n\n          <XMLFile> is only present if\
+  \ <Profile XMLType> is \"XMLFile\".\n\n\n\n          {PathList} in <XMLFile> is\
+  \ the same as that in\n\n          <UniversalPathList>.</p>\n<p> <XMLHttp> is only\
+  \ present if <Profile XMLType> is \"XMLHttp\"</p>\n<p> <XMLCalc> is only present\
+  \ if <Profile XMLType> is \"XMLCalculation\"\n\n\n\n          <XSLFile> is only\
+  \ present if <Profile XSLType> is \"XSLFile\"\n\n\n\n          <XSLHttp> is only\
+  \ present if <Profile XSLType> is \"XSLHttp\"\n\n\n\n          <XSLCalc> is only\
+  \ present if <Profile XSLType> is \"XSLCalculation\"\n\n\n\n          <QueryCalc>\
+  \ is only present if <Profile QueryType> is \"Calculation\"\n\n\n\n          <Query>\
+  \ is only present if <Profile QueryType> is \"Query\"\n\n\n\n          {PathList}\
+  \ can consist of multiple absolute or relative paths, the first valid\n\n      \
+  \    one of which is used at execution time.</p>\n<p>For a request to import into\
+  \ a new table : </p>\n<ul>\n<li> <Table> element. is absent</li>\n<li> {FieldName}\
+  \ for each <Field> element child of</li>\n</ul>\n<p><TargetFields> element is index\
+  \ of field from data source to import into that target field. Each target field's\
+  \ actual name will be determined by the name of the corresponding source field in\
+  \ the same position (as previously established in the 'Import Mapping' dialog) when\
+  \ the script step is eventually performed.</p>"
+version: null
+conditional_elements:
+- "{for Excel file data source (specified in <UniversalPathList>) :\n          }"
+- "{for non-Excel file data source (specified in <UniversalPathList>) :\n        \
+  \  }"
+- "{for folder data source (specified in <UniversalPathList>) :\n          }"
+- "{for image capture data source :\n          }"
+- "{for XML data source :\n              <XMLFile>{PathList}"
+- '{http}'
+- '{PathList}'
+- '{http}'
+- "{for ODBC data source :\n              <QueryCalc>\n                <DisplayCalculation>\n\
+  \                  <Chunk\n          type=\"FunctionRef\">Abs</Chunk>\n        \
+  \          <Chunk\n          type=\"NoRef\">(13)</Chunk>\n                </DisplayCalculation>\n\
+  \                <Calculation>\n                  <![CDATA[CalcString]]>\n     \
+  \           </Calculation>\n              </QueryCalc>\n              <Query>{QueryText}"
+- '{PathList}'
+- '{Table}'
+- '{FieldName}'
+- '{FieldName}'
+requires_db_ids: true
+fmxmlsnippet_xml: "<Step enable=\"True\" id=\"35\" name=\"Import Records\">\n    \
+  \        <NoInteract state=\"True\"/>\n            <NotWinStep state=\"True\"/>\n\
+  \            <Restore state=\"True\"/>\n            <VerifySSLCertificates state=\"\
+  True\"/>\n            <DataSourceType value=\"File\"/>\n          {for Excel file\
+  \ data source (specified in <UniversalPathList>) :\n          }\n          {for\
+  \ non-Excel file data source (specified in <UniversalPathList>) :\n          }\n\
+  \          {for folder data source (specified in <UniversalPathList>) :\n      \
+  \    }\n          {for image capture data source :\n          }\n {for XML data\
+  \ source :\n              <XMLFile>{PathList}</XMLFile>\n              <XMLHttp>{http}</XMLHttp>\n\
+  \              <XMLCalc>\n                <Calculation>\n                  <![CDATA[CalcString]]>\n\
+  \                </Calculation>\n              </XMLCalc>\n              <XSLFile>\n\
+  \                <UniversalPathList>{PathList}</UniversalPathList>\n           \
+  \   </XSLFile>\n              <XSLHttp>{http}</XSLHttp>\n              <XSLCalc>\n\
+  \                <Calculation>\n                  <![CDATA[CalcString]]>\n     \
+  \           </Calculation>\n              </XSLCalc>\n          }\n          {for\
+  \ ODBC data source :\n              <QueryCalc>\n                <Calculation>\n\
+  \                  <![CDATA[CalcString]]>\n                </Calculation>\n    \
+  \          </QueryCalc>\n              <Query>{QueryText}</Query>\n          }\n\
+  \            <UniversalPathList>{PathList}</UniversalPathList>\n            <ImportOptions\
+  \ method=\"UpdateOnMatch\" SplitRepetitions=\"True\"\n          AutoEnter=\"True\"\
+  \ AddRemainingRecords=\"True\" MatchFieldNames=\"True\"\n               CharacterSet=\"\
+  Windows\"/>\n            <Table name={Table} id=\"1\"/>\n            <TargetFields>\n\
+  \              <Field name={FieldName} id=\"1\" map=\"Import\"/>\n             \
+  \ <Field/>\n              <Field name={FieldName} id=\"2\" map=\"Match\"/>\n   \
+  \           ...\n            </TargetFields>\n          </Step>"

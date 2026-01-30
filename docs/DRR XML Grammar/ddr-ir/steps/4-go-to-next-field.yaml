@@ -1,0 +1,12 @@
+id: 4
+name: Go to Next Field
+area: Navigation
+ddr_xml: "<Step id=\"4\" name=\"Go to Next Field\" enable=\"True\">\n          <StepText>Script\
+  \ step text</StepText>\n        </Step>"
+xml_values: []
+xml_description: null
+version: null
+conditional_elements: []
+requires_db_ids: false
+fmxmlsnippet_xml: "<Step enable=\"True\" id=\"4\" name=\"Go to Next Field\">\n   \
+  \     </Step>"

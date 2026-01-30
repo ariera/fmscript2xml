@@ -1,0 +1,68 @@
+id: 87
+name: Show Custom Dialog
+area: Miscellaneous
+ddr_xml: "<Step id=\"87\" name=\"Show Custom Dialog\" enable=\"True\">\n         \
+  \ <StepText>Script step text</StepText>\n          <Title>\n            <DisplayCalculation>\n\
+  \              <Chunk\n        type=\"FunctionRef\">Abs</Chunk>\n              <Chunk\n\
+  \        type=\"NoRef\">(13)</Chunk>\n            </DisplayCalculation>\n      \
+  \      <Calculation>\n              <![CDATA[{CalcString}]]>\n            </Calculation>\n\
+  \          </Title>\n          <Message>\n            <DisplayCalculation>\n   \
+  \            <Chunk\n        type=\"FunctionRef\">Abs</Chunk>\n               <Chunk\n\
+  \        type=\"NoRef\">(13)</Chunk>\n            </DisplayCalculation>\n      \
+  \      <Calculation>\n              <![CDATA[{CalcString}]]>\n            </Calculation>\n\
+  \          </Message>\n  <Buttons>\n              <Button CommitState=\"True\">\n\
+  \                 <Calculation>\n                   <![CDATA[\"OK\"]]>\n       \
+  \          </Calculation>\n                 <DisplayCalculation>\n             \
+  \       <Chunk type=\"NoRef\">\"OK\"</Chunk>\n                 </DisplayCalculation>\n\
+  \              </Button>\n              <Button CommitState=\"False\">\n       \
+  \          <Calculation>\n                   <![CDATA[\"Cancel\"]]>\n          \
+  \       </Calculation>\n                 <DisplayCalculation>\n                \
+  \    <Chunk type=\"NoRef\">\"Cancel\"</Chunk>\n                 </DisplayCalculation>\n\
+  \              </Button>\n              <Button CommitState=\"False\">\n       \
+  \          <Calculation>\n                   <![CDATA[Get( CurrentTime )]]>\n  \
+  \               </Calculation>\n                 <DisplayCalculation>\n        \
+  \            <Chunk type=\"FunctionRef\">Get</Chunk>\n                    <Chunk\
+  \ type=\"NoRef\">(</Chunk>\n                    <Chunk type=\"FunctionRef\">CurrentTime</Chunk>\n\
+  \                    <Chunk type=\"NoRef\">)</Chunk>\n                 </DisplayCalculation>\n\
+  \              </Button>\n            </Buttons>\n          <InputFields>\n    \
+  \        <InputField\n        UsePasswordCharacter=\"True\">\n              {For\
+  \ a field as the target:\n              <Field name={FieldName} id=\"2\" repetition=\"\
+  2\" table={Table}/>\n              }\n              {For a variable as the target:\n\
+  \              <Field>$VariableName</Field>\n              }\n              <Label>\n\
+  \                <DisplayCalculation>\n                <Chunk\n        type=\"FunctionRef\"\
+  >Abs</Chunk>\n                <Chunk\n        type=\"NoRef\">(13)</Chunk>\n    \
+  \            </DisplayCalculation>\n                <Calculation>\n            \
+  \    <![CDATA[{CalcString}]]>\n                </Calculation>\n              </Label>\n\
+  \            <InputField>\n            ...\n            </InputField>\n        \
+  \    ...\n          </InputFields>\n        </Step>"
+xml_values: []
+xml_description: <Field repetition> is only output if > 1
+version: null
+conditional_elements:
+- '{CalcString}'
+- '{CalcString}'
+- "{For a field as the target:\n              <Field name={FieldName}"
+- '{Table}'
+- "{For a variable as the target:\n              <Field>$VariableName</Field>\n  \
+  \            }"
+- '{CalcString}'
+requires_db_ids: true
+fmxmlsnippet_xml: "<Step enable=\"True\" id=\"87\" name=\"Show Custom Dialog\">\n\
+  \          <Title>\n            <Calculation>\n              <![CDATA[{CalcString}]]>\n\
+  \            </Calculation>\n          </Title>\n          <Message>\n         \
+  \   <Calculation>\n              <![CDATA[{CalcString}]]>\n            </Calculation>\n\
+  \          </Message>\n  <Buttons>\n              <Button CommitState=\"True\">\n\
+  \                 <Calculation>\n                   <![CDATA[\"OK\"]]>\n       \
+  \          </Calculation>\n              </Button>\n              <Button CommitState=\"\
+  False\">\n                 <Calculation>\n                   <![CDATA[\"Cancel\"\
+  ]]>\n                 </Calculation>\n              </Button>\n              <Button\
+  \ CommitState=\"False\">\n                 <Calculation>\n                   <![CDATA[Get(\
+  \ CurrentTime )]]>\n                 </Calculation>\n              </Button>\n \
+  \           </Buttons>\n          <InputFields>\n            <InputField\n     \
+  \   UsePasswordCharacter=\"True\">\n              {For a field as the target:\n\
+  \              <Field name={FieldName} id=\"2\" repetition=\"2\" table={Table}/>\n\
+  \              }\n              {For a variable as the target:\n              <Field>$VariableName</Field>\n\
+  \              }\n              <Label>\n                <Calculation>\n       \
+  \         <![CDATA[{CalcString}]]>\n                </Calculation>\n           \
+  \   </Label>\n            <InputField>\n            ...\n            </InputField>\n\
+  \            ...\n          </InputFields>\n        </Step>"

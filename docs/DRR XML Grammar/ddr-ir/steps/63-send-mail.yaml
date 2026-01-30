@@ -1,0 +1,92 @@
+id: 63
+name: Send Mail
+area: Miscellaneous
+ddr_xml: "<Step id=\"63\" name =\"Send Mail\" enable=\"True\">\n            <StepText>Script\
+  \ step text</StepText>\n            <NoInteract state=\"True\"/>\n            <Attachment>\n\
+  \               <UniversalPathList>{PathList}</UniversalPathList>\n            </Attachment>\n\
+  \   <To UseFoundSet=\"True\">\n               <DisplayCalculation>\n           \
+  \      <Chunk type=\"FunctionRef\">Abs</Chunk>\n                 <Chunk type=\"\
+  NoRef\">(13)</Chunk>\n               </DisplayCalculation>\n               <Calculation>\n\
+  \                 <![CDATA[CalcString]]>\n              </Calculation>\n       \
+  \     </To>\n   <Cc UseFoundSet=\"True\">\n               <DisplayCalculation>\n\
+  \                 <Chunk type=\"FunctionRef\">Abs</Chunk>\n                 <Chunk\
+  \ type=\"NoRef\">(13)</Chunk>\n               </DisplayCalculation>\n          \
+  \     <Calculation>\n                 <![CDATA[CalcString]]>\n               </Calculation>\n\
+  \            </Cc>\n   <Bcc UseFoundSet=\"True\">\n               <DisplayCalculation>\n\
+  \                 <Chunk type=\"FunctionRef\">Abs</Chunk>\n                 <Chunk\
+  \ type=\"NoRef\">(13)</Chunk>\n               </DisplayCalculation>\n          \
+  \     <Calculation>\n                 <![CDATA[<Step id=\"63\" name=\"Send Mail\"\
+  >\n               </Calculation>\n            </Bcc>\n   <Subject>\n           \
+  \    <DisplayCalculation>\n                 <Chunk type=\"FunctionRef\">Abs</Chunk>\n\
+  \                 <Chunk type=\"NoRef\">(13)</Chunk>\n               </DisplayCalculation>\n\
+  \               <Calculation>\n                 <![CDATA[\"Subject\"]]>\n      \
+  \        </Calculation>\n            </Subject>\n   <Message>\n               <DisplayCalculation>\n\
+  \                 <Chunk type=\"FunctionRef\">Abs</Chunk>\n                 <Chunk\
+  \ type=\"NoRef\">(13)</Chunk>\n               </DisplayCalculation>\n          \
+  \     <Calculation>\n                 <![CDATA[\"Message\"]]>\n               </Calculation>\n\
+  \            </Message>\n  <SMTPNameDescription>\n               <DisplayCalculation>\n\
+  \                 <Chunk type=\"FunctionRef\">Abs</Chunk>\n                 <Chunk\
+  \ type=\"NoRef\">(13)</Chunk>\n               </DisplayCalculation>\n          \
+  \     <Calculation>\n                 <![CDATA[CalcString]]>\n               </Calculation>\n\
+  \            </SMTPNameDescription>\n   <SMTPEmailAddress >\n               <DisplayCalculation>\n\
+  \                 <Chunk type=\"FunctionRef\">Abs</Chunk>\n                 <Chunk\
+  \ type=\"NoRef\">(13)</Chunk>\n               </DisplayCalculation>\n          \
+  \     <Calculation>\n                 <![CDATA[CalcString]]>\n               </Calculation>\n\
+  \            </SMTPEmailAddress>\n   <SMTPReplyAddress >\n              <DisplayCalculation>\n\
+  \                 <Chunk type=\"FunctionRef\">Abs</Chunk>\n                 <Chunk\
+  \ type=\"NoRef\">(13)</Chunk>\n              </DisplayCalculation>\n           \
+  \   <Calculation>\n                 <![CDATA[CalcString]]>\n              </Calculation>\n\
+  \           </SMTPReplyAddress>\n   <SMTPServer>\n              <DisplayCalculation>\n\
+  \                 <Chunk type=\"FunctionRef\">Abs</Chunk>\n                 <Chunk\
+  \ type=\"NoRef\">(13)</Chunk>\n              </DisplayCalculation>\n           \
+  \   <Calculation>\n                 <![CDATA[CalcString]]>\n               </Calculation>\n\
+  \            </SMTPServer>\n   <SMTPPort >\n               <DisplayCalculation>\n\
+  \                 <Chunk type=\"FunctionRef\">Abs</Chunk>\n                 <Chunk\
+  \ type=\"NoRef\">(13)</Chunk>\n               </DisplayCalculation>\n          \
+  \     <Calculation>\n                 <![CDATA[CalcString]]>\n               </Calculation>\n\
+  \            </SMTPPort>\n   <SMTPUserName>\n               <DisplayCalculation>\n\
+  \                 <Chunk type=\"FunctionRef\">Abs</Chunk>\n                 <Chunk\
+  \ type=\"NoRef\">(13)</Chunk>\n               </DisplayCalculation>\n          \
+  \      <Calculation>\n                  <![CDATA[CalcString]]>\n               </Calculation>\n\
+  \            </SMTPUserName>\n   <SMTPPassword >\n               <DisplayCalculation>\n\
+  \                 <Chunk type=\"FunctionRef\">Abs</Chunk>\n                 <Chunk\
+  \ type=\"NoRef\">(13)</Chunk>\n               </DisplayCalculation>\n          \
+  \     <Calculation>\n                 <![CDATA[CalcString]]>\n              </Calculation>\n\
+  \            </SMTPPassword>\n   <MultipleEmails state=\"True\"/>\n            <SendViaSMTP\
+  \ state =\"True\"/>\n            <SMTPEncryptionType type=\"encryptionVal\">\n \
+  \           <SMTPAuthenticationType type = \"SMTPAuthenticationPlain\"/>\n     \
+  \     </Step>"
+xml_values: []
+xml_description: null
+version: null
+conditional_elements:
+- '{PathList}'
+requires_db_ids: false
+fmxmlsnippet_xml: "<Step enable=\"True\" id=\"63\" name=\"Send Mail\">\n         \
+  \   <NoInteract state=\"True\"/>\n            <Attachment>\n               <UniversalPathList>{PathList}</UniversalPathList>\n\
+  \            </Attachment>\n   <To UseFoundSet=\"True\">\n               <Calculation>\n\
+  \                 <![CDATA[CalcString]]>\n              </Calculation>\n       \
+  \     </To>\n   <Cc UseFoundSet=\"True\">\n               <Calculation>\n      \
+  \           <![CDATA[CalcString]]>\n               </Calculation>\n            </Cc>\n\
+  \   <Bcc UseFoundSet=\"True\">\n               <Calculation>\n                 <![CDATA[<Step\
+  \ enable=\"True\" id=\"63\" name=\"Send Mail\">\n               </Calculation>\n\
+  \            </Bcc>\n   <Subject>\n               <Calculation>\n              \
+  \   <![CDATA[\"Subject\"]]>\n              </Calculation>\n            </Subject>\n\
+  \   <Message>\n               <Calculation>\n                 <![CDATA[\"Message\"\
+  ]]>\n               </Calculation>\n            </Message>\n  <SMTPNameDescription>\n\
+  \               <Calculation>\n                 <![CDATA[CalcString]]>\n       \
+  \        </Calculation>\n            </SMTPNameDescription>\n   <SMTPEmailAddress\
+  \ >\n               <Calculation>\n                 <![CDATA[CalcString]]>\n   \
+  \            </Calculation>\n            </SMTPEmailAddress>\n   <SMTPReplyAddress\
+  \ >\n              <Calculation>\n                 <![CDATA[CalcString]]>\n    \
+  \          </Calculation>\n           </SMTPReplyAddress>\n   <SMTPServer>\n   \
+  \           <Calculation>\n                 <![CDATA[CalcString]]>\n           \
+  \    </Calculation>\n            </SMTPServer>\n   <SMTPPort >\n               <Calculation>\n\
+  \                 <![CDATA[CalcString]]>\n               </Calculation>\n      \
+  \      </SMTPPort>\n   <SMTPUserName>\n                <Calculation>\n         \
+  \         <![CDATA[CalcString]]>\n               </Calculation>\n            </SMTPUserName>\n\
+  \   <SMTPPassword >\n               <Calculation>\n                 <![CDATA[CalcString]]>\n\
+  \              </Calculation>\n            </SMTPPassword>\n   <MultipleEmails state=\"\
+  True\"/>\n            <SendViaSMTP state =\"True\"/>\n            <SMTPEncryptionType\
+  \ type=\"encryptionVal\">\n            <SMTPAuthenticationType type = \"SMTPAuthenticationPlain\"\
+  />\n          </Step>"

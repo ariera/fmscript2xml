@@ -1,0 +1,62 @@
+id: 91
+name: Replace Field Contents
+area: Fields
+ddr_xml: "<Step id=\"91\" name=\"Replace Field Contents\" enable=\"True\">\n     \
+  \     <StepText>Script step text</StepText>\n          <NoInteract state=\"True\"\
+  />\n          <With value=\"None\">\n        </Step>\n        <Step id=\"91\" name=\"\
+  Replace Field Contents\" enable=\"True\">\n          <StepText>Script step text</StepText>\n\
+  \          <NoInteract state=\"True\"/>\n          <With value=\"CurrentContents\"\
+  >\n          <Field name=\"f3\" id=\"2\" table=\"test\"/>\n          <Repetition>\n\
+  \             <DisplayCalculation>\n               <Chunk\n        type=\"FunctionRef\"\
+  >Abs</Chunk>\n               <Chunk\n        type=\"NoRef\">(13)</Chunk>\n     \
+  \        </DisplayCalculation>\n             <Calculation>\n               <![CDATA[\"\
+  Value\"]]>\n             </Calculation>\n           </Repetition>\n        </Step>\n\
+  \        <Step id=\"91\" name=\"Replace Field Contents\" enable=\"True\">\n    \
+  \      <StepText>Script step text</StepText>\n          <NoInteract state=\"True\"\
+  />\n          <With value=\"SerialNumbers\">\n          <SerialNumbers UseEntryOptions=\"\
+  False\"\n            InitialValue=\"0\" Increment=\"1\"\n        UpdateEntryOptions=\"\
+  False\"/>\n          <Field name=\"f3\" id=\"2\" table=\"test\"/>\n          <Repetition>\n\
+  \             <DisplayCalculation>\n               <Chunk\n        type=\"FunctionRef\"\
+  >Abs</Chunk>\n               <Chunk\n        type=\"NoRef\">(13)</Chunk>\n     \
+  \        </DisplayCalculation>\n             <Calculation>\n               <![CDATA[\"\
+  Value\"]]>\n             </Calculation>\n           </Repetition>\n        </Step>\n\
+  \        <Step id=\"91\" name=\"Replace Field Contents\" enable=\"True\">\n    \
+  \      <StepText>Script step text</StepText>\n          <NoInteract state=\"True\"\
+  />\n          <With value=\"Calculation\">\n          <DisplayCalculation>\n   \
+  \            <Chunk\n        type=\"FunctionRef\">Abs</Chunk>\n               <Chunk\n\
+  \        type=\"NoRef\">(13)</Chunk>\n          </DisplayCalculation>\n        \
+  \  <Calculation>\n            <![CDATA[Abs ( f3 )]]>\n          </Calculation>\n\
+  \          <Field name=\"f3\" id=\"2\" table=\"test\"/>\n          <Repetition>\n\
+  \             <DisplayCalculation>\n               <Chunk\n        type=\"FunctionRef\"\
+  >Abs</Chunk>\n               <Chunk\n        type=\"NoRef\">(13)</Chunk>\n     \
+  \        </DisplayCalculation>\n             <Calculation>\n               <![CDATA[\"\
+  Value\"]]>\n             </Calculation>\n           </Repetition>\n        </Step>"
+xml_values: []
+xml_description: "<p><With value> reflects the user's choice of what to replace the\
+  \ specified\n\n          fields contents with.</p>\n<p> <SerialNumbers> is present\
+  \ when\n\n          <With value> is \"SerialNumbers\".</p>\n<p> <SerialNumbers InitialValue>\
+  \ and <SerialNumbers Increment> can\n\n          optionally be used to control serial\
+  \ number generation.</p>\n<p> <Calculation> is present when <With value> is \"Calculation\"\
+  .</p>"
+version: null
+conditional_elements: []
+requires_db_ids: true
+fmxmlsnippet_xml: "<Step enable=\"True\" id=\"91\" name=\"Replace Field Contents\"\
+  >\n          <NoInteract state=\"True\"/>\n          <With value=\"None\">\n   \
+  \     </Step>\n        <Step enable=\"True\" id=\"91\" name=\"Replace Field Contents\"\
+  >\n          <NoInteract state=\"True\"/>\n          <With value=\"CurrentContents\"\
+  >\n          <Field name=\"f3\" id=\"2\" table=\"test\"/>\n          <Repetition>\n\
+  \             <Calculation>\n               <![CDATA[\"Value\"]]>\n            \
+  \ </Calculation>\n           </Repetition>\n        </Step>\n        <Step enable=\"\
+  True\" id=\"91\" name=\"Replace Field Contents\">\n          <NoInteract state=\"\
+  True\"/>\n          <With value=\"SerialNumbers\">\n          <SerialNumbers UseEntryOptions=\"\
+  False\"\n            InitialValue=\"0\" Increment=\"1\"\n        UpdateEntryOptions=\"\
+  False\"/>\n          <Field name=\"f3\" id=\"2\" table=\"test\"/>\n          <Repetition>\n\
+  \             <Calculation>\n               <![CDATA[\"Value\"]]>\n            \
+  \ </Calculation>\n           </Repetition>\n        </Step>\n        <Step enable=\"\
+  True\" id=\"91\" name=\"Replace Field Contents\">\n          <NoInteract state=\"\
+  True\"/>\n          <With value=\"Calculation\">\n          <Calculation>\n    \
+  \        <![CDATA[Abs ( f3 )]]>\n          </Calculation>\n          <Field name=\"\
+  f3\" id=\"2\" table=\"test\"/>\n          <Repetition>\n             <Calculation>\n\
+  \               <![CDATA[\"Value\"]]>\n             </Calculation>\n           </Repetition>\n\
+  \        </Step>"

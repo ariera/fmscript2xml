@@ -1,0 +1,12 @@
+id: 81
+name: Scroll Window
+area: Windows
+ddr_xml: "<Step id=\"81\" name=\"Scroll Window\" enable=\"True\">\n          <StepText>Script\
+  \ step text</StepText>\n          <ScrollOperation value=\"Home\"/>\n        </Step>"
+xml_values: []
+xml_description: null
+version: null
+conditional_elements: []
+requires_db_ids: false
+fmxmlsnippet_xml: "<Step enable=\"True\" id=\"81\" name=\"Scroll Window\">\n     \
+  \     <ScrollOperation value=\"Home\"/>\n        </Step>"

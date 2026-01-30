@@ -1,0 +1,16 @@
+id: 80
+name: Refresh Window
+area: Windows
+ddr_xml: "<Step id=\"80\" name=\"Refresh Window\" enable=\"True\">\n          <StepText>Script\
+  \ step text</StepText>\n          <Option state=\"True\" />\n          <FlushSQLData\
+  \ state=\"True\" />\n        </Step>"
+xml_values: []
+xml_description: '<p><Option> corresponds to the "flush cached join results" option.</p>
+
+  <p><FlushSQLData> corresponds to the "flush cached SQL data" option. </p>'
+version: null
+conditional_elements: []
+requires_db_ids: false
+fmxmlsnippet_xml: "<Step enable=\"True\" id=\"80\" name=\"Refresh Window\">\n    \
+  \      <Option state=\"True\" />\n          <FlushSQLData state=\"True\" />\n  \
+  \      </Step>"

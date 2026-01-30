@@ -1,0 +1,15 @@
+id: 142
+name: Install Menu Set
+area: Miscellaneous
+ddr_xml: "<Step id=\"142\" name=\"Install Menu Set\" enable=\"True\">\n          \
+  \ <StepText>Script step text</StepText>\n           <UseAsFileDefault state=\"True\"\
+  />\n           <CustomMenuSet id=\"3\" name={Menu set name}/>\n        </Step>"
+xml_values: []
+xml_description: null
+version: null
+conditional_elements:
+- '{Menu set name}'
+requires_db_ids: false
+fmxmlsnippet_xml: "<Step enable=\"True\" id=\"142\" name=\"Install Menu Set\">\n \
+  \          <UseAsFileDefault state=\"True\"/>\n           <CustomMenuSet id=\"3\"\
+  \ name={Menu set name}/>\n        </Step>"

@@ -1,0 +1,14 @@
+id: 155
+name: Find Matching Records
+area: Found Sets
+ddr_xml: "<Step enable=\"True\" id=\"155\" name=\"Find Matching Records\">\n     \
+  \   <StepText>Find Matching Records [ Replace ]</StepText>\n        <FindMatchingRecordsByField\
+  \ value=\"FindMatchingReplace\"/>\n        </Step>"
+xml_values: []
+xml_description: null
+version: null
+conditional_elements: []
+requires_db_ids: false
+fmxmlsnippet_xml: "<Step enable=\"True\" id=\"155\" name=\"Find Matching Records\"\
+  >\n        <FindMatchingRecordsByField value=\"FindMatchingReplace\"/>\n       \
+  \ </Step>"

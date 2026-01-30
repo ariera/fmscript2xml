@@ -1,0 +1,16 @@
+id: 139
+name: Convert File
+area: Files
+ddr_xml: "<Step id=\"139\" name=\"Convert File\" enable=\"True\">\n          {See\
+  \ Import Records, except for folder data source options,\n           which Convert\
+  \ File does not have.}\n        </Step>"
+xml_values: []
+xml_description: null
+version: null
+conditional_elements:
+- "{See Import Records, except for folder data source options,\n           which Convert\
+  \ File does not have.}"
+requires_db_ids: false
+fmxmlsnippet_xml: "<Step enable=\"True\" id=\"139\" name=\"Convert File\">\n     \
+  \     {See Import Records, except for folder data source options,\n           which\
+  \ Convert File does not have.}\n        </Step>"

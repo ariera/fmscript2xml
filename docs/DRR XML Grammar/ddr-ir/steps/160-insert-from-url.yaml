@@ -1,0 +1,34 @@
+id: 160
+name: Insert from URL
+area: Fields
+ddr_xml: "<Step enable=\"True\" id=\"160\" name=\"Insert from URL\">\n           \
+  \ <StepText>Insert from URL [ Sales::Report; \"https://www.filemaker.com/sales_report.pdf\"\
+  ] [ Select; No dialog;Verify SSL Certificates]</StepText>\n            <NoInteract\
+  \ state=\"True\"/>\n            <SelectAll state=\"True\"/>\n            <VerifySSLCertificates\
+  \ state=\"True\"/>\n  <DontEncodeURL state=\"False\"/>\n            <DisplayCalculation>\n\
+  \               <Chunk\n          type=\"NoRef\">Value</Chunk>\n            </DisplayCalculation>\n\
+  \            <Calculation>\n               <![CDATA[\"Value\"]]>\n            </Calculation>\n\
+  \            {For a field as the target:\n            <Field table=\"f3\" id=\"\
+  2\" name=\"test\"/>\n            }\n             {For a variable as the target:\n\
+  \            <Field>$VariableName</Field>\n            }\n            <CURLOptions>\n\
+  \             <Calculation><![CDATA[\"Value\"]]></Calculation>\n             <DisplayCalculation>\n\
+  \                <Chunk type=\"NoRef\">Value</Chunk>\n             </DisplayCalculation>\n\
+  \            </CURLOptions>\n</Step>"
+xml_values: []
+xml_description: null
+version: null
+conditional_elements:
+- "{For a field as the target:\n            <Field table=\"f3\" id=\"2\" name=\"test\"\
+  />\n            }"
+- "{For a variable as the target:\n            <Field>$VariableName</Field>\n    \
+  \        }"
+requires_db_ids: true
+fmxmlsnippet_xml: "<Step enable=\"True\" id=\"160\" name=\"Insert from URL\">\n  \
+  \          <NoInteract state=\"True\"/>\n            <SelectAll state=\"True\"/>\n\
+  \            <VerifySSLCertificates state=\"True\"/>\n  <DontEncodeURL state=\"\
+  False\"/>\n            <Calculation>\n               <![CDATA[\"Value\"]]>\n   \
+  \         </Calculation>\n            {For a field as the target:\n            <Field\
+  \ table=\"f3\" id=\"2\" name=\"test\"/>\n            }\n             {For a variable\
+  \ as the target:\n            <Field>$VariableName</Field>\n            }\n    \
+  \        <CURLOptions>\n             <Calculation><![CDATA[\"Value\"]]></Calculation>\n\
+  \            </CURLOptions>\n</Step>"

@@ -1,0 +1,25 @@
+id: 146
+name: Set Web Viewer
+area: Control
+ddr_xml: "<Step id=\"146\" name=\"Set Web Viewer\" enable=\"True\">\n           <StepText>Script\
+  \ step text</StepText>\n           <Action value=\"Reset\"/>\n           <ObjectName>\n\
+  \              <DisplayCalculation>\n                <Chunk\n        type=\"FunctionRef\"\
+  >Abs</Chunk>\n                <Chunk\n        type=\"NoRef\">(13)</Chunk>\n    \
+  \          </DisplayCalculation>\n              <Calculation>\n                <![CDATA[CalcString]]>\n\
+  \              </Calculation>\n           </ObjectName>\n           <URL custom=\"\
+  True\">\n              <DisplayCalculation>\n                <Chunk\n        type=\"\
+  FunctionRef\">Abs</Chunk>\n                <Chunk\n        type=\"NoRef\">(13)</Chunk>\n\
+  \              </DisplayCalculation>\n              <Calculation>\n            \
+  \    <![CDATA[CalcString]]>\n              </Calculation>\n           </URL>\n \
+  \       </Step>"
+xml_values: []
+xml_description: "<URL> element is present when \n\n        <Action value> is \"GoToURL.\""
+version: null
+conditional_elements: []
+requires_db_ids: false
+fmxmlsnippet_xml: "<Step enable=\"True\" id=\"146\" name=\"Set Web Viewer\">\n   \
+  \        <Action value=\"Reset\"/>\n           <ObjectName>\n              <Calculation>\n\
+  \                <![CDATA[CalcString]]>\n              </Calculation>\n        \
+  \   </ObjectName>\n           <URL custom=\"True\">\n              <Calculation>\n\
+  \                <![CDATA[CalcString]]>\n              </Calculation>\n        \
+  \   </URL>\n        </Step>"

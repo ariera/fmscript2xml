@@ -1,0 +1,13 @@
+id: 86
+name: Set Error Capture
+area: Control
+ddr_xml: "<Step id=\"86\" name=\"Set Error Capture\" enable=\"True\">\n          \
+  \ <StepText>Script step text</StepText>\n           <Set state=\"True\"/>\n    \
+  \    </Step>"
+xml_values: []
+xml_description: null
+version: null
+conditional_elements: []
+requires_db_ids: false
+fmxmlsnippet_xml: "<Step enable=\"True\" id=\"86\" name=\"Set Error Capture\">\n \
+  \          <Set state=\"True\"/>\n        </Step>"

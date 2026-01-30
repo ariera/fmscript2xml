@@ -1,0 +1,34 @@
+id: 179
+name: AVPlayer Set Options
+area: Miscellaneous
+ddr_xml: "<Step id=\"179\" name=\"AVPlayer Set Options\" enable=\"True\">\n      \
+  \    <StepText>{Script step text}</StepText>\n           value=\"Start Full Screen\"\
+  \n          <HideControls value=\"True\"/>\n          <DisableExternalControls value=\"\
+  True\"/>\n          <DisableInteraction value=\"True\"/>\n            <Calculation><![CDATA[30]]></Calculation>\n\
+  \            <DisplayCalculation>\n               <Chunk type=\"NoRef\">30</Chunk>\n\
+  \            </DisplayCalculation>\n          <StartOffset>\n            <Calculation><![CDATA[20]]></Calculation>\n\
+  \            <DisplayCalculation>\n               <Chunk type=\"NoRef\">20</Chunk>\n\
+  \            </DisplayCalculation>\n          </StartOffset>\n          <EndOffset>\n\
+  \            <Calculation><![CDATA[120]]></Calculation>\n            <DisplayCalculation>\n\
+  \               <Chunk type=\"NoRef\">120</Chunk>\n            </DisplayCalculation>\n\
+  \          </EndOffset>\n          <Volume>\n            <Calculation><![CDATA[.5]]></Calculation>\n\
+  \            <DisplayCalculation>\n               <Chunk type=\"NoRef\">.5</Chunk>\n\
+  \            </DisplayCalculation>\n          </Volume>\n          <Zoom value=\"\
+  Fit\"/>\n          <Sequence value=\"Previous\"/>\n        </Step>"
+xml_values: []
+xml_description: All parameters are optional. This step is used to adjust the settings
+  of a player that is either playing or paused. The parameters that are the same as
+  in AVPlayer Play have the same meaning as in that step.
+version: null
+conditional_elements:
+- '{Script step text}'
+requires_db_ids: false
+fmxmlsnippet_xml: "<Step enable=\"True\" id=\"179\" name=\"AVPlayer Set Options\"\
+  >\n           value=\"Start Full Screen\"\n          <HideControls value=\"True\"\
+  />\n          <DisableExternalControls value=\"True\"/>\n          <DisableInteraction\
+  \ value=\"True\"/>\n            <Calculation><![CDATA[30]]></Calculation>\n    \
+  \      <StartOffset>\n            <Calculation><![CDATA[20]]></Calculation>\n  \
+  \        </StartOffset>\n          <EndOffset>\n            <Calculation><![CDATA[120]]></Calculation>\n\
+  \          </EndOffset>\n          <Volume>\n            <Calculation><![CDATA[.5]]></Calculation>\n\
+  \          </Volume>\n          <Zoom value=\"Fit\"/>\n          <Sequence value=\"\
+  Previous\"/>\n        </Step>"

@@ -1,0 +1,49 @@
+id: 33
+name: Open File
+area: Files
+ddr_xml: "<Step id=\"33\" name=\"Open File\" enable=\"True\">\n            <StepText>Script\
+  \ step text</StepText>\n            <Option state=\"True\"/>\n            {For a\
+  \ FileMaker data source:\n            <FileReference name={name} id=\"1\">\n   \
+  \           <UniversalPathList>{PathList}</UniversalPathList>\n            </FileReference>\n\
+  \            }\n            {For an ODBC data source:\n            <OdbcDataSource\
+  \ name={name} id=\"1\" DSN=\"...\"\n             promptForLogin=\"False\">\n   \
+  \           <Username>\n                <Calculation>\n                  <![CDATA[CalcString]]>\n\
+  \                </Calculation>\n                <DisplayCalculation>\n        \
+  \          <Chunk type=\"FunctionRef\">Abs</Chunk>\n                  <Chunk type=\"\
+  NoRef\">(13)</Chunk>\n                </DisplayCalculation>\n              </Username>\n\
+  \                <Calculation>\n                  <![CDATA[CalcString]]>\n     \
+  \           </Calculation>\n                <DisplayCalculation>\n             \
+  \     <Chunk type=\"FunctionRef\">Abs</Chunk>\n                  <Chunk type=\"\
+  NoRef\">(13)</Chunk>\n                </DisplayCalculation>\n              <FilterTables\
+  \ tableName=\"{TableName}\"\n               schemaName=\"{SchemaName}\"\n      \
+  \         catalogName=\"{CatalogName}\"\n               typeBasedFilter=\"True\"\
+  \  retrieveTables=\"True\"\n               retrieveViews=\"True\" retrieveSystemTables=\"\
+  True\"/>\n            </OdbcDataSource>\n            }\n          </Step>"
+xml_values: []
+xml_description: '<p>{PathList} can consist of multiple absolute or relative paths,
+  the first valid one of which is used at execution time.</p>
+
+  <p> <Username> and <Password> are present only if <OdbcDataSource promptForLogin>
+  is "False" (that is, user has entered login credentials for the ODBC data source).</p>'
+version: null
+conditional_elements:
+- "{For a FileMaker data source:\n            <FileReference name={name}"
+- '{PathList}'
+- "{For an ODBC data source:\n            <OdbcDataSource name={name}"
+- '{TableName}'
+- '{SchemaName}'
+- '{CatalogName}'
+requires_db_ids: false
+fmxmlsnippet_xml: "<Step enable=\"True\" id=\"33\" name=\"Open File\">\n         \
+  \   <Option state=\"True\"/>\n            {For a FileMaker data source:\n      \
+  \      <FileReference name={name} id=\"1\">\n              <UniversalPathList>{PathList}</UniversalPathList>\n\
+  \            </FileReference>\n            }\n            {For an ODBC data source:\n\
+  \            <OdbcDataSource name={name} id=\"1\" DSN=\"...\"\n             promptForLogin=\"\
+  False\">\n              <Username>\n                <Calculation>\n            \
+  \      <![CDATA[CalcString]]>\n                </Calculation>\n              </Username>\n\
+  \                <Calculation>\n                  <![CDATA[CalcString]]>\n     \
+  \           </Calculation>\n              <FilterTables tableName=\"{TableName}\"\
+  \n               schemaName=\"{SchemaName}\"\n               catalogName=\"{CatalogName}\"\
+  \n               typeBasedFilter=\"True\"  retrieveTables=\"True\"\n           \
+  \    retrieveViews=\"True\" retrieveSystemTables=\"True\"/>\n            </OdbcDataSource>\n\
+  \            }\n          </Step>"

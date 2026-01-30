@@ -1,0 +1,13 @@
+id: 97
+name: Set Zoom Level
+area: Windows
+ddr_xml: "<Step id=\"97\" name=\"Set Zoom Level\" enable=\"True\">\n          <StepText>Script\
+  \ step text</StepText>\n          <Lock state=\"True\"/>\n          <Zoom value=\"\
+  75\"/>\n        </Step>"
+xml_values: []
+xml_description: null
+version: null
+conditional_elements: []
+requires_db_ids: false
+fmxmlsnippet_xml: "<Step enable=\"True\" id=\"97\" name=\"Set Zoom Level\">\n    \
+  \      <Lock state=\"True\"/>\n          <Zoom value=\"75\"/>\n        </Step>"

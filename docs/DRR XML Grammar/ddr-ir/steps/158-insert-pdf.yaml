@@ -1,0 +1,16 @@
+id: 158
+name: Insert PDF
+area: Fields
+ddr_xml: "<Step enable=\"True\" id=\"158\" name=\"Insert PDF\">\n        <StepText>Insert\
+  \ PDF [  ]\n        </StepText>\n            <UniversalPathList\n        type=\"\
+  Reference\">{PathList}</UniversalPathList>\n        </Step>"
+xml_values: []
+xml_description: "{PathList} can consist of multiple absolute or relative paths, the\
+  \ first valid\n\n        one of which is used at execution time."
+version: null
+conditional_elements:
+- '{PathList}'
+requires_db_ids: false
+fmxmlsnippet_xml: "<Step enable=\"True\" id=\"158\" name=\"Insert PDF\">\n       \
+  \     <UniversalPathList\n        type=\"Reference\">{PathList}</UniversalPathList>\n\
+  \        </Step>"

@@ -1,0 +1,666 @@
+total_steps: 166
+steps:
+- id: 1
+  name: Perform Script
+  area: Control
+  version: null
+- id: 164
+  name: Perform Script on Server
+  area: Control
+  version: null
+- id: 62
+  name: Pause/Resume Script
+  area: Control
+  version: null
+- id: 103
+  name: Exit Script
+  area: Control
+  version: null
+- id: 90
+  name: Halt Script
+  area: Control
+  version: null
+- id: 68
+  name: If
+  area: Control
+  version: null
+- id: 69
+  name: Else
+  area: Control
+  version: null
+- id: 70
+  name: End If
+  area: Control
+  version: null
+- id: 71
+  name: Loop
+  area: Control
+  version: null
+- id: 72
+  name: Exit Loop If
+  area: Control
+  version: null
+- id: 73
+  name: End Loop
+  area: Control
+  version: null
+- id: 85
+  name: Allow User Abort
+  area: Control
+  version: null
+- id: 86
+  name: Set Error Capture
+  area: Control
+  version: null
+- id: 84
+  name: Set Layout Object Animation
+  area: Control
+  version: null
+- id: 185
+  name: Configure Region Monitor Script
+  area: Control
+  version: newto16
+- id: 187
+  name: Configure Local Notification
+  area: Control
+  version: newto17
+- id: 6
+  name: Go to Layout
+  area: Navigation
+  version: null
+- id: 16
+  name: Go to Record/Request/Page
+  area: Navigation
+  version: null
+- id: 74
+  name: Go to Related Record
+  area: Navigation
+  version: null
+- id: 99
+  name: Go to Portal Row
+  area: Navigation
+  version: null
+- id: 17
+  name: Go to Field
+  area: Navigation
+  version: null
+- id: 4
+  name: Go to Next Field
+  area: Navigation
+  version: null
+- id: 5
+  name: Go to Previous Field
+  area: Navigation
+  version: null
+- id: 169
+  name: Close Popover
+  area: Navigation
+  version: null
+- id: 55
+  name: Enter Browse Mode
+  area: Navigation
+  version: null
+- id: 22
+  name: Enter Find Mode
+  area: Navigation
+  version: null
+- id: 41
+  name: Enter Preview Mode
+  area: Navigation
+  version: null
+- id: 39
+  name: Sort Records
+  area: Found Sets
+  version: null
+- id: 21
+  name: Unsort Records
+  area: Found Sets
+  version: null
+- id: 23
+  name: Show All Records
+  area: Found Sets
+  version: null
+- id: 27
+  name: Show Omitted Only
+  area: Found Sets
+  version: null
+- id: 25
+  name: Omit Record
+  area: Found Sets
+  version: null
+- id: 26
+  name: Omit Multiple Records
+  area: Found Sets
+  version: null
+- id: 28
+  name: Perform Find
+  area: Found Sets
+  version: null
+- id: 150
+  name: Perform Quick Find
+  area: Found Sets
+  version: null
+- id: 155
+  name: Find Matching Records
+  area: Found Sets
+  version: null
+- id: 154
+  name: Sort Records by Field
+  area: Found Sets
+  version: null
+- id: 24
+  name: Modify Last Find
+  area: Found Sets
+  version: null
+- id: 42
+  name: Print Setup
+  area: Sort/Find/Print
+  version: null
+- id: 43
+  name: Print
+  area: Sort/Find/Print
+  version: null
+- id: 45
+  name: Undo/Redo
+  area: Editing
+  version: null
+- id: 46
+  name: Cut
+  area: Editing
+  version: null
+- id: 47
+  name: Copy
+  area: Editing
+  version: null
+- id: 48
+  name: Paste
+  area: Editing
+  version: null
+- id: 49
+  name: Clear
+  area: Editing
+  version: null
+- id: 50
+  name: Select All
+  area: Editing
+  version: null
+- id: 76
+  name: Set Field
+  area: Fields
+  version: null
+- id: 61
+  name: Insert Text
+  area: Fields
+  version: null
+- id: 77
+  name: Insert Calculated Result
+  area: Fields
+  version: null
+- id: 161
+  name: Insert from Device
+  area: Fields
+  version: null
+- id: 11
+  name: Insert from Index
+  area: Fields
+  version: null
+- id: 12
+  name: Insert from Last Visited
+  area: Fields
+  version: null
+- id: 160
+  name: Insert from URL
+  area: Fields
+  version: null
+- id: 13
+  name: Insert Current Date
+  area: Fields
+  version: null
+- id: 14
+  name: Insert Current Time
+  area: Fields
+  version: null
+- id: 60
+  name: Insert Current User Name
+  area: Fields
+  version: null
+- id: 56
+  name: Insert Picture
+  area: Fields
+  version: null
+- id: 158
+  name: Insert PDF
+  area: Fields
+  version: null
+- id: 159
+  name: Insert Audio/Video
+  area: Fields
+  version: null
+- id: 78
+  name: '#[OBSOLETE]Insert Object'
+  area: Fields
+  version: null
+- id: 96
+  name: '#[OBSOLETE]Update Link'
+  area: Fields
+  version: null
+- id: 7
+  name: New Record/Request
+  area: Records
+  version: null
+- id: 8
+  name: Duplicate Record/Request
+  area: Records
+  version: null
+- id: 9
+  name: Delete Record/Request
+  area: Records
+  version: null
+- id: 104
+  name: Delete Portal Row
+  area: Records
+  version: null
+- id: 51
+  name: Revert Record/Request
+  area: Records
+  version: null
+- id: 75
+  name: Commit Records/Requests
+  area: Records
+  version: null
+- id: 101
+  name: Copy Record/Request
+  area: Records
+  version: null
+- id: 98
+  name: Copy All Records/Requests
+  area: Records
+  version: null
+- id: 10
+  name: Delete All Records
+  area: Records
+  version: null
+- id: 91
+  name: Replace Field Contents
+  area: Fields
+  version: null
+- id: 40
+  name: Relookup Field Contents
+  area: Fields
+  version: null
+- id: 35
+  name: Import Records
+  area: Records
+  version: null
+- id: 36
+  name: Export Records
+  area: Records
+  version: null
+- id: 79
+  name: Freeze Window
+  area: Windows
+  version: null
+- id: 80
+  name: Refresh Window
+  area: Windows
+  version: null
+- id: 81
+  name: Scroll Window
+  area: Windows
+  version: null
+- id: 166
+  name: Show/Hide Menubar
+  area: Windows
+  version: null
+- id: 31
+  name: Adjust Window
+  area: Windows
+  version: null
+- id: 29
+  name: Show/Hide Toolbars
+  area: Windows
+  version: null
+- id: 92
+  name: Show/Hide Text Ruler
+  area: Windows
+  version: null
+- id: 97
+  name: Set Zoom Level
+  area: Windows
+  version: null
+- id: 174
+  name: Enable Touch Keyboard
+  area: Windows
+  version: null
+- id: 30
+  name: View As
+  area: Windows
+  version: null
+- id: 82
+  name: New File
+  area: Files
+  version: null
+- id: 33
+  name: Open File
+  area: Files
+  version: null
+- id: 34
+  name: Close File
+  area: Files
+  version: null
+- id: 83
+  name: Change Password
+  area: Account
+  version: null
+- id: 84
+  name: Set Multi-User
+  area: Files
+  version: null
+- id: 94
+  name: Set Use System Formats
+  area: Files
+  version: null
+- id: 37
+  name: Save a Copy as
+  area: Files
+  version: null
+- id: 95
+  name: Recover File
+  area: Files
+  version: null
+- id: 18
+  name: Check Selection
+  area: Spelling
+  version: null
+- id: 19
+  name: Check Record
+  area: Spelling
+  version: null
+- id: 20
+  name: Check Found Set
+  area: Spelling
+  version: null
+- id: 106
+  name: Correct Word
+  area: Spelling
+  version: null
+- id: 107
+  name: Spelling Options
+  area: Spelling
+  version: null
+- id: 108
+  name: Select Dictionaries
+  area: Spelling
+  version: null
+- id: 109
+  name: Edit User Dictionary
+  area: Spelling
+  version: null
+- id: 105
+  name: Open Preferences
+  area: Open Menu Item
+  version: null
+- id: 114
+  name: Open File Options
+  area: Open Menu Item
+  version: null
+- id: 156
+  name: Open Manage Containers
+  area: Open Menu Item
+  version: null
+- id: 38
+  name: Open Manage Database
+  area: Open Menu Item
+  version: null
+- id: 151
+  name: 'Open Manage Layouts '
+  area: Open Menu Item
+  version: null
+- id: 112
+  name: Open Manage Value Lists
+  area: Open Menu Item
+  version: null
+- id: 165
+  name: Open Manage Themes
+  area: Open Menu Item
+  version: null
+- id: 32
+  name: Open Help
+  area: Open Menu Item
+  version: null
+- id: 118
+  name: <span class=
+  area: Open Menu Item
+  version: null
+- id: 88
+  name: Open Script Workspace
+  area: Open Menu Item
+  version: null
+- id: 113
+  name: Open Sharing
+  area: Open Menu Item
+  version: null
+- id: 172
+  name: Upload to FileMaker Server
+  area: Open Menu Item
+  version: null
+- id: 183
+  name: <span class=
+  area: Open Menu Item
+  version: newto16
+- id: 87
+  name: Show Custom Dialog
+  area: Miscellaneous
+  version: null
+- id: 115
+  name: Allow Toolbars
+  area: Miscellaneous
+  version: null
+- id: 167
+  name: Refresh Object
+  area: Miscellaneous
+  version: null
+- id: 180
+  name: Refresh Portal
+  area: Miscellaneous
+  version: null
+- id: 93
+  name: Beep
+  area: Miscellaneous
+  version: null
+- id: 66
+  name: Speak
+  area: Miscellaneous
+  version: null
+- id: 65
+  name: Dial Phone
+  area: Miscellaneous
+  version: null
+- id: 111
+  name: Open URL
+  area: Miscellaneous
+  version: null
+- id: 63
+  name: Send Mail
+  area: Miscellaneous
+  version: null
+- id: 116
+  name: Set Next Serial Value
+  area: Fields
+  version: null
+- id: 67
+  name: Perform AppleScript
+  area: Miscellaneous
+  version: null
+- id: 64
+  name: Send DDE Execute
+  area: Miscellaneous
+  version: null
+- id: 117
+  name: Execute SQL
+  area: Miscellaneous
+  version: null
+- id: 57
+  name: Send event
+  area: Miscellaneous
+  version: null
+- id: 89
+  name: Comment
+  area: Miscellaneous
+  version: null
+- id: 102
+  name: Flush Cache to Disk
+  area: Miscellaneous
+  version: null
+- id: 44
+  name: Exit Application
+  area: Miscellaneous
+  version: null
+- id: 177
+  name: AVPlayer Play
+  area: Miscellaneous
+  version: null
+- id: 179
+  name: AVPlayer Set Options
+  area: Miscellaneous
+  version: null
+- id: 178
+  name: AVPlayer Set Playback State
+  area: Miscellaneous
+  version: null
+- id: 129
+  name: Open Find/Replace
+  area: Open Menu Item
+  version: null
+- id: 128
+  name: Perform Find/Replace
+  area: Editing
+  version: null
+- id: 122
+  name: New Window
+  area: Windows
+  version: null
+- id: 123
+  name: Select Window
+  area: Windows
+  version: null
+- id: 119
+  name: Move/Resize Window
+  area: Windows
+  version: null
+- id: 124
+  name: Set Window Title
+  area: Windows
+  version: null
+- id: 120
+  name: Arrange All Windows
+  area: Windows
+  version: null
+- id: 121
+  name: Close Window
+  area: Windows
+  version: null
+- id: 140
+  name: Open Manage Data Sources
+  area: Open Menu Item
+  version: null
+- id: 133
+  name: Open Record/Request
+  area: Records
+  version: null
+- id: 125
+  name: Else If
+  area: Control
+  version: null
+- id: 131
+  name: Insert File
+  area: Fields
+  version: null
+- id: 132
+  name: Export Field Contents
+  area: Fields
+  version: null
+- id: 130
+  name: Set Selection
+  area: Editing
+  version: null
+- id: 126
+  name: Constrain Found Set
+  area: Found Sets
+  version: null
+- id: 127
+  name: Extend Found Set
+  area: Found Sets
+  version: null
+- id: 134
+  name: Add Account
+  area: Account
+  version: null
+- id: 135
+  name: Delete Account
+  area: Account
+  version: null
+- id: 136
+  name: Reset Account Password
+  area: Account
+  version: null
+- id: 137
+  name: Enable Account
+  area: Account
+  version: null
+- id: 138
+  name: Re-Login
+  area: Account
+  version: null
+- id: 139
+  name: Convert File
+  area: Files
+  version: null
+- id: 144
+  name: Save Records as PDF
+  area: Records
+  version: null
+- id: 143
+  name: Save Records as Excel
+  area: Records
+  version: null
+- id: 141
+  name: Set Variable
+  area: Control
+  version: null
+- id: 142
+  name: Install Menu Set
+  area: Miscellaneous
+  version: null
+- id: 145
+  name: Go to Object
+  area: Control
+  version: null
+- id: 146
+  name: Set Web Viewer
+  area: Control
+  version: null
+- id: 149
+  name: Open Edit Saved Finds
+  area: Open Menu Item
+  version: null
+- id: 148
+  name: Install OnTimer Script
+  area: Control
+  version: null
+- id: 147
+  name: Set Field By Name
+  area: Fields
+  version: null
+- id: 152
+  name: Save Records as Snapshot Link
+  area: Records
+  version: null
+- id: 173
+  name: Get Directory
+  area: Miscellaneous
+  version: null
+- id: 182
+  name: Truncate Table
+  area: Records
+  version: newto15

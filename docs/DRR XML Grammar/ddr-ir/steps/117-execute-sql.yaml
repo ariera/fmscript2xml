@@ -1,0 +1,15 @@
+id: 117
+name: Execute SQL
+area: Miscellaneous
+ddr_xml: "<Step id=\"117\" name=\"Execute SQL\" enable=\"True\">\n          <StepText>Script\
+  \ step text</StepText>\n          <NoInteract state=\"True\"/>\n          {See ODBC\
+  \ data source profile element in Import Records step}\n        </Step>"
+xml_values: []
+xml_description: '{See ODBC data source profile element in Import Records step}'
+version: null
+conditional_elements:
+- '{See ODBC data source profile element in Import Records step}'
+requires_db_ids: false
+fmxmlsnippet_xml: "<Step enable=\"True\" id=\"117\" name=\"Execute SQL\">\n      \
+  \    <NoInteract state=\"True\"/>\n          {See ODBC data source profile element\
+  \ in Import Records step}\n        </Step>"

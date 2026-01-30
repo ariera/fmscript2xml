@@ -1,0 +1,21 @@
+id: 48
+name: Paste
+area: Editing
+ddr_xml: "<Step id=\"48\" name=\"Paste\" enable=\"True\">\n          <StepText>Script\
+  \ step text</StepText>\n          <NoStyle state=\"True\"/>\n          <SelectAll\
+  \ state=\"True\"/>\n          <Field name=\"f3\" id=\"2\" table=\"test\"/>\n   \
+  \       <Repetition>\n             <DisplayCalculation>\n               <Chunk\n\
+  \        type=\"FunctionRef\">Abs</Chunk>\n               <Chunk\n        type=\"\
+  NoRef\">(13)</Chunk>\n             </DisplayCalculation>\n             <Calculation>\n\
+  \               <![CDATA[\"Value\"]]>\n             </Calculation>\n           </Repetition>\n\
+  \        </Step>"
+xml_values: []
+xml_description: null
+version: null
+conditional_elements: []
+requires_db_ids: true
+fmxmlsnippet_xml: "<Step enable=\"True\" id=\"48\" name=\"Paste\">\n          <NoStyle\
+  \ state=\"True\"/>\n          <SelectAll state=\"True\"/>\n          <Field name=\"\
+  f3\" id=\"2\" table=\"test\"/>\n          <Repetition>\n             <Calculation>\n\
+  \               <![CDATA[\"Value\"]]>\n             </Calculation>\n           </Repetition>\n\
+  \        </Step>"

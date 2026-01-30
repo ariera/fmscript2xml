@@ -1,0 +1,27 @@
+id: 13
+name: Insert Current Date
+area: Fields
+ddr_xml: "<Step id=\"13\" name=\"Insert Current Date\" enable=\"True\">\n        \
+  \  <StepText>Script step text</StepText>\n          <SelectAll state=\"True\"/>\n\
+  \         {For a field as the target:\n         <Field table=\"f3\" id=\"2\" name=\"\
+  test\"/>\n         }\n {For a variable as the target:\n         <Field>$VariableName</Field>\n\
+  \         }\n          <Repetition>\n             <DisplayCalculation>\n       \
+  \        <Chunk\n        type=\"FunctionRef\">Abs</Chunk>\n               <Chunk\n\
+  \        type=\"NoRef\">(13)</Chunk>\n             </DisplayCalculation>\n     \
+  \        <Calculation>\n               <![CDATA[\"Value\"]]>\n             </Calculation>\n\
+  \           </Repetition>\n        </Step>"
+xml_values: []
+xml_description: null
+version: null
+conditional_elements:
+- "{For a field as the target:\n         <Field table=\"f3\" id=\"2\" name=\"test\"\
+  />\n         }"
+- "{For a variable as the target:\n         <Field>$VariableName</Field>\n       \
+  \  }"
+requires_db_ids: true
+fmxmlsnippet_xml: "<Step enable=\"True\" id=\"13\" name=\"Insert Current Date\">\n\
+  \          <SelectAll state=\"True\"/>\n         {For a field as the target:\n \
+  \        <Field table=\"f3\" id=\"2\" name=\"test\"/>\n         }\n {For a variable\
+  \ as the target:\n         <Field>$VariableName</Field>\n         }\n          <Repetition>\n\
+  \             <Calculation>\n               <![CDATA[\"Value\"]]>\n            \
+  \ </Calculation>\n           </Repetition>\n        </Step>"

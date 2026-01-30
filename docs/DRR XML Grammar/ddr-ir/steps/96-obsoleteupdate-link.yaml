@@ -1,0 +1,20 @@
+id: 96
+name: '#[OBSOLETE]Update Link'
+area: Fields
+ddr_xml: "<Step id=\"96\" name=\"#[OBSOLETE]Update Link\" enable=\"True\">\n     \
+  \     <StepText>Script step text</StepText>\n          <Field name=\"f2\" id=\"\
+  2\" table=\"test\"/>\n          <Repetition>\n             <DisplayCalculation>\n\
+  \               <Chunk\n        type=\"FunctionRef\">Abs</Chunk>\n             \
+  \  <Chunk\n        type=\"NoRef\">(13)</Chunk>\n             </DisplayCalculation>\n\
+  \             <Calculation>\n               <![CDATA[\"Value\"]]>\n            \
+  \ </Calculation>\n           </Repetition>\n        </Step>"
+xml_values: []
+xml_description: It is no longer possible to create this script; although, you can
+  have step in a converted file.
+version: null
+conditional_elements: []
+requires_db_ids: true
+fmxmlsnippet_xml: "<Step enable=\"True\" id=\"96\" name=\"#[OBSOLETE]Update Link\"\
+  >\n          <Field name=\"f2\" id=\"2\" table=\"test\"/>\n          <Repetition>\n\
+  \             <Calculation>\n               <![CDATA[\"Value\"]]>\n            \
+  \ </Calculation>\n           </Repetition>\n        </Step>"

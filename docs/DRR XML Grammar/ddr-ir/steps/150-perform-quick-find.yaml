@@ -1,0 +1,16 @@
+id: 150
+name: Perform Quick Find
+area: Found Sets
+ddr_xml: "<Step enable=\"True\" id=\"150\" name=\"Perform Quick Find\">\n        \
+  \  <StepText>Script step text</StepText>\n          <Calculation>\n            <!\
+  \ [CDATA[ \"Value\" ]] >\n          </Calculation>\n          <DisplayCalculation>\n\
+  \            <Chunk type=\"NoRef\">\"Value\"</Chunk>\n          </DisplayCalculation>\n\
+  \        </Step>"
+xml_values: []
+xml_description: null
+version: null
+conditional_elements: []
+requires_db_ids: false
+fmxmlsnippet_xml: "<Step enable=\"True\" id=\"150\" name=\"Perform Quick Find\">\n\
+  \          <Calculation>\n            <! [CDATA[ \"Value\" ]] >\n          </Calculation>\n\
+  \        </Step>"

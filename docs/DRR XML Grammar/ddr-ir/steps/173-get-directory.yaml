@@ -1,0 +1,23 @@
+id: 173
+name: Get Directory
+area: Miscellaneous
+ddr_xml: "<Step id=\"173\" name=\"Get Directory\" enable=\"True\">\n             <AllowFolderCreation\
+  \ state=\"True\"/>\n<Name>{Variable name}</Name>\n<DialogTitle>\n            <Calculation>\n\
+  \          <![CDATA[CalcString]]>\n          </Calculation>\n          <DisplayCalculation>\n\
+  \          <Chunk type=\"NoRef\"></Chunk>\n          </DisplayCalculation>\n   \
+  \       </DialogTitle>\n<DefaultLocation>\n          <Calculation>\n          <![CDATA[CalcString]]>\n\
+  \          </Calculation>\n          <DisplayCalculation>\n          <Chunk type=\"\
+  NoRef\"></Chunk>\n          </DisplayCalculation>\n          </DefaultLocation>\n\
+  \         </Step>"
+xml_values: []
+xml_description: null
+version: null
+conditional_elements:
+- '{Variable name}'
+requires_db_ids: false
+fmxmlsnippet_xml: "<Step enable=\"True\" id=\"173\" name=\"Get Directory\">\n    \
+  \         <AllowFolderCreation state=\"True\"/>\n<Name>{Variable name}</Name>\n\
+  <DialogTitle>\n            <Calculation>\n          <![CDATA[CalcString]]>\n   \
+  \       </Calculation>\n          </DialogTitle>\n<DefaultLocation>\n          <Calculation>\n\
+  \          <![CDATA[CalcString]]>\n          </Calculation>\n          </DefaultLocation>\n\
+  \         </Step>"

@@ -1,0 +1,16 @@
+id: 43
+name: Print
+area: Sort/Find/Print
+ddr_xml: "<Step id=\"43\" name=\"Print\" enable=\"True\">\n          <StepText>Script\
+  \ step text</StepText>\n          <NoInteract state=\"True\"/>\n          <Restore\
+  \ state=\"true\">\n              <![CDATA[{Flattened Windows/Mac specific\n    \
+  \    settings}]]>\n        </Step>"
+xml_values: []
+xml_description: null
+version: null
+conditional_elements:
+- "{Flattened Windows/Mac specific\n        settings}"
+requires_db_ids: false
+fmxmlsnippet_xml: "<Step enable=\"True\" id=\"43\" name=\"Print\">\n          <NoInteract\
+  \ state=\"True\"/>\n          <Restore state=\"true\">\n              <![CDATA[{Flattened\
+  \ Windows/Mac specific\n        settings}]]>\n        </Step>"

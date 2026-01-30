@@ -1,0 +1,88 @@
+id: 187
+name: Configure Local Notification
+area: Control
+ddr_xml: "<Step id=\"187\" name=\"Configure Local Notification\" enable=\"True\">\n\
+  \           <StepText>Script step text</StepText>\n           <Script id=\"3\" name=\"\
+  Custom Dialog\"/>\n           <Action value=\"{value}\">\n              <Name>\n\
+  \                 <Calculation><![CDATA[\"CalcString\"]]></Calculation>\n      \
+  \           <DisplayCalculation>\n                    <Chunk type=\"FunctionRef\"\
+  >Abs</Chunk>\n                    <Chunk type=\"NoRef\">(13)</Chunk>\n         \
+  \        </DisplayCalculation>\n              </Name>\n              For Action\
+  \ == Queue:\n              {\n              <Delay>\n                 <Calculation><![CDATA[CalcString]]></Calculation>\n\
+  \                 <DisplayCalculation>\n                    <Chunk type=\"NoRef\"\
+  >(13)</Chunk>\n                 </DisplayCalculation>\n              </Delay>\n\
+  \              <Title>\n                 <Calculation><![CDATA[CalcString]]></Calculation>\n\
+  \                 <DisplayCalculation>\n                    <Chunk type=\"NoRef\"\
+  >(13)</Chunk>\n                 </DisplayCalculation>\n              </Title>\n\
+  \              <Body>\n                 <Calculation><![CDATA[CalcString]]></Calculation>\n\
+  \                 <DisplayCalculation>\n                    <Chunk type=\"NoRef\"\
+  >(13)</Chunk>\n                 </DisplayCalculation>\n              </Body>\n \
+  \             <Button1Label>\n                 <Calculation><![CDATA[CalcString]]></Calculation>\n\
+  \                 <DisplayCalculation>\n                    <Chunk type=\"NoRef\"\
+  >\"Btn 1 Label\"</Chunk>\n                 </DisplayCalculation>\n             \
+  \ </Button1Label>\n              <Button2Label>\n                 <Calculation><![CDATA[CalcString]]></Calculation>\n\
+  \                 <DisplayCalculation>\n                    <Chunk type=\"NoRef\"\
+  >\"Btn 2 Label\"</Chunk>\n                 </DisplayCalculation>\n             \
+  \ </Button2Label>\n              <Button3Label>\n                 <Calculation><![CDATA[CalcString]]></Calculation>\n\
+  \                 <DisplayCalculation>\n                    <Chunk type=\"NoRef\"\
+  >\"Btn 3 Label\"</Chunk>\n                 </DisplayCalculation>\n             \
+  \ </Button3Label>\n              <Button1ForceFgnd>\n                 <Calculation><![CDATA[CalcString]]></Calculation>\n\
+  \                 <DisplayCalculation>\n                    <Chunk type=\"NoRef\"\
+  >1</Chunk>\n                 </DisplayCalculation>\n              </Button1ForceFgnd>\n\
+  \              <Button2ForceFgnd>\n                 <Calculation><![CDATA[CalcString]]></Calculation>\n\
+  \                 <DisplayCalculation>\n                    <Chunk type=\"NoRef\"\
+  >0</Chunk>\n                 </DisplayCalculation>\n              </Button2ForceFgnd>\n\
+  \              <Button3ForceFgnd>\n                 <Calculation><![CDATA[CalcString]]></Calculation>\n\
+  \                 <DisplayCalculation>\n                    <Chunk type=\"NoRef\"\
+  >1</Chunk>\n                 </DisplayCalculation>\n              </Button3ForceFgnd>\n\
+  \              }\n           </Action>\n        </Step>"
+xml_values: []
+xml_description: When <Action> is Clear, only <Name> is output.
+version: newto17
+conditional_elements:
+- '{value}'
+- "{\n              <Delay>\n                 <Calculation><![CDATA[CalcString]]></Calculation>\n\
+  \                 <DisplayCalculation>\n                    <Chunk type=\"NoRef\"\
+  >(13)</Chunk>\n                 </DisplayCalculation>\n              </Delay>\n\
+  \              <Title>\n                 <Calculation><![CDATA[CalcString]]></Calculation>\n\
+  \                 <DisplayCalculation>\n                    <Chunk type=\"NoRef\"\
+  >(13)</Chunk>\n                 </DisplayCalculation>\n              </Title>\n\
+  \              <Body>\n                 <Calculation><![CDATA[CalcString]]></Calculation>\n\
+  \                 <DisplayCalculation>\n                    <Chunk type=\"NoRef\"\
+  >(13)</Chunk>\n                 </DisplayCalculation>\n              </Body>\n \
+  \             <Button1Label>\n                 <Calculation><![CDATA[CalcString]]></Calculation>\n\
+  \                 <DisplayCalculation>\n                    <Chunk type=\"NoRef\"\
+  >\"Btn 1 Label\"</Chunk>\n                 </DisplayCalculation>\n             \
+  \ </Button1Label>\n              <Button2Label>\n                 <Calculation><![CDATA[CalcString]]></Calculation>\n\
+  \                 <DisplayCalculation>\n                    <Chunk type=\"NoRef\"\
+  >\"Btn 2 Label\"</Chunk>\n                 </DisplayCalculation>\n             \
+  \ </Button2Label>\n              <Button3Label>\n                 <Calculation><![CDATA[CalcString]]></Calculation>\n\
+  \                 <DisplayCalculation>\n                    <Chunk type=\"NoRef\"\
+  >\"Btn 3 Label\"</Chunk>\n                 </DisplayCalculation>\n             \
+  \ </Button3Label>\n              <Button1ForceFgnd>\n                 <Calculation><![CDATA[CalcString]]></Calculation>\n\
+  \                 <DisplayCalculation>\n                    <Chunk type=\"NoRef\"\
+  >1</Chunk>\n                 </DisplayCalculation>\n              </Button1ForceFgnd>\n\
+  \              <Button2ForceFgnd>\n                 <Calculation><![CDATA[CalcString]]></Calculation>\n\
+  \                 <DisplayCalculation>\n                    <Chunk type=\"NoRef\"\
+  >0</Chunk>\n                 </DisplayCalculation>\n              </Button2ForceFgnd>\n\
+  \              <Button3ForceFgnd>\n                 <Calculation><![CDATA[CalcString]]></Calculation>\n\
+  \                 <DisplayCalculation>\n                    <Chunk type=\"NoRef\"\
+  >1</Chunk>\n                 </DisplayCalculation>\n              </Button3ForceFgnd>\n\
+  \              }"
+requires_db_ids: true
+fmxmlsnippet_xml: "<Step enable=\"True\" id=\"187\" name=\"Configure Local Notification\"\
+  >\n           <Script id=\"3\" name=\"Custom Dialog\"/>\n           <Action value=\"\
+  {value}\">\n              <Name>\n                 <Calculation><![CDATA[\"CalcString\"\
+  ]]></Calculation>\n              </Name>\n              For Action == Queue:\n \
+  \             {\n              <Delay>\n                 <Calculation><![CDATA[CalcString]]></Calculation>\n\
+  \              </Delay>\n              <Title>\n                 <Calculation><![CDATA[CalcString]]></Calculation>\n\
+  \              </Title>\n              <Body>\n                 <Calculation><![CDATA[CalcString]]></Calculation>\n\
+  \              </Body>\n              <Button1Label>\n                 <Calculation><![CDATA[CalcString]]></Calculation>\n\
+  \              </Button1Label>\n              <Button2Label>\n                 <Calculation><![CDATA[CalcString]]></Calculation>\n\
+  \              </Button2Label>\n              <Button3Label>\n                 <Calculation><![CDATA[CalcString]]></Calculation>\n\
+  \              </Button3Label>\n              <Button1ForceFgnd>\n             \
+  \    <Calculation><![CDATA[CalcString]]></Calculation>\n              </Button1ForceFgnd>\n\
+  \              <Button2ForceFgnd>\n                 <Calculation><![CDATA[CalcString]]></Calculation>\n\
+  \              </Button2ForceFgnd>\n              <Button3ForceFgnd>\n         \
+  \        <Calculation><![CDATA[CalcString]]></Calculation>\n              </Button3ForceFgnd>\n\
+  \              }\n           </Action>\n        </Step>"

@@ -1,0 +1,28 @@
+id: 78
+name: '#[OBSOLETE]Insert Object'
+area: Fields
+ddr_xml: "<Step id=\"78\" name=\"#[OBSOLETE]Insert Object\" enable=\"True\">\n   \
+  \       <StepText>Script step text</StepText>\n          <Set state=\"True\"/>\n\
+  \          <UniversalPathList>{PathList}</UniversalPathList>\n          <OLEData>\n\
+  \            <![CDATA[{OLE data}]]>\n          </OLEData>\n          <ObjectType>{Object\
+  \ Type}</ObjectType>\n        </Step>"
+xml_values: []
+xml_description: "<p><UniversalPath> is only present if the inserted object is of\
+  \ type \"Create\n\n          from File\".\n\n</p>\n<p>Note : Although it makes sense\
+  \ for the \n\n          <UniversalPathList reference> attribute to be supported\
+  \ for this script\n\n          step, the setting of the 'Link' checkbox in the Insert\
+  \ Object dialog is\n\n          actually stored in the OLEData element's CDATA,\
+  \ despite the fact that the file\n\n          chosen via this dialog is not (since\
+  \ it is stored in the\n\n          <UniversalPathList> element).</p>\n<p>It is no\
+  \ longer possible to create this script; although, you can have step in a converted\
+  \ file. </p>"
+version: null
+conditional_elements:
+- '{PathList}'
+- '{OLE data}'
+- '{Object Type}'
+requires_db_ids: false
+fmxmlsnippet_xml: "<Step enable=\"True\" id=\"78\" name=\"#[OBSOLETE]Insert Object\"\
+  >\n          <Set state=\"True\"/>\n          <UniversalPathList>{PathList}</UniversalPathList>\n\
+  \          <OLEData>\n            <![CDATA[{OLE data}]]>\n          </OLEData>\n\
+  \          <ObjectType>{Object Type}</ObjectType>\n        </Step>"

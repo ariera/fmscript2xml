@@ -1,0 +1,48 @@
+id: 177
+name: AVPlayer Play
+area: Miscellaneous
+ddr_xml: "<Step id=\"177\" name=\"AVPlayer Play\" enable=\"True\">\n          <StepText>{Script\
+  \ step text}</StepText>\n          <Source value=\"Object\">\n            <Calculation><![CDATA[\"\
+  ObjectName\"]]></Calculation>\n            <DisplayCalculation>\n              <Chunk\
+  \ type=\"NoRef\">\"ObjectName\"</Chunk>\n            </DisplayCalculation>\n   \
+  \       </Source>\n          <Repetition>\n            <Calculation><![CDATA[3]]></Calculation>\n\
+  \            <DisplayCalculation>\n               <Chunk type=\"NoRef\">3</Chunk>\n\
+  \            </DisplayCalculation>\n          </Repetition>\n          <Source value=\"\
+  Field\">\n          <Field table={Table} name={FieldName} repetition=\"1\" id=\"\
+  2\" />\n          </Source>\n          <Source value=\"URL\">\n            <Calculation><![CDATA[\"\
+  MyURL\"]]></Calculation>\n            <DisplayCalculation>\n              <Chunk\
+  \ type=\"NoRef\">\"MyURL\"</Chunk>\n            </DisplayCalculation>\n        \
+  \  </Source>\n          <HideControls value=\"True\"/>\n          <DisableInteraction\
+  \ value=\"True\"/>\n            <Calculation><![CDATA[30]]></Calculation>\n    \
+  \        <DisplayCalculation>\n               <Chunk type=\"NoRef\">30</Chunk>\n\
+  \            </DisplayCalculation>\n          <StartOffset>\n            <Calculation><![CDATA[20]]></Calculation>\n\
+  \            <DisplayCalculation>\n               <Chunk type=\"NoRef\">20</Chunk>\n\
+  \            </DisplayCalculation>\n          </StartOffset>\n          <EndOffset>\n\
+  \            <Calculation><![CDATA[120]]></Calculation>\n            <DisplayCalculation>\n\
+  \               <Chunk type=\"NoRef\">120</Chunk>\n            </DisplayCalculation>\n\
+  \          </EndOffset>\n        </Step>"
+xml_values: []
+xml_description: The AVPlayer script step is used to initiate the playing of media
+  from a field (must be a container), a layout object (must be a container), URL,
+  or the active object (must be a container). When creating the script step, a field
+  chooser, object chooser, or URL text entry box will be shown as appropriate. All
+  parameters are optional. Only one of the "Field", "Object", or "URL" parameters
+  may be specified for a given step. Playback of the active object is initiated if
+  layout object is specified and no layout object name is provided.
+version: null
+conditional_elements:
+- '{Script step text}'
+- '{Table}'
+- '{FieldName}'
+requires_db_ids: true
+fmxmlsnippet_xml: "<Step enable=\"True\" id=\"177\" name=\"AVPlayer Play\">\n    \
+  \      <Source value=\"Object\">\n            <Calculation><![CDATA[\"ObjectName\"\
+  ]]></Calculation>\n          </Source>\n          <Repetition>\n            <Calculation><![CDATA[3]]></Calculation>\n\
+  \          </Repetition>\n          <Source value=\"Field\">\n          <Field table={Table}\
+  \ name={FieldName} repetition=\"1\" id=\"2\" />\n          </Source>\n         \
+  \ <Source value=\"URL\">\n            <Calculation><![CDATA[\"MyURL\"]]></Calculation>\n\
+  \          </Source>\n          <HideControls value=\"True\"/>\n          <DisableInteraction\
+  \ value=\"True\"/>\n            <Calculation><![CDATA[30]]></Calculation>\n    \
+  \      <StartOffset>\n            <Calculation><![CDATA[20]]></Calculation>\n  \
+  \        </StartOffset>\n          <EndOffset>\n            <Calculation><![CDATA[120]]></Calculation>\n\
+  \          </EndOffset>\n        </Step>"

@@ -1,0 +1,14 @@
+id: 22
+name: Enter Find Mode
+area: Navigation
+ddr_xml: "<Step id=\"22\" name=\"Enter Find Mode\" enable=\"True\">\n          <StepText>Script\
+  \ step text</StepText>\n          {See Perform Find for remaining XML.}\n      \
+  \  <Step>"
+xml_values: []
+xml_description: '{See Perform Find.}'
+version: null
+conditional_elements:
+- '{See Perform Find for remaining XML.}'
+requires_db_ids: false
+fmxmlsnippet_xml: "<Step enable=\"True\" id=\"22\" name=\"Enter Find Mode\">\n   \
+  \       {See Perform Find for remaining XML.}\n        <Step enable=\"True\">"

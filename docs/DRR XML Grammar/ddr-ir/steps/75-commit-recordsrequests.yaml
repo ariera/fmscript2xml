@@ -1,0 +1,15 @@
+id: 75
+name: Commit Records/Requests
+area: Records
+ddr_xml: "<Step id=\"75\" name=\"Commit Records/Requests\" enable=\"True\">\n    \
+  \      <StepText>Script step text</StepText>\n          <NoInteract state=\"True\"\
+  />\n          <Option state=\"true\"/>\n        <ESSForceCommit state=\"True\"></ESSForceCommit>\
+  \ </Step>"
+xml_values: []
+xml_description: null
+version: null
+conditional_elements: []
+requires_db_ids: false
+fmxmlsnippet_xml: "<Step enable=\"True\" id=\"75\" name=\"Commit Records/Requests\"\
+  >\n          <NoInteract state=\"True\"/>\n          <Option state=\"true\"/>\n\
+  \        <ESSForceCommit state=\"True\"></ESSForceCommit> </Step>"

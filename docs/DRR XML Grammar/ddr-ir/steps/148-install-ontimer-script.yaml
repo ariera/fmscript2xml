@@ -1,0 +1,18 @@
+id: 148
+name: Install OnTimer Script
+area: Control
+ddr_xml: "<Step id=\"148\" name=\"Install OnTimer Script\" enable=\"True\">\n<StepText>Script\
+  \ step text</StepText>\n <Interval>\n          <Calculation>\n          <![CDATA[CalcString]]>\n\
+  \          </Calculation>\n             <DisplayCalculation>\n                <Chunk\
+  \ type=\"FunctionRef\">Abs</Chunk>\n                <Chunk type=\"NoRef\">(13)</Chunk>\n\
+  \            </DisplayCalculation>\n          </Interval>\n<Script id=\"1\" name=\"\
+  Script Name \"/>\n</Step>"
+xml_values: []
+xml_description: null
+version: null
+conditional_elements: []
+requires_db_ids: true
+fmxmlsnippet_xml: "<Step enable=\"True\" id=\"148\" name=\"Install OnTimer Script\"\
+  >\n <Interval>\n          <Calculation>\n          <![CDATA[CalcString]]>\n    \
+  \      </Calculation>\n          </Interval>\n<Script id=\"1\" name=\"Script Name\
+  \ \"/>\n</Step>"

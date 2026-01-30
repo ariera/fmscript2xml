@@ -1,0 +1,13 @@
+id: 84
+name: Set Layout Object Animation
+area: Control
+ddr_xml: "<Step id=\"84\" name=\"Set Layout Object Animation\" enable=\"true\"|\"\
+  false\">\n           <StepText>Script step text</StepText>\n           <Set state=\"\
+  true\"|\"false\"/>\n        </Step>"
+xml_values: []
+xml_description: null
+version: null
+conditional_elements: []
+requires_db_ids: false
+fmxmlsnippet_xml: "<Step enable=\"true\" id=\"84\" name=\"Set Layout Object Animation\"\
+  >\n           <Set state=\"true\"|\"false\"/>\n        </Step>"

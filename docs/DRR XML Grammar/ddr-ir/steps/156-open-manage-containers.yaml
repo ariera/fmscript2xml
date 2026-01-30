@@ -1,0 +1,12 @@
+id: 156
+name: Open Manage Containers
+area: Open Menu Item
+ddr_xml: "<Step enable=\"True\" id=\"156\" name=\"Open Manage Containers\">\n    \
+  \    <StepText>Open Manage Containers</StepText>\n        </Step>"
+xml_values: []
+xml_description: null
+version: null
+conditional_elements: []
+requires_db_ids: false
+fmxmlsnippet_xml: "<Step enable=\"True\" id=\"156\" name=\"Open Manage Containers\"\
+  >\n        </Step>"

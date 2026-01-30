@@ -1,0 +1,12 @@
+id: 98
+name: Copy All Records/Requests
+area: Records
+ddr_xml: "<Step id=\"98\" name=\"Copy All Records/Requests\" enable=\"True\">\n  \
+  \        <StepText>Script step text</StepText>\n        </Step>"
+xml_values: []
+xml_description: null
+version: null
+conditional_elements: []
+requires_db_ids: false
+fmxmlsnippet_xml: "<Step enable=\"True\" id=\"98\" name=\"Copy All Records/Requests\"\
+  >\n        </Step>"

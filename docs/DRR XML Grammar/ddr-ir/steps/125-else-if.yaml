@@ -1,0 +1,15 @@
+id: 125
+name: Else If
+area: Control
+ddr_xml: "<Step name=\"Else If\" id=\"125\" enable=\"True\">\n           <StepText>Script\
+  \ step text</StepText>\n           <DisplayCalculation>\n               <Chunk\n\
+  \        type=\"FunctionRef\">Abs</Chunk>\n               <Chunk\n        type=\"\
+  NoRef\">(13)</Chunk>\n           </DisplayCalculation>\n           <Calculation>CalcString</Calculation>\n\
+  \        </Step>"
+xml_values: []
+xml_description: null
+version: null
+conditional_elements: []
+requires_db_ids: false
+fmxmlsnippet_xml: "<Step enable=\"True\" id=\"125\" name=\"Else If\">\n          \
+  \ <Calculation>CalcString</Calculation>\n        </Step>"

@@ -1,0 +1,51 @@
+id: 122
+name: New Window
+area: Windows
+ddr_xml: "<Step id=\"122\" name=\"New Window\" enable=\"True\">\n          <StepText>Script\
+  \ step text</StepText>\n          <Name>\n           <DisplayCalculation>\n    \
+  \           <Chunk\n        type=\"FunctionRef\">Abs</Chunk>\n               <Chunk\n\
+  \        type=\"NoRef\">(13)</Chunk>\n           </DisplayCalculation>\n       \
+  \     <Calculation>\n              <![CDATA[\"WindowName\"]]>\n            </Calculation>\n\
+  \          </Name>\n          <Height>\n           <DisplayCalculation>\n      \
+  \         <Chunk\n        type=\"FunctionRef\">Abs</Chunk>\n               <Chunk\n\
+  \        type=\"NoRef\">(13)</Chunk>\n           </DisplayCalculation>\n       \
+  \     <Calculation>\n              <![CDATA[200]]>\n            </Calculation>\n\
+  \          </Height>\n          <Width>\n           <DisplayCalculation>\n     \
+  \          <Chunk\n        type=\"FunctionRef\">Abs</Chunk>\n               <Chunk\n\
+  \        type=\"NoRef\">(13)</Chunk>\n           </DisplayCalculation>\n       \
+  \     <Calculation>\n              <![CDATA[400]]>\n            </Calculation>\n\
+  \          </Width>\n          <DistanceFromTop>\n            <DisplayCalculation>\n\
+  \               <Chunk\n        type=\"FunctionRef\">Abs</Chunk>\n             \
+  \  <Chunk\n        type=\"NoRef\">(13)</Chunk>\n           </DisplayCalculation>\n\
+  \            <Calculation>\n              <![CDATA[100]]>\n            </Calculation>\n\
+  \          </DistanceFromTop>\n          <DistanceFromLeft>\n            <DisplayCalculation>\n\
+  \               <Chunk\n        type=\"FunctionRef\">Abs</Chunk>\n             \
+  \  <Chunk\n        type=\"NoRef\">(13)</Chunk>\n           </DisplayCalculation>\n\
+  \            <Calculation>\n              <![CDATA[125]]>\n            </Calculation>\n\
+  \          </DistanceFromLeft>\n   <NewWndStyles Style=\"Dialog\" Close=\"Yes\"\
+  \ Minimize=\"No\" Maximize=\"Yes\" Resize=\"Yes\" MenuBar=\"Yes\"  DimParentWindow=\"\
+  No\"  Styles=\"{value}\"\n          />\n  <LayoutDestination value=\"SelectedLayout\"\
+  />\n            <Layout name=\"LayoutName\" id=\"1\"/>\n        </Step>"
+xml_values: []
+xml_description: "<p class=\"newto16\"><Layout> element is output only\n         \
+  \ if <LayoutLocation value> is not \"OriginalLayout.\"</p>\n<p class=\"newto16\"\
+  > <Calculation> element is output only if <LayoutDestination value> is \"LayoutNameByCalc\"\
+  \ or \"LayoutNumberByCalc.\"</p>\n<p class=\"newto16\"> <Layout id> is required\
+  \ in case there is more than one layout with the same name.</p>"
+version: null
+conditional_elements:
+- '{value}'
+requires_db_ids: true
+fmxmlsnippet_xml: "<Step enable=\"True\" id=\"122\" name=\"New Window\">\n       \
+  \   <Name>\n            <Calculation>\n              <![CDATA[\"WindowName\"]]>\n\
+  \            </Calculation>\n          </Name>\n          <Height>\n           \
+  \ <Calculation>\n              <![CDATA[200]]>\n            </Calculation>\n   \
+  \       </Height>\n          <Width>\n            <Calculation>\n              <![CDATA[400]]>\n\
+  \            </Calculation>\n          </Width>\n          <DistanceFromTop>\n \
+  \           <Calculation>\n              <![CDATA[100]]>\n            </Calculation>\n\
+  \          </DistanceFromTop>\n          <DistanceFromLeft>\n            <Calculation>\n\
+  \              <![CDATA[125]]>\n            </Calculation>\n          </DistanceFromLeft>\n\
+  \   <NewWndStyles Style=\"Dialog\" Close=\"Yes\" Minimize=\"No\" Maximize=\"Yes\"\
+  \ Resize=\"Yes\" MenuBar=\"Yes\"  DimParentWindow=\"No\"  Styles=\"{value}\"\n \
+  \         />\n  <LayoutDestination value=\"SelectedLayout\"/>\n            <Layout\
+  \ name=\"LayoutName\" id=\"1\"/>\n        </Step>"

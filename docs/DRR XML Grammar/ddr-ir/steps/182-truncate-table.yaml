@@ -1,0 +1,16 @@
+id: 182
+name: Truncate Table
+area: Records
+ddr_xml: "<Step enable=\"True\" id=\"182\" name=\"Truncate Table\">\n           <StepText>Truncate\
+  \ Table [ Table: &lt;Current Table&gt; ]</StepText>\n           <NoInteract state=\"\
+  False\"/>\n           <BaseTable id=\"-1\" name=\"&lt;Current Table&gt;\"/>\n  \
+  \      </Step>"
+xml_values: []
+xml_description: If <BaseTable> is not "<Current Table>", the ID and name reflect
+  the specified table.
+version: newto15
+conditional_elements: []
+requires_db_ids: false
+fmxmlsnippet_xml: "<Step enable=\"True\" id=\"182\" name=\"Truncate Table\">\n   \
+  \        <NoInteract state=\"False\"/>\n           <BaseTable id=\"-1\" name=\"\
+  &lt;Current Table&gt;\"/>\n        </Step>"

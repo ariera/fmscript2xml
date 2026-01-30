@@ -1,0 +1,12 @@
+id: 85
+name: Allow User Abort
+area: Control
+ddr_xml: "<Step id=\"85\" name=\"Allow User Abort\" enable=\"True\">\n          <StepText>Script\
+  \ step text</StepText>\n          <Set state=\"True\"/>\n        </Step>"
+xml_values: []
+xml_description: null
+version: null
+conditional_elements: []
+requires_db_ids: false
+fmxmlsnippet_xml: "<Step enable=\"True\" id=\"85\" name=\"Allow User Abort\">\n  \
+  \        <Set state=\"True\"/>\n        </Step>"

@@ -1,0 +1,54 @@
+id: 74
+name: Go to Related Record
+area: Navigation
+ddr_xml: "<Step id=\"74\" name=\"Go to Related Record\" enable=\"True\">\n       \
+  \   <StepText>Script step text</StepText>\n          <Option state=\"true\"/>\n\
+  \          <ShowInNewWindow state=\"true\"/>\n          <Restore state=\"true\"\
+  />\n          <MatchAllRecords state=\"true\"/>\n          <Table name={TableName}\
+  \ id={id value}/>\n          <LayoutDestination value=\"SelectedLayout\"/>\n   \
+  \       <Layout name={LayoutName} id={id value}/>\n  <Animation value={AnimationID}/>\n\
+  \          <Name>\n              <Calculation><![CDATA[CalcString]]></Calculation>\n\
+  \              <DisplayCalculation>\n                <Chunk\n        type=\"FunctionRef\"\
+  >Abs</Chunk>\n                <Chunk\n        type=\"NoRef\">(13)</Chunk>\n    \
+  \          </DisplayCalculation>\n          </Name>\n          <Height>\n      \
+  \        <Calculation><![CDATA[CalcString]]></Calculation>\n              <DisplayCalculation>\n\
+  \                <Chunk\n        type=\"FunctionRef\">Abs</Chunk>\n            \
+  \    <Chunk\n        type=\"NoRef\">(13)</Chunk>\n              </DisplayCalculation>\n\
+  \          </Height>\n          <Width>\n              <Calculation><![CDATA[CalcString]]></Calculation>\n\
+  \              <DisplayCalculation>\n                <Chunk\n        type=\"FunctionRef\"\
+  >Abs</Chunk>\n                <Chunk\n        type=\"NoRef\">(13)</Chunk>\n    \
+  \          </DisplayCalculation>\n          </Width>\n          <DistanceFromTop>\n\
+  \              <Calculation><![CDATA[CalcString]]></Calculation>\n             \
+  \ <DisplayCalculation>\n                <Chunk\n        type=\"FunctionRef\">Abs</Chunk>\n\
+  \                <Chunk\n        type=\"NoRef\">(13)</Chunk>\n              </DisplayCalculation>\n\
+  \          </DistanceFromTop>\n          <DistanceFromLeft>\n              <Calculation><![CDATA[1221]]></Calculation>\n\
+  \              <DisplayCalculation>\n                <Chunk\n        type=\"FunctionRef\"\
+  >Abs</Chunk>\n                <Chunk\n        type=\"NoRef\">(13)</Chunk>\n    \
+  \          </DisplayCalculation>\n           </DistanceFromLeft>\n        </Step>"
+xml_values: []
+xml_description: "<p><Option> is used to denote state of \"Use external table's layout'\"\
+  \n\n          checkbox.</p>\n<p> <Restore> element is used to denote state of \"\
+  Show all related records in\n\n          new found set\" checkbox.</p>\n<p> <Layout>\
+  \ element is output only if <LayoutLocation value> is not \"CurrentLayout\"</p>\n\
+  <p> <Calculation> element is output only if <LayoutDestination value> is \"LayoutNameByCalc\"\
+  \ or \"LayoutNumberByCalc.\"</p>\n<p class=\"newto16\"><Animation> element is output\
+  \ only if an animation value other than \"None\" was selected for the script step.</p>"
+version: null
+conditional_elements:
+- '{TableName}'
+- '{id value}'
+- '{LayoutName}'
+- '{id value}'
+- '{AnimationID}'
+requires_db_ids: false
+fmxmlsnippet_xml: "<Step enable=\"True\" id=\"74\" name=\"Go to Related Record\">\n\
+  \          <Option state=\"true\"/>\n          <ShowInNewWindow state=\"true\"/>\n\
+  \          <Restore state=\"true\"/>\n          <MatchAllRecords state=\"true\"\
+  />\n          <Table name={TableName} id={id value}/>\n          <LayoutDestination\
+  \ value=\"SelectedLayout\"/>\n          <Layout name={LayoutName} id={id value}/>\n\
+  \  <Animation value={AnimationID}/>\n          <Name>\n              <Calculation><![CDATA[CalcString]]></Calculation>\n\
+  \          </Name>\n          <Height>\n              <Calculation><![CDATA[CalcString]]></Calculation>\n\
+  \          </Height>\n          <Width>\n              <Calculation><![CDATA[CalcString]]></Calculation>\n\
+  \          </Width>\n          <DistanceFromTop>\n              <Calculation><![CDATA[CalcString]]></Calculation>\n\
+  \          </DistanceFromTop>\n          <DistanceFromLeft>\n              <Calculation><![CDATA[1221]]></Calculation>\n\
+  \           </DistanceFromLeft>\n        </Step>"

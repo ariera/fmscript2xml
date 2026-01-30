@@ -1,0 +1,19 @@
+id: 37
+name: Save a Copy as
+area: Files
+ddr_xml: "<Step id=\"37\" name=\"Save a Copy as\" enable=\"True\">\n          <StepText>Script\
+  \ step text</StepText>\n          <AutoOpen state=\"True\"/>\n          <CreateEmail\
+  \ state=\"True\"/>\n          <CreateDirectories state=\"True\"/>\n          <SaveAsType\
+  \ value=\"Copy\"/>\n          <UniversalPathList>{PathList}</UniversalPathList>\n\
+  \        </Step>"
+xml_values: []
+xml_description: "{PathList} can consist of multiple absolute or relative paths, the\
+  \ first valid\n\n        one of which is used at execution time."
+version: null
+conditional_elements:
+- '{PathList}'
+requires_db_ids: false
+fmxmlsnippet_xml: "<Step enable=\"True\" id=\"37\" name=\"Save a Copy as\">\n    \
+  \      <AutoOpen state=\"True\"/>\n          <CreateEmail state=\"True\"/>\n   \
+  \       <CreateDirectories state=\"True\"/>\n          <SaveAsType value=\"Copy\"\
+  />\n          <UniversalPathList>{PathList}</UniversalPathList>\n        </Step>"

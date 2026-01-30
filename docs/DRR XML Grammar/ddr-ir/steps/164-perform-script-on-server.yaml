@@ -1,0 +1,30 @@
+id: 164
+name: Perform Script on Server
+area: Control
+ddr_xml: "<Step name=\"Perform Script on Server\" id=\"164\" enable=\"True\">\n  \
+  \        <Calculated>\n           <Calculation>\n              <![CDATA[\"Script\
+  \ name\"]]>\n           </Calculation>\n          </Calculated>\n          <StepText>Script\
+  \ step text</StepText>\n           <DisplayCalculation>\n           <Calculation>\n\
+  \          <WaitForCompletion state=\"True\"/>\n          <FileReference name={name}\
+  \ id=\"1\">\n            <UniversalPathList>{PathList}</UniversalPathList>\n   \
+  \       </FileReference>\n          <Script name=\"EndOfYear\" id=\"1\"/>\n    \
+  \    </Step>"
+xml_values: []
+xml_description: "<p><FileReference> is only required for external scripts.</p>\n\
+  <p class=\"newto17\"><Calculated> exists only when a script name is specified by\
+  \ a calculation.</p>\n<p>{PathList} can consist of multiple absolute or relative\
+  \ paths, the first valid\n\n          one of which is used at execution time.</p>\n\
+  <p> <Calculation> and <DisplayCalculation> nodes will only exist when a script parameter\
+  \ was specified.</p>"
+version: null
+conditional_elements:
+- '{name}'
+- '{PathList}'
+requires_db_ids: true
+fmxmlsnippet_xml: "<Step enable=\"True\" id=\"164\" name=\"Perform Script on Server\"\
+  >\n          <Calculated>\n           <Calculation>\n              <![CDATA[\"Script\
+  \ name\"]]>\n           </Calculation>\n          </Calculated>\n           <DisplayCalculation>\n\
+  \           <Calculation>\n          <WaitForCompletion state=\"True\"/>\n     \
+  \     <FileReference name={name} id=\"1\">\n            <UniversalPathList>{PathList}</UniversalPathList>\n\
+  \          </FileReference>\n          <Script name=\"EndOfYear\" id=\"1\"/>\n \
+  \       </Step>"

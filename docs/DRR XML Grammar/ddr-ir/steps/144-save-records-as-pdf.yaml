@@ -1,0 +1,92 @@
+id: 144
+name: Save Records as PDF
+area: Records
+ddr_xml: "<Step id=\"144\" name=\"Save Records as PDF\" enable=\"True\">\n       \
+  \   <StepText>Script step text</StepText>\n          <Option state=\"True\"/>\n\
+  \          <NoInteract state=\"True\"/>\n          <Restore state=\"True\"/>\n \
+  \         <AutoOpen state=\"True\"/>\n          <CreateEmail state=\"True\"/>\n\
+  \          <CreateDirectories state=\"True\"/>\n          <UniversalPathList>{PathList}</UniversalPathList>\n\
+  \            <Document compatibility=\"Acrobat5AndLater\">\n              <Title>\n\
+  \                <DisplayCalculation>\n                <Chunk\n        type=\"FunctionRef\"\
+  >Abs</Chunk>\n                <Chunk\n        type=\"NoRef\">(13)</Chunk>\n    \
+  \            </DisplayCalculation>\n                <Calculation>\n            \
+  \    <![CDATA[CalcString]]>\n                </Calculation>\n               </Title>\n\
+  \                <Subject>\n                <DisplayCalculation>\n             \
+  \   <Chunk\n        type=\"FunctionRef\">Abs</Chunk>\n                <Chunk\n \
+  \       type=\"NoRef\">(13)</Chunk>\n                </DisplayCalculation>\n   \
+  \             <Calculation>\n                <![CDATA[CalcString]]>\n          \
+  \      </Calculation>\n                </Subject>\n                <Author>\n  \
+  \              <DisplayCalculation>\n                <Chunk\n        type=\"FunctionRef\"\
+  >Abs</Chunk>\n                <Chunk\n        type=\"NoRef\">(13)</Chunk>\n    \
+  \            </DisplayCalculation>\n                <Calculation>\n            \
+  \    <![CDATA[CalcString]]>\n                </Calculation>\n                </Author\
+  \ >\n                <KeyWords>\n                <DisplayCalculation>\n        \
+  \        <Chunk\n        type=\"FunctionRef\">Abs</Chunk>\n                <Chunk\n\
+  \        type=\"NoRef\">(13)</Chunk>\n                </DisplayCalculation>\n  \
+  \              <Calculation>\n                <![CDATA[CalcString]]>\n         \
+  \       </Calculation>\n                </KeyWords >\n                <NumberFrom>\n\
+  \                <DisplayCalculation>\n                <Chunk\n        type=\"FunctionRef\"\
+  >Abs</Chunk>\n                <Chunk\n        type=\"NoRef\">(13)</Chunk>\n    \
+  \            </DisplayCalculation>\n                <Calculation>\n            \
+  \    <![CDATA[CalcString]]>\n                </Calculation>\n                </NumberFrom>\n\
+  \                <AllPages state=\"true\">\n                <From>\n           \
+  \     <DisplayCalculation>\n                <Chunk\n        type=\"FunctionRef\"\
+  >Abs</Chunk>\n                <Chunk\n        type=\"NoRef\">(13)</Chunk>\n    \
+  \            </DisplayCalculation>\n                <Calculation>\n            \
+  \    <![CDATA[CalcString]]>\n                </Calculation>\n                </From>\n\
+  \                <To>\n                <DisplayCalculation>\n                <Chunk\n\
+  \        type=\"FunctionRef\">Abs</Chunk>\n                <Chunk\n        type=\"\
+  NoRef\">(13)</Chunk>\n                </DisplayCalculation>\n                <Calculation>\n\
+  \                <![CDATA[CalcString]]>\n                </Calculation>\n      \
+  \          </To>\n            </Document>\n            <Security requireOpenPassword=\"\
+  True\"\n                requireControlEditPassword=\"True\"\n                controlPrinting=\"\
+  HighResolution\"\n                controlEditing=\"AnyExceptExtracting\"\n     \
+  \           enableCopying=\"True\"\n        allowScreenReader=\"True\">\n      \
+  \        <OpenPassword>\n                <DisplayCalculation>\n                <Chunk\n\
+  \        type=\"FunctionRef\">Abs</Chunk>\n                <Chunk\n        type=\"\
+  NoRef\">(13)</Chunk>\n                </DisplayCalculation>\n                <Calculation>\n\
+  \                <![CDATA[CalcString]]>\n                </Calculation>\n      \
+  \         </OpenPassword>\n              <ControlPassword>\n                <DisplayCalculation>\n\
+  \                <Chunk\n        type=\"FunctionRef\">Abs</Chunk>\n            \
+  \    <Chunk\n        type=\"NoRef\">(13)</Chunk>\n                </DisplayCalculation>\n\
+  \                <Calculation>\n                <![CDATA[CalcString]]>\n       \
+  \         </Calculation>\n              </ControlPassword>\n            </Security>\n\
+  \            <View show=\"PageOnly\" pageLayout=\"SinglePage\"\n        magnification=\"\
+  25\"/>\n        </Step>"
+xml_values: []
+xml_description: "<PDFOptions appearance> is generated only if\n        <ul>\n<li><PDFOptions\
+  \ source> is \"BlankRecord\"</li>\n<li><Option state=\"True\"> is \"Append to Existing\
+  \ PDF\" </li>\n</ul>"
+version: null
+conditional_elements:
+- '{PathList}'
+requires_db_ids: false
+fmxmlsnippet_xml: "<Step enable=\"True\" id=\"144\" name=\"Save Records as PDF\">\n\
+  \          <Option state=\"True\"/>\n          <NoInteract state=\"True\"/>\n  \
+  \        <Restore state=\"True\"/>\n          <AutoOpen state=\"True\"/>\n     \
+  \     <CreateEmail state=\"True\"/>\n          <CreateDirectories state=\"True\"\
+  />\n          <UniversalPathList>{PathList}</UniversalPathList>\n            <Document\
+  \ compatibility=\"Acrobat5AndLater\">\n              <Title>\n                <Calculation>\n\
+  \                <![CDATA[CalcString]]>\n                </Calculation>\n      \
+  \         </Title>\n                <Subject>\n                <Calculation>\n \
+  \               <![CDATA[CalcString]]>\n                </Calculation>\n       \
+  \         </Subject>\n                <Author>\n                <Calculation>\n\
+  \                <![CDATA[CalcString]]>\n                </Calculation>\n      \
+  \          </Author >\n                <KeyWords>\n                <Calculation>\n\
+  \                <![CDATA[CalcString]]>\n                </Calculation>\n      \
+  \          </KeyWords >\n                <NumberFrom>\n                <Calculation>\n\
+  \                <![CDATA[CalcString]]>\n                </Calculation>\n      \
+  \          </NumberFrom>\n                <AllPages state=\"true\">\n          \
+  \      <From>\n                <Calculation>\n                <![CDATA[CalcString]]>\n\
+  \                </Calculation>\n                </From>\n                <To>\n\
+  \                <Calculation>\n                <![CDATA[CalcString]]>\n       \
+  \         </Calculation>\n                </To>\n            </Document>\n     \
+  \       <Security requireOpenPassword=\"True\"\n                requireControlEditPassword=\"\
+  True\"\n                controlPrinting=\"HighResolution\"\n                controlEditing=\"\
+  AnyExceptExtracting\"\n                enableCopying=\"True\"\n        allowScreenReader=\"\
+  True\">\n              <OpenPassword>\n                <Calculation>\n         \
+  \       <![CDATA[CalcString]]>\n                </Calculation>\n               </OpenPassword>\n\
+  \              <ControlPassword>\n                <Calculation>\n              \
+  \  <![CDATA[CalcString]]>\n                </Calculation>\n              </ControlPassword>\n\
+  \            </Security>\n            <View show=\"PageOnly\" pageLayout=\"SinglePage\"\
+  \n        magnification=\"25\"/>\n        </Step>"

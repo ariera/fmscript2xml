@@ -1,0 +1,50 @@
+id: 143
+name: Save Records as Excel
+area: Records
+ddr_xml: "<Step id=\"143\" name=\"Save Records as Excel\" enable=\"True\">\n     \
+  \       <StepText>Script step text</StepText>\n            <NoInteract state=\"\
+  True\"/>\n            <Restore state=\"True\"/>\n            <AutoOpen state=\"\
+  True\"/>\n            <CreateEmail state=\"True\"/>\n            <CreateDirectories\
+  \ state=\"True\"/>\n            <UniversalPathList>{PathList}</UniversalPathList>\n\
+  \            <SaveType value=\"BrowsedRecords\"/>\n            <UseFieldNames state=\"\
+  True\"/>\n            <WorkSheet>\n                <DisplayCalculation>\n      \
+  \          <Chunk\n        type=\"FunctionRef\">Abs</Chunk>\n                <Chunk\n\
+  \        type=\"NoRef\">(13)</Chunk>\n                </DisplayCalculation>\n  \
+  \              <Calculation>\n                <![CDATA[CalcString]]>\n         \
+  \       </Calculation>\n            </WorkSheet>\n            <Title>\n        \
+  \        <DisplayCalculation>\n                <Chunk\n        type=\"FunctionRef\"\
+  >Abs</Chunk>\n                <Chunk\n        type=\"NoRef\">(13)</Chunk>\n    \
+  \            </DisplayCalculation>\n                <Calculation>\n            \
+  \    <![CDATA[CalcString]]>\n                </Calculation>\n            </Title>\n\
+  \            <Subject>\n                <DisplayCalculation>\n                <Chunk\n\
+  \        type=\"FunctionRef\">Abs</Chunk>\n                <Chunk\n        type=\"\
+  NoRef\">(13)</Chunk>\n                </DisplayCalculation>\n                <Calculation>\n\
+  \                <![CDATA[CalcString]]>\n                </Calculation>\n      \
+  \      </Subject>\n            <Author>\n                <DisplayCalculation>\n\
+  \                <Chunk\n        type=\"FunctionRef\">Abs</Chunk>\n            \
+  \    <Chunk\n        type=\"NoRef\">(13)</Chunk>\n                </DisplayCalculation>\n\
+  \                <Calculation>\n                <![CDATA[CalcString]]>\n       \
+  \         </Calculation>\n            </Author >\n        </Step>"
+xml_values: []
+xml_description: '<p><Profile> may not be generated if there is no output file specified
+  in the script step.</p>
+
+  <p><Profile Datatype> value of "XLXE" means export to "Excel workbook (.xlsx)" type.
+  </p>'
+version: null
+conditional_elements:
+- '{PathList}'
+requires_db_ids: false
+fmxmlsnippet_xml: "<Step enable=\"True\" id=\"143\" name=\"Save Records as Excel\"\
+  >\n            <NoInteract state=\"True\"/>\n            <Restore state=\"True\"\
+  />\n            <AutoOpen state=\"True\"/>\n            <CreateEmail state=\"True\"\
+  />\n            <CreateDirectories state=\"True\"/>\n            <UniversalPathList>{PathList}</UniversalPathList>\n\
+  \            <SaveType value=\"BrowsedRecords\"/>\n            <UseFieldNames state=\"\
+  True\"/>\n            <WorkSheet>\n                <Calculation>\n             \
+  \   <![CDATA[CalcString]]>\n                </Calculation>\n            </WorkSheet>\n\
+  \            <Title>\n                <Calculation>\n                <![CDATA[CalcString]]>\n\
+  \                </Calculation>\n            </Title>\n            <Subject>\n \
+  \               <Calculation>\n                <![CDATA[CalcString]]>\n        \
+  \        </Calculation>\n            </Subject>\n            <Author>\n        \
+  \        <Calculation>\n                <![CDATA[CalcString]]>\n               \
+  \ </Calculation>\n            </Author >\n        </Step>"

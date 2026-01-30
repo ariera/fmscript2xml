@@ -1,0 +1,16 @@
+id: 103
+name: Exit Script
+area: Control
+ddr_xml: "<Step id=\"103\" name=\"Exit Script\" enable=\"True\">\n           <StepText>Script\
+  \ step text</StepText>\n            <DisplayCalculation>\n               <Chunk\n\
+  \        type=\"FunctionRef\">Abs</Chunk>\n               <Chunk\n        type=\"\
+  NoRef\">(13)</Chunk>\n            </DisplayCalculation>\n            <Calculation>\n\
+  \               <![CDATA[CalcString]]>\n            </Calculation>\n        </Step>"
+xml_values: []
+xml_description: null
+version: null
+conditional_elements: []
+requires_db_ids: false
+fmxmlsnippet_xml: "<Step enable=\"True\" id=\"103\" name=\"Exit Script\">\n      \
+  \      <Calculation>\n               <![CDATA[CalcString]]>\n            </Calculation>\n\
+  \        </Step>"

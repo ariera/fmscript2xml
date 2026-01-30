@@ -1,0 +1,17 @@
+id: 180
+name: Refresh Portal
+area: Miscellaneous
+ddr_xml: "<Step id=\"180\" name=\"Refresh Portal\" enable=\"True\">\n           <StepText>Script\
+  \ step text</StepText>\n           <ObjectName>\n              <DisplayCalculation>\n\
+  \                <Chunk type=\"FunctionRef\">Abs</Chunk>\n                <Chunk\
+  \ type=\"NoRef\">(13)</Chunk>\n              </DisplayCalculation>\n           \
+  \   <Calculation>\n                <![CDATA[CalcString]]>\n              </Calculation>\n\
+  \           </ObjectName>\n        </Step>"
+xml_values: []
+xml_description: null
+version: null
+conditional_elements: []
+requires_db_ids: false
+fmxmlsnippet_xml: "<Step enable=\"True\" id=\"180\" name=\"Refresh Portal\">\n   \
+  \        <ObjectName>\n              <Calculation>\n                <![CDATA[CalcString]]>\n\
+  \              </Calculation>\n           </ObjectName>\n        </Step>"

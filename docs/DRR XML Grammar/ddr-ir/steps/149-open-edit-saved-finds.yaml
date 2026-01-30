@@ -1,0 +1,12 @@
+id: 149
+name: Open Edit Saved Finds
+area: Open Menu Item
+ddr_xml: "<Step id=\"149\" name=\"Open Edit Saved Finds\" enable=\"True\">\n     \
+  \   <StepText>Open Edit Saved Finds</StepText>\n        </Step>"
+xml_values: []
+xml_description: null
+version: null
+conditional_elements: []
+requires_db_ids: false
+fmxmlsnippet_xml: "<Step enable=\"True\" id=\"149\" name=\"Open Edit Saved Finds\"\
+  >\n        </Step>"

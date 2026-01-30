@@ -1,0 +1,73 @@
+id: 185
+name: Configure Region Monitor Script
+area: Control
+ddr_xml: "<Step id=\"185\" name=\"Configure Region Monitor Script\" enable=\"True\"\
+  >\n           <StepText>Script step text</StepText>\n           <Script id=\"156\"\
+  \ name=\"Foo\"/>\n           <MonitorType value=\"{value}\">\n              <RangeName>\n\
+  \                 <Calculation><![CDATA[\"CalcString\"]]></Calculation>\n      \
+  \           <DisplayCalculation>\n                    <Chunk type=\"FunctionRef\"\
+  >Abs</Chunk>\n                    <Chunk type=\"NoRef\">(13)</Chunk>\n         \
+  \        </DisplayCalculation>\n              </RangeName>\n              {For an\
+  \ iBeacon monitor:\n                 <Calculation><![CDATA[CalcString]]></Calculation>\n\
+  \                 <DisplayCalculation>\n                    <Chunk type=\"FunctionRef\"\
+  >Abs</Chunk>\n                    <Chunk type=\"NoRef\">(13)</Chunk>\n         \
+  \        </DisplayCalculation>\n              <MajorID>\n                 <Calculation><![CDATA[CalcString]]></Calculation>\n\
+  \                 <DisplayCalculation>\n                    <Chunk type=\"FunctionRef\"\
+  >Abs</Chunk>\n                    <Chunk type=\"NoRef\">(13)</Chunk>\n         \
+  \        </DisplayCalculation>\n              </MajorID>\n              <MinorID>\n\
+  \                 <Calculation><![CDATA[CalcString]]></Calculation>\n          \
+  \       <DisplayCalculation>\n                    <Chunk type=\"FunctionRef\">Abs</Chunk>\n\
+  \                    <Chunk type=\"NoRef\">(13)</Chunk>\n                 </DisplayCalculation>\n\
+  \              </MinorID>\n              }\n              {For a Geofence monitor:\n\
+  \              <Latitude>\n                 <Calculation><![CDATA[CalcString]]></Calculation>\n\
+  \                 <DisplayCalculation>\n                    <Chunk type=\"FunctionRef\"\
+  >Abs</Chunk>\n                    <Chunk type=\"NoRef\">(13)</Chunk>\n         \
+  \        </DisplayCalculation>\n              </Latitude>\n              <Longitude>\n\
+  \                 <Calculation><![CDATA[CalcString]]></Calculation>\n          \
+  \       <DisplayCalculation>\n                    <Chunk type=\"FunctionRef\">Abs</Chunk>\n\
+  \                    <Chunk type=\"NoRef\">(13)</Chunk>\n                 </DisplayCalculation>\n\
+  \              </Longitude>\n              <Radius>\n                 <Calculation><![CDATA[CalcString]]></Calculation>\n\
+  \                 <DisplayCalculation>\n                    <Chunk type=\"FunctionRef\"\
+  >Abs</Chunk>\n                    <Chunk type=\"NoRef\">(13)</Chunk>\n         \
+  \        </DisplayCalculation>\n              </Radius>\n              }\n     \
+  \      </MonitorType>\n        </Step>"
+xml_values: []
+xml_description: When <MonitorType value> is Clear, only <RangeName> is output.
+version: newto16
+conditional_elements:
+- '{value}'
+- "{For an iBeacon monitor:\n                 <Calculation><![CDATA[CalcString]]></Calculation>\n\
+  \                 <DisplayCalculation>\n                    <Chunk type=\"FunctionRef\"\
+  >Abs</Chunk>\n                    <Chunk type=\"NoRef\">(13)</Chunk>\n         \
+  \        </DisplayCalculation>\n              <MajorID>\n                 <Calculation><![CDATA[CalcString]]></Calculation>\n\
+  \                 <DisplayCalculation>\n                    <Chunk type=\"FunctionRef\"\
+  >Abs</Chunk>\n                    <Chunk type=\"NoRef\">(13)</Chunk>\n         \
+  \        </DisplayCalculation>\n              </MajorID>\n              <MinorID>\n\
+  \                 <Calculation><![CDATA[CalcString]]></Calculation>\n          \
+  \       <DisplayCalculation>\n                    <Chunk type=\"FunctionRef\">Abs</Chunk>\n\
+  \                    <Chunk type=\"NoRef\">(13)</Chunk>\n                 </DisplayCalculation>\n\
+  \              </MinorID>\n              }"
+- "{For a Geofence monitor:\n              <Latitude>\n                 <Calculation><![CDATA[CalcString]]></Calculation>\n\
+  \                 <DisplayCalculation>\n                    <Chunk type=\"FunctionRef\"\
+  >Abs</Chunk>\n                    <Chunk type=\"NoRef\">(13)</Chunk>\n         \
+  \        </DisplayCalculation>\n              </Latitude>\n              <Longitude>\n\
+  \                 <Calculation><![CDATA[CalcString]]></Calculation>\n          \
+  \       <DisplayCalculation>\n                    <Chunk type=\"FunctionRef\">Abs</Chunk>\n\
+  \                    <Chunk type=\"NoRef\">(13)</Chunk>\n                 </DisplayCalculation>\n\
+  \              </Longitude>\n              <Radius>\n                 <Calculation><![CDATA[CalcString]]></Calculation>\n\
+  \                 <DisplayCalculation>\n                    <Chunk type=\"FunctionRef\"\
+  >Abs</Chunk>\n                    <Chunk type=\"NoRef\">(13)</Chunk>\n         \
+  \        </DisplayCalculation>\n              </Radius>\n              }"
+requires_db_ids: true
+fmxmlsnippet_xml: "<Step enable=\"True\" id=\"185\" name=\"Configure Region Monitor\
+  \ Script\">\n           <Script id=\"156\" name=\"Foo\"/>\n           <MonitorType\
+  \ value=\"{value}\">\n              <RangeName>\n                 <Calculation><![CDATA[\"\
+  CalcString\"]]></Calculation>\n              </RangeName>\n              {For an\
+  \ iBeacon monitor:\n                 <Calculation><![CDATA[CalcString]]></Calculation>\n\
+  \              <MajorID>\n                 <Calculation><![CDATA[CalcString]]></Calculation>\n\
+  \              </MajorID>\n              <MinorID>\n                 <Calculation><![CDATA[CalcString]]></Calculation>\n\
+  \              </MinorID>\n              }\n              {For a Geofence monitor:\n\
+  \              <Latitude>\n                 <Calculation><![CDATA[CalcString]]></Calculation>\n\
+  \              </Latitude>\n              <Longitude>\n                 <Calculation><![CDATA[CalcString]]></Calculation>\n\
+  \              </Longitude>\n              <Radius>\n                 <Calculation><![CDATA[CalcString]]></Calculation>\n\
+  \              </Radius>\n              }\n           </MonitorType>\n        </Step>"

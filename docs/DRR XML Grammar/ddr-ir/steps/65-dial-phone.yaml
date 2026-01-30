@@ -1,0 +1,18 @@
+id: 65
+name: Dial Phone
+area: Miscellaneous
+ddr_xml: "<Step id=\"65\" name=\"Dial Phone\" enable=\"True\">\n          <StepText>Script\
+  \ step text</StepText>\n          <NoInteract state=\"True\"/>\n          <UseDialPreferences\
+  \ value=\"True\"/>\n          <DisplayCalculation>\n               <Chunk\n    \
+  \    type=\"FunctionRef\">Abs</Chunk>\n               <Chunk\n        type=\"NoRef\"\
+  >(13)</Chunk>\n           </DisplayCalculation>\n          <Calculation>\n     \
+  \       <![CDATA[613-667-5030]]>\n          </Calculation>\n        </Step>"
+xml_values: []
+xml_description: null
+version: null
+conditional_elements: []
+requires_db_ids: false
+fmxmlsnippet_xml: "<Step enable=\"True\" id=\"65\" name=\"Dial Phone\">\n        \
+  \  <NoInteract state=\"True\"/>\n          <UseDialPreferences value=\"True\"/>\n\
+  \          <Calculation>\n            <![CDATA[613-667-5030]]>\n          </Calculation>\n\
+  \        </Step>"

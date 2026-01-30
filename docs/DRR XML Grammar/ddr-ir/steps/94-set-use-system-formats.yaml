@@ -1,0 +1,13 @@
+id: 94
+name: Set Use System Formats
+area: Files
+ddr_xml: "<Step id=\"94\" name=\"Set Use System Formats\" enable=\"True\">\n     \
+  \     <StepText>Script step text</StepText>\n          <Set state=\"True\"/>\n \
+  \       </Step>"
+xml_values: []
+xml_description: null
+version: null
+conditional_elements: []
+requires_db_ids: false
+fmxmlsnippet_xml: "<Step enable=\"True\" id=\"94\" name=\"Set Use System Formats\"\
+  >\n          <Set state=\"True\"/>\n        </Step>"

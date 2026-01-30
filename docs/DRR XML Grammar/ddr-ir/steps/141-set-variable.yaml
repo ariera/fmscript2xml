@@ -1,0 +1,26 @@
+id: 141
+name: Set Variable
+area: Control
+ddr_xml: "<Step id=\"141\" name=\"Set Variable\" enable=\"True\">\n           <StepText>Script\
+  \ step text</StepText>\n            <Name>{Variable name}</Name>\n            <Value>\n\
+  \               <DisplayCalculation>\n                <Chunk\n        type=\"FunctionRef\"\
+  >Abs</Chunk>\n                <Chunk\n        type=\"NoRef\">(13)</Chunk>\n    \
+  \           </DisplayCalculation>\n               <Calculation>\n              \
+  \  <![CDATA[CalcString]]>\n               </Calculation>\n            </Value>\n\
+  \            <Repetition>\n               <DisplayCalculation>\n               \
+  \ <Chunk\n        type=\"FunctionRef\">Abs</Chunk>\n                <Chunk\n   \
+  \     type=\"NoRef\">(13)</Chunk>\n               </DisplayCalculation>\n      \
+  \         <Calculation>\n                <![CDATA[CalcString]]>\n              \
+  \ </Calculation>\n            </Repetition>\n        </Step>"
+xml_values: []
+xml_description: null
+version: null
+conditional_elements:
+- '{Variable name}'
+requires_db_ids: false
+fmxmlsnippet_xml: "<Step enable=\"True\" id=\"141\" name=\"Set Variable\">\n     \
+  \       <Name>{Variable name}</Name>\n            <Value>\n               <Calculation>\n\
+  \                <![CDATA[CalcString]]>\n               </Calculation>\n       \
+  \     </Value>\n            <Repetition>\n               <Calculation>\n       \
+  \         <![CDATA[CalcString]]>\n               </Calculation>\n            </Repetition>\n\
+  \        </Step>"

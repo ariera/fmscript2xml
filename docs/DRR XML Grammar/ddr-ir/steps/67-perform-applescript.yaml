@@ -1,0 +1,24 @@
+id: 67
+name: Perform AppleScript
+area: Miscellaneous
+ddr_xml: "<Step id=\"67\" name=\"Perform AppleScript\" enable=\"True\">\n        \
+  \  <StepText>Script step text</StepText>\n          <ContentType value=\"Calculation\"\
+  >\n          <CompiledScript>\n            <![CDATA[{compiled apple script data}]]>\n\
+  \          </CompiledScript>\n          <DisplayCalculation>\n              <Chunk\n\
+  \        type=\"FunctionRef\">Abs</Chunk>\n              <Chunk\n        type=\"\
+  NoRef\">(13)</Chunk>\n          </DisplayCalculation>\n          <Calculation>\n\
+  \            <![CDATA[\"this is a calculated string\"]]>\n          </Calculation>\n\
+  \          <Text>This is a string literal</Text>\n        </Step>"
+xml_values: []
+xml_description: "<Calculation> is present when <ContentType value> is \"Calculation\"\
+  \n\n        and <Text> is present when it is \"Text\"."
+version: null
+conditional_elements:
+- '{compiled apple script data}'
+requires_db_ids: false
+fmxmlsnippet_xml: "<Step enable=\"True\" id=\"67\" name=\"Perform AppleScript\">\n\
+  \          <ContentType value=\"Calculation\">\n          <CompiledScript>\n   \
+  \         <![CDATA[{compiled apple script data}]]>\n          </CompiledScript>\n\
+  \          <Calculation>\n            <![CDATA[\"this is a calculated string\"]]>\n\
+  \          </Calculation>\n          <Text>This is a string literal</Text>\n   \
+  \     </Step>"

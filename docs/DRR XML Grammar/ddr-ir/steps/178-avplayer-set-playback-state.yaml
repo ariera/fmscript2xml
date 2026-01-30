@@ -1,0 +1,16 @@
+id: 178
+name: AVPlayer Set Playback State
+area: Miscellaneous
+ddr_xml: "<Step id=\"178\" name=\"AVPlayer Set Playback State\">\n          <StepText>{Script\
+  \ step text}</StepText>\n           </StepText>\n        </Step>"
+xml_values: []
+xml_description: Causes the AVPlayer to pause, resume playing, or stop. Once a player
+  is stopped, it cannot be set to Playing (because "stopped" gives FileMaker permission
+  to get rid of the AVPlayer). Conversely, this step will not work unless the AVPlayer
+  was already either playing or paused.
+version: null
+conditional_elements:
+- '{Script step text}'
+requires_db_ids: false
+fmxmlsnippet_xml: "<Step enable=\"True\" id=\"178\" name=\"AVPlayer Set Playback State\"\
+  >\n           </StepText>\n        </Step>"

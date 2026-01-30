@@ -1,0 +1,145 @@
+id: 161
+name: Insert from Device
+area: Fields
+ddr_xml: "<Step id=\"161\" name=\"Insert from Device\" enable=\"True\">\n        \
+  \   <StepText>Script step text</StepText>\n           <InsertFrom value=\"Music\
+  \ Library\"/>\n           <Field name=\"f1\" id=\"2\" table=\"test\"/>\n       \
+  \    <Repetition>\n              <DisplayCalculation>\n                 <Chunk type=\"\
+  FunctionRef\">Abs</Chunk>\n                 <Chunk type=\"NoRef\">(13)</Chunk>\n\
+  \              </DisplayCalculation>\n              <Calculation>\n            \
+  \     <![CDATA[\"Value\"]]>\n              </Calculation>\n           </Repetition>\n\
+  \        </Step>\n        <Step id=\"161\" name=\"Insert from Device\" enable=\"\
+  True\" >\n           <StepText>Script step text</StepText>\n           <InsertFrom\
+  \ value=\"Photo Library\">\n           <Field name=\"f1\" id=\"2\" table=\"test\"\
+  />\n           <Repetition>\n              <DisplayCalculation>\n              \
+  \   <Chunk type=\"FunctionRef\">Abs</Chunk>\n                 <Chunk type=\"NoRef\"\
+  >(13)</Chunk>\n              </DisplayCalculation>\n              <Calculation>\n\
+  \                 <![CDATA[\"Value\"]]>\n              </Calculation>\n        \
+  \   </Repetition>\n        </Step>\n        <Step id=\"161\" name=\"Insert from\
+  \ Device\" enable=\"True\">\n           <StepText>Script step text</StepText>\n\
+  \           <InsertFrom value=\"Camera\">\n           <DeviceOptions>\n        \
+  \   <Camera Choice=\"front\"|\"Back\"/>\n           <Resolution Choice=\"full\"\
+  |\"small\"|\"medium\"|\"large\"/>\n           </DeviceOptions>\n           <Field\
+  \ name=\"f1\" id=\"2\" table=\"test\"/>\n           <Repetition>\n             \
+  \ <DisplayCalculation>\n                 <Chunk type=\"FunctionRef\">Abs</Chunk>\n\
+  \                 <Chunk type=\"NoRef\">(13)</Chunk>\n              </DisplayCalculation>\n\
+  \              <Calculation>\n                 <![CDATA[\"Value\"]]>\n         \
+  \     </Calculation>\n           </Repetition>\n        </Step>\n        <Step id=\"\
+  161\" name=\"Insert from Device\" enable=\"True\">\n           <StepText>Script\
+  \ step text</StepText>\n           <InsertFrom value=\"Video Camera\"/StepText>\n\
+  \           <DeviceOptions>\n           <Camera Choice=\"front\"|\"Back\"/>\n  \
+  \         <Resolution Choice=\"full\"|\"small\"|\"medium\"|\"large\"/>\n       \
+  \    <MaxDuration Enabled=\"true\"|\"false\">\n              <DisplayCalculation>\n\
+  \                 <Chunk type=\"FunctionRef\">Abs</Chunk>\n                 <Chunk\
+  \ type=\"NoRef\">(13)</Chunk>\n              </DisplayCalculation>\n           \
+  \   <Calculation>\n                 <![CDATA[CalcString]]>\n              </Calculation>\n\
+  \           </MaxDuration>\n           <StartImmediately Enabled=\"true\"|\"false\"\
+  \ />\n           </DeviceOptions>\n           <Field name=\"f1\" id=\"2\" table=\"\
+  test\"/>\n           <Repetition>\n              <DisplayCalculation>\n        \
+  \         <Chunk type=\"FunctionRef\">Abs</Chunk>\n                 <Chunk type=\"\
+  NoRef\">(13)</Chunk>\n              </DisplayCalculation>\n              <Calculation>\n\
+  \                 <![CDATA[\"Value\"]]>\n              </Calculation>\n        \
+  \   </Repetition>\n        </Step>\n        <Step id=\"161\" name=\"Insert from\
+  \ Device\" enable=\"True\">\n           <StepText>Script step text</StepText>\n\
+  \           <InsertFrom value=\"Microphone\">\n           <DeviceOptions>\n    \
+  \       <MaxDuration Enabled=\"true\"|\"false\">\n              <DisplayCalculation>\n\
+  \                 <Chunk type=\"FunctionRef\">Abs</Chunk>\n                 <Chunk\
+  \ type=\"NoRef\">(13)</Chunk>\n              </DisplayCalculation>\n           \
+  \   <Calculation>\n                 <![CDATA[CalcString]]>\n              </Calculation>\n\
+  \           </MaxDuration>\n           <StartImmediately Enabled=\"true\"|\"false\"\
+  \ />\n           </DeviceOptions>\n           <Field name=\"f1\" id=\"2\" table=\"\
+  test\"/>\n           <Repetition>\n              <DisplayCalculation>\n        \
+  \         <Chunk type=\"FunctionRef\">Abs</Chunk>\n                 <Chunk type=\"\
+  NoRef\">(13)</Chunk>\n              </DisplayCalculation>\n              <Calculation>\n\
+  \                 <![CDATA[\"Value\"]]>\n              </Calculation>\n        \
+  \   </Repetition>\n        </Step>\n        <Step id=\"161\" name=\"Insert from\
+  \ Device\" enable=\"True\">\n           <StepText>Script step text</StepText>\n\
+  \           <InsertFrom value=\"Bar Code\"/StepText>\n           <DeviceOptions>\n\
+  \           <ScanFrom Type=\"Camera\"|\"Field\"/>\n           <Camera Choice=\"\
+  front\"|\"Back\"/>\n           <BarCodes Types=<barcode_bitmask32>/>\n         \
+  \  </DeviceOptions>\n           <Field name=\"f1\" id=\"2\" table=\"test\"/>\n \
+  \          <Repetition>\n              <DisplayCalculation>\n                 <Chunk\
+  \ type=\"FunctionRef\">Abs</Chunk>\n                 <Chunk type=\"NoRef\">(13)</Chunk>\n\
+  \              </DisplayCalculation>\n              <Calculation>\n            \
+  \     <![CDATA[\"Value\"]]>\n              </Calculation>\n           </Repetition>\n\
+  \           <ScanFrom>\n              <Field name=\"f1\" id=\"2\" table=\"test\"\
+  />\n              <Repetition>\n                 <DisplayCalculation>\n        \
+  \            <Chunk type=\"FunctionRef\">Abs</Chunk>\n                    <Chunk\
+  \ type=\"NoRef\">(13)</Chunk>\n                 </DisplayCalculation>\n        \
+  \         <Calculation>\n                    <![CDATA[\"Value\"]]>\n           \
+  \      </Calculation>\n              </Repetition>\n           </ScanFrom>\n   \
+  \     </Step>\n        <Step id=\"161\" name=\"Insert from Device\" enable=\"True\"\
+  >\n           <StepText>Script step text</StepText>\n           <InsertFrom value=\"\
+  Signature\">\n           <Field name=\"f1\" id=\"2\" table=\"test\"/>\n        \
+  \   <Repetition>\n              <DisplayCalculation>\n                 <Chunk type=\"\
+  FunctionRef\">Abs</Chunk>\n                 <Chunk type=\"NoRef\">(13)</Chunk>\n\
+  \              </DisplayCalculation>\n              <Calculation>\n            \
+  \     <![CDATA[\"Value\"]]>\n              </Calculation>\n           </Repetition>\n\
+  \    <DeviceOptions>\n                <Title>\n                   <Calculation>\n\
+  \          <![CDATA[\"Value\"]]></Calculation>\n                   <DisplayCalculation>\n\
+  \                      <Chunk type=\"NoRef\">\"my test\"</Chunk>\n             \
+  \      </DisplayCalculation>\n                </Title>\n                <Message>\n\
+  \                   <Calculation>\n          <![CDATA[\"Value\"]]></Calculation>\n\
+  \                   <DisplayCalculation>\n                      <Chunk type=\"NoRef\"\
+  >\"This is my test\"</Chunk>\n                   </DisplayCalculation>\n       \
+  \         </Message>\n                   <Calculation>\n          <![CDATA[\"Value\"\
+  ]]></Calculation>\n                   <DisplayCalculation>\n                   \
+  \   <Chunk type=\"NoRef\">\"This is my test\"</Chunk>\n                   </DisplayCalculation>\n\
+  \             </DeviceOptions>\n        </Step>"
+xml_values: []
+xml_description: null
+version: null
+conditional_elements: []
+requires_db_ids: true
+fmxmlsnippet_xml: "<Step enable=\"True\" id=\"161\" name=\"Insert from Device\">\n\
+  \           <InsertFrom value=\"Music Library\"/>\n           <Field name=\"f1\"\
+  \ id=\"2\" table=\"test\"/>\n           <Repetition>\n              <Calculation>\n\
+  \                 <![CDATA[\"Value\"]]>\n              </Calculation>\n        \
+  \   </Repetition>\n        </Step>\n        <Step enable=\"True\" id=\"161\" name=\"\
+  Insert from Device\">\n           <InsertFrom value=\"Photo Library\">\n       \
+  \    <Field name=\"f1\" id=\"2\" table=\"test\"/>\n           <Repetition>\n   \
+  \           <Calculation>\n                 <![CDATA[\"Value\"]]>\n            \
+  \  </Calculation>\n           </Repetition>\n        </Step>\n        <Step enable=\"\
+  True\" id=\"161\" name=\"Insert from Device\">\n           <InsertFrom value=\"\
+  Camera\">\n           <DeviceOptions>\n           <Camera Choice=\"front\"|\"Back\"\
+  />\n           <Resolution Choice=\"full\"|\"small\"|\"medium\"|\"large\"/>\n  \
+  \         </DeviceOptions>\n           <Field name=\"f1\" id=\"2\" table=\"test\"\
+  />\n           <Repetition>\n              <Calculation>\n                 <![CDATA[\"\
+  Value\"]]>\n              </Calculation>\n           </Repetition>\n        </Step>\n\
+  \        <Step enable=\"True\" id=\"161\" name=\"Insert from Device\">\n       \
+  \    <InsertFrom value=\"Video Camera\"/StepText>\n           <DeviceOptions>\n\
+  \           <Camera Choice=\"front\"|\"Back\"/>\n           <Resolution Choice=\"\
+  full\"|\"small\"|\"medium\"|\"large\"/>\n           <MaxDuration Enabled=\"true\"\
+  |\"false\">\n              <Calculation>\n                 <![CDATA[CalcString]]>\n\
+  \              </Calculation>\n           </MaxDuration>\n           <StartImmediately\
+  \ Enabled=\"true\"|\"false\" />\n           </DeviceOptions>\n           <Field\
+  \ name=\"f1\" id=\"2\" table=\"test\"/>\n           <Repetition>\n             \
+  \ <Calculation>\n                 <![CDATA[\"Value\"]]>\n              </Calculation>\n\
+  \           </Repetition>\n        </Step>\n        <Step enable=\"True\" id=\"\
+  161\" name=\"Insert from Device\">\n           <InsertFrom value=\"Microphone\"\
+  >\n           <DeviceOptions>\n           <MaxDuration Enabled=\"true\"|\"false\"\
+  >\n              <Calculation>\n                 <![CDATA[CalcString]]>\n      \
+  \        </Calculation>\n           </MaxDuration>\n           <StartImmediately\
+  \ Enabled=\"true\"|\"false\" />\n           </DeviceOptions>\n           <Field\
+  \ name=\"f1\" id=\"2\" table=\"test\"/>\n           <Repetition>\n             \
+  \ <Calculation>\n                 <![CDATA[\"Value\"]]>\n              </Calculation>\n\
+  \           </Repetition>\n        </Step>\n        <Step enable=\"True\" id=\"\
+  161\" name=\"Insert from Device\">\n           <InsertFrom value=\"Bar Code\"/StepText>\n\
+  \           <DeviceOptions>\n           <ScanFrom Type=\"Camera\"|\"Field\"/>\n\
+  \           <Camera Choice=\"front\"|\"Back\"/>\n           <BarCodes Types=<barcode_bitmask32>/>\n\
+  \           </DeviceOptions>\n           <Field name=\"f1\" id=\"2\" table=\"test\"\
+  />\n           <Repetition>\n              <Calculation>\n                 <![CDATA[\"\
+  Value\"]]>\n              </Calculation>\n           </Repetition>\n           <ScanFrom>\n\
+  \              <Field name=\"f1\" id=\"2\" table=\"test\"/>\n              <Repetition>\n\
+  \                 <Calculation>\n                    <![CDATA[\"Value\"]]>\n   \
+  \              </Calculation>\n              </Repetition>\n           </ScanFrom>\n\
+  \        </Step>\n        <Step enable=\"True\" id=\"161\" name=\"Insert from Device\"\
+  >\n           <InsertFrom value=\"Signature\">\n           <Field name=\"f1\" id=\"\
+  2\" table=\"test\"/>\n           <Repetition>\n              <Calculation>\n   \
+  \              <![CDATA[\"Value\"]]>\n              </Calculation>\n           </Repetition>\n\
+  \    <DeviceOptions>\n                <Title>\n                   <Calculation>\n\
+  \          <![CDATA[\"Value\"]]></Calculation>\n                </Title>\n     \
+  \           <Message>\n                   <Calculation>\n          <![CDATA[\"Value\"\
+  ]]></Calculation>\n                </Message>\n                   <Calculation>\n\
+  \          <![CDATA[\"Value\"]]></Calculation>\n             </DeviceOptions>\n\
+  \        </Step>"

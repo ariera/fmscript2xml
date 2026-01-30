@@ -1,0 +1,25 @@
+id: 134
+name: Add Account
+area: Account
+ddr_xml: "<ScriptStep id=\"134\" name=\"Add Account\" enable=\"True\">\n         \
+  \ <StepText>Script step text</StepText>\n          <ChgPwdOnNextLogin value=\"True\"\
+  >\n          <AccountName>\n            <DisplayCalculation>\n               <Chunk\n\
+  \        type=\"FunctionRef\">Abs</Chunk>\n               <Chunk\n        type=\"\
+  NoRef\">(13)</Chunk>\n           </DisplayCalculation>\n            <Calculation>\n\
+  \              <![CDATA[{CalcString}]]>\n            </Calculation>\n          </AccountName>\n\
+  \            <DisplayCalculation>\n               <Chunk\n        type=\"FunctionRef\"\
+  >Abs</Chunk>\n               <Chunk\n        type=\"NoRef\">(13)</Chunk>\n     \
+  \      </DisplayCalculation>\n            <Calculation>\n              <![CDATA[{CalcString}]]>\n\
+  \            </Calculation>\n        </Step>"
+xml_values: []
+xml_description: null
+version: null
+conditional_elements:
+- '{CalcString}'
+- '{CalcString}'
+requires_db_ids: true
+fmxmlsnippet_xml: "<ScriptStep id=\"134\" name=\"Add Account\" enable=\"True\">\n\
+  \          <ChgPwdOnNextLogin value=\"True\">\n          <AccountName>\n       \
+  \     <Calculation>\n              <![CDATA[{CalcString}]]>\n            </Calculation>\n\
+  \          </AccountName>\n            <Calculation>\n              <![CDATA[{CalcString}]]>\n\
+  \            </Calculation>\n        </Step>"
