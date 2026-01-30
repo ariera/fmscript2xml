@@ -679,12 +679,21 @@ class PerformFindHandler(StepHandler):
             enabled
         )
 
-        # Restore state (default True)
-        restore = step.params.get('Restore', 'True')
-        if restore.lower() != 'false':
+        # Restore state - only add if explicitly specified or if there are other params
+        # If params are empty (Perform Find []), don't add Restore
+        restore = step.params.get('Restore', '')
+        if restore:
+            # Restore was explicitly specified
+            restore_state = 'True' if restore.lower() != 'false' else 'False'
+            restore_elem = ET.Element('Restore')
+            restore_elem.set('state', restore_state)
+            step_elem.append(restore_elem)
+        elif step.params:
+            # There are other params but no Restore specified - default to True
             restore_elem = ET.Element('Restore')
             restore_elem.set('state', 'True')
             step_elem.append(restore_elem)
+        # If params are empty, don't add Restore element
 
         # Query structure (simplified - real implementation would parse find criteria)
         # For now, create a basic query structure

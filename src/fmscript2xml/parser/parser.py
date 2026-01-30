@@ -105,6 +105,22 @@ class Parser:
                 i += 1
                 continue
 
+            # Check for ellipsis truncation marker - if found, truncate the line at that point
+            # This handles files that have been truncated with … marker
+            if '…' in line:
+                # Truncate at ellipsis and try to close any open brackets
+                ellipsis_pos = line.find('…')
+                truncated_line = line[:ellipsis_pos].strip()
+                
+                # Try to close brackets if needed
+                open_brackets = truncated_line.count('[') - truncated_line.count(']')
+                if open_brackets > 0:
+                    # Add closing brackets
+                    truncated_line += ']' * open_brackets
+                
+                line = truncated_line
+                # Continue parsing this truncated line as a step
+            
             # Try to parse as a step
             # If it has an opening bracket, collect continuation lines until brackets are balanced
             full_line = line
@@ -113,10 +129,25 @@ class Parser:
                 j = i + 1
                 while bracket_count > 0 and j < len(lines):
                     next_line = lines[j].strip()
+                    # Skip lines with ellipsis (they're truncated)
+                    if '…' in next_line:
+                        # Truncate and try to close brackets
+                        ellipsis_pos = next_line.find('…')
+                        next_line = next_line[:ellipsis_pos].strip()
+                        # Close any remaining brackets
+                        remaining_brackets = bracket_count - (next_line.count('[') - next_line.count(']'))
+                        if remaining_brackets > 0:
+                            next_line += ']' * remaining_brackets
+                            bracket_count = 0
+                        else:
+                            bracket_count += next_line.count('[') - next_line.count(']')
+                    
                     if next_line:  # Skip empty continuation lines
                         full_line += ' ' + next_line
                         bracket_count += next_line.count('[') - next_line.count(']')
                     j += 1
+                    if bracket_count <= 0:
+                        break
                 i = j
             else:
                 i += 1
