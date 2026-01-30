@@ -133,3 +133,7 @@ dmypy.json
 # Project specific
 *.pyc
 .pytest_cache/
+
+# Example folders to ignore
+examples/WWW_Import/
+examples/EMBO_Central/
