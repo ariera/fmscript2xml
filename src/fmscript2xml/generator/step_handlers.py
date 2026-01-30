@@ -191,6 +191,222 @@ class ElseHandler(StepHandler):
         return [step_elem]
 
 
+class SetErrorCaptureHandler(StepHandler):
+    """Handler for Set Error Capture steps."""
+
+    def generate(
+        self,
+        step: ParsedStep,
+        step_def: StepDefinition
+    ) -> List[ET.Element]:
+        step_elem = create_step_element(
+            step_def.id,
+            step_def.xml_step_name,
+            step_def.enable_default
+        )
+
+        # Get the state from params - "On" or "Off"
+        state_value = step.params.get('0', 'On')
+        if not state_value:
+            state_value = 'On'  # Default to On
+
+        # Convert "On"/"Off" to "True"/"False"
+        state = 'True' if state_value.lower() == 'on' else 'False'
+
+        # Use <Set state="True/False"/> structure
+        set_elem = ET.Element('Set')
+        set_elem.set('state', state)
+        step_elem.append(set_elem)
+
+        return [step_elem]
+
+
+class NewWindowHandler(StepHandler):
+    """Handler for New Window steps."""
+
+    def generate(
+        self,
+        step: ParsedStep,
+        step_def: StepDefinition
+    ) -> List[ET.Element]:
+        step_elem = create_step_element(
+            step_def.id,
+            step_def.xml_step_name,
+            step_def.enable_default
+        )
+
+        # LayoutDestination - default to CurrentLayout
+        dest_elem = ET.Element('LayoutDestination')
+        dest_elem.set('value', 'CurrentLayout')
+        step_elem.append(dest_elem)
+
+        # Window Name (wrapped in Calculation)
+        window_name = step.params.get('Name', '')
+        if window_name:
+            name_elem = ET.Element('Name')
+            calc_elem = create_cdata_element(window_name)
+            name_elem.append(calc_elem)
+            step_elem.append(name_elem)
+
+        # Height (wrapped in Calculation)
+        height = step.params.get('Height', '')
+        if height:
+            height_elem = ET.Element('Height')
+            calc_elem = create_cdata_element(height)
+            height_elem.append(calc_elem)
+            step_elem.append(height_elem)
+
+        # Width (wrapped in Calculation)
+        width = step.params.get('Width', '')
+        if width:
+            width_elem = ET.Element('Width')
+            calc_elem = create_cdata_element(width)
+            width_elem.append(calc_elem)
+            step_elem.append(width_elem)
+
+        # DistanceFromTop (formerly Top - wrapped in Calculation)
+        top = step.params.get('Top', '')
+        if top:
+            top_elem = ET.Element('DistanceFromTop')
+            calc_elem = create_cdata_element(top)
+            top_elem.append(calc_elem)
+            step_elem.append(top_elem)
+
+        # DistanceFromLeft (formerly Left - wrapped in Calculation)
+        left = step.params.get('Left', '')
+        if left:
+            left_elem = ET.Element('DistanceFromLeft')
+            calc_elem = create_cdata_element(left)
+            left_elem.append(calc_elem)
+            step_elem.append(left_elem)
+
+        # NewWndStyles - parse from Style parameter
+        # Style values: (Style attr, Close, Minimize, Maximize, Resize, Styles bitmask)
+        style = step.params.get('Style', 'Document')
+        style_map = {
+            'Document': ('Document', 'Yes', 'Yes', 'Yes', 'Yes', '0'),
+            'Floating Document': ('Floating', 'Yes', 'No', 'No', 'Yes', '2147549952'),
+            'Dialog': ('Dialog', 'Yes', 'No', 'Yes', 'Yes', '0'),
+            'Card': ('Card', 'Yes', 'No', 'No', 'No', '0'),
+        }
+
+        style_info = style_map.get(style, style_map['Document'])
+        styles_elem = ET.Element('NewWndStyles')
+        styles_elem.set('Style', style_info[0])
+        styles_elem.set('Close', style_info[1])
+        styles_elem.set('Minimize', style_info[2])
+        styles_elem.set('Maximize', style_info[3])
+        styles_elem.set('Resize', style_info[4])
+        styles_elem.set('Styles', style_info[5])
+        step_elem.append(styles_elem)
+
+        return [step_elem]
+
+
+class CloseWindowHandler(StepHandler):
+    """Handler for Close Window steps."""
+
+    def generate(
+        self,
+        step: ParsedStep,
+        step_def: StepDefinition
+    ) -> List[ET.Element]:
+        step_elem = create_step_element(
+            step_def.id,
+            step_def.xml_step_name,
+            step_def.enable_default
+        )
+
+        # LimitToWindowsOfCurrentFile - default to True
+        limit_elem = ET.Element('LimitToWindowsOfCurrentFile')
+        limit_elem.set('state', 'True')
+        step_elem.append(limit_elem)
+
+        # Window value - check if it's "Current Window" or a named window
+        window_value = step.params.get('0', 'Current Window')
+        if not window_value:
+            window_value = 'Current Window'
+
+        if window_value.lower() == 'current window' or window_value.lower() == 'current':
+            # Current Window
+            window_elem = ET.Element('Window')
+            window_elem.set('value', 'Current')
+            step_elem.append(window_elem)
+        else:
+            # Named window - use ByName with Calculation
+            window_elem = ET.Element('Window')
+            window_elem.set('value', 'ByName')
+            step_elem.append(window_elem)
+
+            name_elem = ET.Element('Name')
+            calc_elem = create_cdata_element(window_value)
+            name_elem.append(calc_elem)
+            step_elem.append(name_elem)
+
+        return [step_elem]
+
+
+class EnterPreviewModeHandler(StepHandler):
+    """Handler for Enter Preview Mode steps."""
+
+    def generate(
+        self,
+        step: ParsedStep,
+        step_def: StepDefinition
+    ) -> List[ET.Element]:
+        step_elem = create_step_element(
+            step_def.id,
+            step_def.xml_step_name,
+            step_def.enable_default
+        )
+
+        # Pause state - "On"/"Off" -> "True"/"False"
+        pause_value = step.params.get('Pause', 'Off')
+        pause_state = 'True' if pause_value.lower() == 'on' else 'False'
+
+        pause_elem = ET.Element('Pause')
+        pause_elem.set('state', pause_state)
+        step_elem.append(pause_elem)
+
+        return [step_elem]
+
+
+class PrintHandler(StepHandler):
+    """Handler for Print steps."""
+
+    def generate(
+        self,
+        step: ParsedStep,
+        step_def: StepDefinition
+    ) -> List[ET.Element]:
+        step_elem = create_step_element(
+            step_def.id,
+            step_def.xml_step_name,
+            step_def.enable_default
+        )
+
+        # NoInteract - "With dialog: On/Off" -> state="False/True"
+        with_dialog = step.params.get('With dialog', 'On')
+        no_interact_state = 'True' if with_dialog.lower() == 'off' else 'False'
+
+        no_interact_elem = ET.Element('NoInteract')
+        no_interact_elem.set('state', no_interact_state)
+        step_elem.append(no_interact_elem)
+
+        # Restore state - if "Restore" is present, state is True
+        restore_value = step.params.get('Restore', '')
+        restore_state = 'True' if restore_value else 'False'
+
+        restore_elem = ET.Element('Restore')
+        restore_elem.set('state', restore_state)
+        step_elem.append(restore_elem)
+
+        # Note: PrintSettings with PlatformData cannot be generated from text
+        # FileMaker will use default print settings when pasted
+
+        return [step_elem]
+
+
 class EndIfHandler(StepHandler):
     """Handler for End If steps."""
 
@@ -646,6 +862,11 @@ class SendMailHandler(StepHandler):
 HANDLERS = {
     'Comment': CommentHandler(),
     'Set Variable': SetVariableHandler(),
+    'Set Error Capture': SetErrorCaptureHandler(),
+    'New Window': NewWindowHandler(),
+    'Close Window': CloseWindowHandler(),
+    'Enter Preview Mode': EnterPreviewModeHandler(),
+    'Print': PrintHandler(),
     'If': IfHandler(),
     'Else If': ElseIfHandler(),
     'Else': ElseHandler(),
