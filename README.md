@@ -52,18 +52,54 @@ print(xml_output)
 
 ### Command Line
 
+The `fmscript2xml` command-line tool provides a simple interface for converting FileMaker scripts to XML.
+
+#### Basic Usage
+
 ```bash
 # Convert script to XML (creates input.txt.xml next to input file)
 fmscript2xml input.txt
 
 # Specify custom output file
 fmscript2xml input.txt -o output.xml
+```
 
-# Validate only (no conversion)
-fmscript2xml input.txt --validate
+#### Command-Line Options
 
-# Continue processing on errors
-fmscript2xml input.txt --continue-on-error
+| Flag | Description |
+|------|-------------|
+| `input` | Input file containing plain text FileMaker script (required) |
+| `-o, --output FILE` | Output file path for XML. If not specified, creates `input.xml` next to the input file |
+| `--validate` | Only validate the script, do not convert to XML |
+| `--continue-on-error` | Continue processing even when errors are encountered |
+| `-c, --clipboard` | Copy result to clipboard as FileMaker objects (macOS only). The XML is converted to FileMaker's binary clipboard format and can be pasted directly into FileMaker Pro |
+| `--no-file` | Do not write output file. Useful when combined with `--clipboard` to only copy to clipboard |
+| `--version` | Show program version and exit |
+| `-h, --help` | Show help message and exit |
+
+#### Examples
+
+```bash
+# Basic conversion
+fmscript2xml script.txt
+
+# Convert to specific output file
+fmscript2xml script.txt -o output.xml
+
+# Validate script without converting
+fmscript2xml script.txt --validate
+
+# Convert and copy to clipboard (macOS only)
+fmscript2xml script.txt --clipboard
+
+# Copy to clipboard without creating a file
+fmscript2xml script.txt --clipboard --no-file
+
+# Continue processing even if errors occur
+fmscript2xml script.txt --continue-on-error
+
+# Show version
+fmscript2xml --version
 ```
 
 ### Advanced Usage
