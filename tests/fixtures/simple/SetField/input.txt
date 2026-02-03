@@ -1,0 +1,2 @@
+Set Field [ SCO__Scores::SCO__Score ; 100 ]
+Set Field [ SCO__Scores::SCO__Comment[2] ; $comments ]

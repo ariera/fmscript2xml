@@ -223,9 +223,13 @@ class GoToRelatedRecordHandler(StepHandler):
         # Table reference
         table_value = step.params.get('From table', step.params.get('Table', ''))
         if table_value:
-            if (table_value.startswith('"') and table_value.endswith('"')) or (
-                table_value.startswith('"') and table_value.endswith('"')
-            ):
+            # Strip both straight quotes (") and curly quotes ("")
+            # U+0022 = straight quote "
+            # U+201C = left curly quote "
+            # U+201D = right curly quote "
+            if table_value.startswith('"') and table_value.endswith('"'):
+                table_value = table_value[1:-1]
+            elif table_value.startswith('\u201c') and table_value.endswith('\u201d'):
                 table_value = table_value[1:-1]
             step_elem.append(create_table_element(table_value, omit_id=True))
 

@@ -294,7 +294,15 @@ def _compare_script_step(expected: ET.Element, generated: ET.Element) -> List[st
             table_name = expected_table.attrib.get("name")
             if table_name and expected_field_name:
                 expected_field_name = f"{table_name}::{expected_field_name}"
+        
+        # Get generated field name
         generated_field_name = generated_field.attrib.get("name")
+        
+        # If generated field has a table attribute, construct full name for comparison
+        generated_table = generated_field.attrib.get("table")
+        if generated_table and generated_field_name:
+            generated_field_name = f"{generated_table}::{generated_field_name}"
+        
         # If expected field name is missing but the table is marked as missing,
         # tolerate broken reference placeholders in generated output.
         if not expected_field_name and expected_table is not None:

@@ -24,11 +24,7 @@ class SetFieldHandler(StepHandler):
     ) -> List[ET.Element]:
         elements = []
 
-        # Add helper comment if field reference (needs ID)
-        if 'Field' in step.params or any('field' in k.lower() for k in step.params.keys()):
-            comment_elem = create_helper_comment_step(step.raw_text)
-            elements.append(comment_elem)
-
+        # Create the Step element
         enabled = step_def['enable_default'] and not step.is_disabled
         step_elem = create_step_element(
             step_def['id'],
@@ -50,14 +46,36 @@ class SetFieldHandler(StepHandler):
         else:
             value = step.params.get('1', value)
 
+        # Strip quotes from field name
         if field_name.startswith('"') and field_name.endswith('"'):
             field_name = field_name[1:-1]
 
+        # FIRST: Add Field element (if field name is specified)
         if field_name:
-            field_elem = create_field_element(field_name, omit_id=True)
+            # Parse field name: Table::Field[repetition]
+            table_name = None
+            repetition = None
+            
+            # Check for repetition [n]
+            import re
+            repetition_match = re.search(r'\[(\d+)\]$', field_name)
+            if repetition_match:
+                repetition = repetition_match.group(1)
+                field_name = field_name[:repetition_match.start()]
+            
+            # Split table and field
+            if '::' in field_name:
+                table_name, field_name = field_name.split('::', 1)
+            
+            field_elem = create_field_element(
+                field_name, 
+                table_name=table_name,
+                repetition=repetition,
+                omit_id=True
+            )
             step_elem.append(field_elem)
-
-        # Value (calculation)
+        
+        # SECOND: Add Repetition element with Calculation (the value)
         rep_elem = ET.Element('Repetition')
         calc_elem = create_cdata_element(value)
         rep_elem.append(calc_elem)
