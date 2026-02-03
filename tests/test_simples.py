@@ -22,6 +22,11 @@ def test_simple_script(fixture_path: Path, ddr_ir):
     input_text = (fixture_path / "input.txt").read_text(encoding="utf-8")
     expected_xml = (fixture_path / "expected.xml").read_text(encoding="utf-8")
 
+    # Remove placeholder id attributes like id="<id_of_field>"
+    # These indicate where IDs would go but we omit them per policy
+    import re
+    expected_xml = re.sub(r'\s+id="<[^"]+>"', '', expected_xml)
+
     converter = Converter()
     generated_xml = converter.convert(input_text, stop_on_error=False)
 

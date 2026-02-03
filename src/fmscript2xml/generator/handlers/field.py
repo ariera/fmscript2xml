@@ -50,36 +50,34 @@ class SetFieldHandler(StepHandler):
         if field_name.startswith('"') and field_name.endswith('"'):
             field_name = field_name[1:-1]
 
-        # FIRST: Add Field element (if field name is specified)
+        # FIRST: Add Calculation element as direct child (the value)
+        calc_elem = create_cdata_element(value)
+        step_elem.append(calc_elem)
+
+        # SECOND: Add Field element (if field name is specified)
         if field_name:
             # Parse field name: Table::Field[repetition]
             table_name = None
             repetition = None
-            
+
             # Check for repetition [n]
             import re
             repetition_match = re.search(r'\[(\d+)\]$', field_name)
             if repetition_match:
                 repetition = repetition_match.group(1)
                 field_name = field_name[:repetition_match.start()]
-            
+
             # Split table and field
             if '::' in field_name:
                 table_name, field_name = field_name.split('::', 1)
-            
+
             field_elem = create_field_element(
-                field_name, 
+                field_name,
                 table_name=table_name,
                 repetition=repetition,
                 omit_id=True
             )
             step_elem.append(field_elem)
-        
-        # SECOND: Add Repetition element with Calculation (the value)
-        rep_elem = ET.Element('Repetition')
-        calc_elem = create_cdata_element(value)
-        rep_elem.append(calc_elem)
-        step_elem.append(rep_elem)
 
         elements.append(step_elem)
         return elements
