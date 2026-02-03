@@ -95,25 +95,35 @@ class CommitRecordsRequestsHandler(StepHandler):
             enabled
         )
 
-        # NoInteract - "With dialog: On/Off" -> state="False/True"
-        with_dialog = step.params.get('With dialog', 'On')
-        no_interact_state = 'True' if with_dialog.lower() == 'off' else 'False'
+        # NoInteract - "With dialog: On/Off" or "No dialog" -> state="False/True"
+        with_dialog = step.params.get('With dialog', '')
+        no_dialog = step.params.get('0', '')
+        
+        # "No dialog" means no interaction (NoInteract=True)
+        # "With dialog: Off" means no interaction (NoInteract=True)
+        # "With dialog: On" means with interaction (NoInteract=False)
+        if 'no dialog' in no_dialog.lower():
+            no_interact_state = 'True'
+        elif with_dialog:
+            no_interact_state = 'True' if with_dialog.lower() == 'off' else 'False'
+        else:
+            no_interact_state = 'False'  # Default
 
         no_interact_elem = ET.Element('NoInteract')
         no_interact_elem.set('state', no_interact_state)
         step_elem.append(no_interact_elem)
 
         # Check for "Force Commit" option
-        force_commit = step.params.get('0', '')
-        if force_commit and 'force' in force_commit.lower():
-            # Option state="true" for Force Commit
-            option_elem = ET.Element('Option')
-            option_elem.set('state', 'true')
-            step_elem.append(option_elem)
+        force_commit = 'force' in no_dialog.lower() if no_dialog else False
+        
+        # Option - always include, state depends on force commit
+        option_elem = ET.Element('Option')
+        option_elem.set('state', 'True' if force_commit else 'False')
+        step_elem.append(option_elem)
 
-            # ESSForceCommit state="True"
-            ess_elem = ET.Element('ESSForceCommit')
-            ess_elem.set('state', 'True')
-            step_elem.append(ess_elem)
+        # ESSForceCommit - always include
+        ess_elem = ET.Element('ESSForceCommit')
+        ess_elem.set('state', 'True' if force_commit else 'False')
+        step_elem.append(ess_elem)
 
         return [step_elem]

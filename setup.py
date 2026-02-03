@@ -8,7 +8,7 @@ with open("requirements.txt", "r", encoding="utf-8") as fh:
 
 setup(
     name="fmscript2xml",
-    version="0.4.3",
+    version="0.4.4",
     author="EMBO",
     description="Deterministic parser for converting FileMaker script snippets to XML",
     long_description=long_description,
