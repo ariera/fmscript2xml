@@ -1,0 +1,21 @@
+<fmxmlsnippet type="FMObjectList">
+  <Step enable="True" id="74" name="Go to Related Record">
+    <Option state="False"></Option>
+    <MatchAllRecords state="False"></MatchAllRecords>
+    <ShowInNewWindow state="False"></ShowInNewWindow>
+    <Restore state="True"></Restore>
+    <LayoutDestination value="LayoutNameByCalc"></LayoutDestination>
+    <Name>
+      <Calculation>
+        <![CDATA[/*Show only related records*/]]>
+      </Calculation>
+    </Name>
+    <NewWndStyles Style="Document" Close="Yes" Minimize="Yes" Maximize="Yes" Resize="Yes"></NewWndStyles>
+    <Table name="elc_grp_joi_PSUB__Person#Committee"></Table>
+    <Layout>
+      <Calculation>
+        <![CDATA[$committeeLayout]]>
+      </Calculation>
+    </Layout>
+  </Step>
+</fmxmlsnippet>

@@ -1,0 +1,1 @@
+Go to Related Record [ Show only related records ; From table: “elc_grp_joi_PSUB__Person#Committee” ; Using layout: $committeeLayout ]

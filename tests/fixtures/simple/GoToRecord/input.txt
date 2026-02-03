@@ -1,0 +1,7 @@
+Go to Record/Request/Page [ First ]
+Go to Record/Request/Page [ Last ]
+Go to Record/Request/Page [ Previous ; Exit after last: On ]
+Go to Record/Request/Page [ Previous ; Exit after last: Off ]
+Go to Record/Request/Page [ Next ; Exit after last: On ]
+Go to Record/Request/Page [ Next ; Exit after last: Off ]
+Go to Record/Request/Page [ With dialog: On ; $my_var ]

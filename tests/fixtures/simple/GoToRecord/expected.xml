@@ -1,0 +1,37 @@
+<fmxmlsnippet type="FMObjectList">
+  <Step enable="True" id="16" name="Go to Record/Request/Page">
+    <NoInteract state="False"></NoInteract>
+    <RowPageLocation value="First"></RowPageLocation>
+  </Step>
+  <Step enable="True" id="16" name="Go to Record/Request/Page">
+    <NoInteract state="False"></NoInteract>
+    <RowPageLocation value="Last"></RowPageLocation>
+  </Step>
+  <Step enable="True" id="16" name="Go to Record/Request/Page">
+    <NoInteract state="False"></NoInteract>
+    <Exit state="True"></Exit>
+    <RowPageLocation value="Previous"></RowPageLocation>
+  </Step>
+  <Step enable="True" id="16" name="Go to Record/Request/Page">
+    <NoInteract state="False"></NoInteract>
+    <Exit state="False"></Exit>
+    <RowPageLocation value="Previous"></RowPageLocation>
+  </Step>
+  <Step enable="True" id="16" name="Go to Record/Request/Page">
+    <NoInteract state="False"></NoInteract>
+    <Exit state="True"></Exit>
+    <RowPageLocation value="Next"></RowPageLocation>
+  </Step>
+  <Step enable="True" id="16" name="Go to Record/Request/Page">
+    <NoInteract state="False"></NoInteract>
+    <Exit state="False"></Exit>
+    <RowPageLocation value="Next"></RowPageLocation>
+  </Step>
+  <Step enable="True" id="16" name="Go to Record/Request/Page">
+    <NoInteract state="False"></NoInteract>
+    <RowPageLocation value="ByCalculation"></RowPageLocation>
+    <Calculation>
+      <![CDATA[$my_var]]>
+    </Calculation>
+  </Step>
+</fmxmlsnippet>

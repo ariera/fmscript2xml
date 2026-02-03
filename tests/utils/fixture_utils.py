@@ -26,12 +26,23 @@ def validate_fixture(fixture_path: Path) -> bool:
     return (fixture_path / "input.txt").exists() and (fixture_path / "expected.xml").exists()
 
 
-def list_fixtures() -> List[Path]:
-    """List all fixture directories under tests/fixtures/real_world."""
-    base_dir = Path(__file__).resolve().parents[1] / "fixtures" / "real_world"
+def _list_fixture_dirs(base_dir: Path) -> List[Path]:
+    """List all fixture directories under a base fixture directory."""
     if not base_dir.exists():
         return []
     return [p for p in base_dir.iterdir() if p.is_dir() and not p.name.startswith('.')]
+
+
+def list_fixtures() -> List[Path]:
+    """List all fixture directories under tests/fixtures/real_world."""
+    base_dir = Path(__file__).resolve().parents[1] / "fixtures" / "real_world"
+    return _list_fixture_dirs(base_dir)
+
+
+def list_simple_fixtures() -> List[Path]:
+    """List all fixture directories under tests/fixtures/simple."""
+    base_dir = Path(__file__).resolve().parents[1] / "fixtures" / "simple"
+    return _list_fixture_dirs(base_dir)
 
 
 def generate_reference_from_ddr_ir(step_id: int) -> Optional[str]:
