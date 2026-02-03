@@ -3,7 +3,6 @@
 import pytest
 from xml.etree import ElementTree as ET
 from fmscript2xml.parser.parser import ParsedStep
-from fmscript2xml.registry.step_def import StepDefinition
 from fmscript2xml.generator.step_handlers import generate_xml
 from fmscript2xml.generator.xml_builder import (
     create_step_element,
@@ -53,11 +52,12 @@ class TestStepHandlers:
             is_comment=True,
             comment_text="Test comment"
         )
-        step_def = StepDefinition(
-            id=89,
-            name="Comment",
-            category="Miscellaneous"
-        )
+        step_def = {
+            'id': 89,
+            'name': 'Comment',
+            'xml_step_name': 'Comment',
+            'enable_default': True
+        }
 
         elements = generate_xml(step, step_def)
 
@@ -71,11 +71,12 @@ class TestStepHandlers:
             name="Set Variable",
             params={"Name": "$var", "Value": "1"}
         )
-        step_def = StepDefinition(
-            id=141,
-            name="Set Variable",
-            category="Control"
-        )
+        step_def = {
+            'id': 141,
+            'name': 'Set Variable',
+            'xml_step_name': 'Set Variable',
+            'enable_default': True
+        }
 
         elements = generate_xml(step, step_def)
 

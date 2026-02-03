@@ -8,13 +8,19 @@ with open("requirements.txt", "r", encoding="utf-8") as fh:
 
 setup(
     name="fmscript2xml",
-    version="0.3.8",
+    version="0.4.0",
     author="EMBO",
     description="Deterministic parser for converting FileMaker script snippets to XML",
     long_description=long_description,
     long_description_content_type="text/markdown",
     packages=find_packages(where="src"),
     package_dir={"": "src"},
+    package_data={
+        "fmscript2xml": [
+            "data/*.json",
+        ],
+    },
+    include_package_data=True,
     py_modules=[],  # We're using packages, not modules
     python_requires=">=3.8",
     install_requires=requirements,

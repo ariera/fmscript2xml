@@ -9,7 +9,6 @@ from xml.etree import ElementTree as ET
 
 from .parser.parser import Parser, ParsedStep
 from .registry.loader import StepRegistry
-from .registry.step_def import StepDefinition
 from .generator.step_handlers import generate_xml
 from .generator.xml_builder import create_fmxmlsnippet, to_xml_string
 
@@ -35,17 +34,14 @@ class Converter:
         xml = converter.convert("Set Variable [ $var ; Value: 1 ]")
     """
 
-    def __init__(self, steps_dir: Optional[str] = None):
+    def __init__(self):
         """
         Initialize converter.
 
-        Args:
-            steps_dir: Path to docs/steps directory.
-                      If None, uses default relative path.
+        The converter loads step definitions from the bundled JSON registry.
         """
         self.parser = Parser()
-        self.registry = StepRegistry(steps_dir)
-        self.registry.load_all()
+        self.registry = StepRegistry()
 
     def convert(self, text: str, stop_on_error: bool = True) -> str:
         """

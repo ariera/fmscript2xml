@@ -1,0 +1,998 @@
+{
+  "#[OBSOLETE]Insert Object": {
+    "enable_default": true,
+    "id": 78,
+    "name": "#[OBSOLETE]Insert Object",
+    "xml_step_name": "#[OBSOLETE]Insert Object"
+  },
+  "#[OBSOLETE]Update Link": {
+    "enable_default": true,
+    "id": 96,
+    "name": "#[OBSOLETE]Update Link",
+    "xml_step_name": "#[OBSOLETE]Update Link"
+  },
+  "AVPlayer Play": {
+    "enable_default": true,
+    "id": 177,
+    "name": "AVPlayer Play",
+    "xml_step_name": "AVPlayer Play"
+  },
+  "AVPlayer Set Options": {
+    "enable_default": true,
+    "id": 179,
+    "name": "AVPlayer Set Options",
+    "xml_step_name": "AVPlayer Set Options"
+  },
+  "AVPlayer Set Playback State": {
+    "enable_default": true,
+    "id": 178,
+    "name": "AVPlayer Set Playback State",
+    "xml_step_name": "AVPlayer Set Playback State"
+  },
+  "Add Account": {
+    "enable_default": true,
+    "id": 134,
+    "name": "Add Account",
+    "xml_step_name": "Add Account"
+  },
+  "Adjust Window": {
+    "enable_default": true,
+    "id": 31,
+    "name": "Adjust Window",
+    "xml_step_name": "Adjust Window"
+  },
+  "Allow Toolbars": {
+    "enable_default": true,
+    "id": 115,
+    "name": "Allow Toolbars",
+    "xml_step_name": "Allow Toolbars"
+  },
+  "Allow User Abort": {
+    "enable_default": true,
+    "id": 85,
+    "name": "Allow User Abort",
+    "xml_step_name": "Allow User Abort"
+  },
+  "Arrange All Windows": {
+    "enable_default": true,
+    "id": 120,
+    "name": "Arrange All Windows",
+    "xml_step_name": "Arrange All Windows"
+  },
+  "Beep": {
+    "enable_default": true,
+    "id": 93,
+    "name": "Beep",
+    "xml_step_name": "Beep"
+  },
+  "Change Password": {
+    "enable_default": true,
+    "id": 83,
+    "name": "Change Password",
+    "xml_step_name": "Change Password"
+  },
+  "Check Found Set": {
+    "enable_default": true,
+    "id": 20,
+    "name": "Check Found Set",
+    "xml_step_name": "Check Found Set"
+  },
+  "Check Record": {
+    "enable_default": true,
+    "id": 19,
+    "name": "Check Record",
+    "xml_step_name": "Check Record"
+  },
+  "Check Selection": {
+    "enable_default": true,
+    "id": 18,
+    "name": "Check Selection",
+    "xml_step_name": "Check Selection"
+  },
+  "Clear": {
+    "enable_default": true,
+    "id": 49,
+    "name": "Clear",
+    "xml_step_name": "Clear"
+  },
+  "Close File": {
+    "enable_default": true,
+    "id": 34,
+    "name": "Close File",
+    "xml_step_name": "Close File"
+  },
+  "Close Popover": {
+    "enable_default": true,
+    "id": 169,
+    "name": "Close Popover",
+    "xml_step_name": "Close Popover"
+  },
+  "Close Window": {
+    "enable_default": true,
+    "id": 121,
+    "name": "Close Window",
+    "xml_step_name": "Close Window"
+  },
+  "Comment": {
+    "enable_default": true,
+    "id": 89,
+    "name": "Comment",
+    "xml_step_name": "Comment"
+  },
+  "Commit Records/Requests": {
+    "enable_default": true,
+    "id": 75,
+    "name": "Commit Records/Requests",
+    "xml_step_name": "Commit Records/Requests"
+  },
+  "Configure Local Notification": {
+    "enable_default": true,
+    "id": 187,
+    "name": "Configure Local Notification",
+    "xml_step_name": "Configure Local Notification"
+  },
+  "Configure Region Monitor Script": {
+    "enable_default": true,
+    "id": 185,
+    "name": "Configure Region Monitor Script",
+    "xml_step_name": "Configure Region Monitor Script"
+  },
+  "Constrain Found Set": {
+    "enable_default": true,
+    "id": 126,
+    "name": "Constrain Found Set",
+    "xml_step_name": "Constrain Found Set"
+  },
+  "Convert File": {
+    "enable_default": true,
+    "id": 139,
+    "name": "Convert File",
+    "xml_step_name": "Convert File"
+  },
+  "Copy": {
+    "enable_default": true,
+    "id": 47,
+    "name": "Copy",
+    "xml_step_name": "Copy"
+  },
+  "Copy All Records/Requests": {
+    "enable_default": true,
+    "id": 98,
+    "name": "Copy All Records/Requests",
+    "xml_step_name": "Copy All Records/Requests"
+  },
+  "Copy Record/Request": {
+    "enable_default": true,
+    "id": 101,
+    "name": "Copy Record/Request",
+    "xml_step_name": "Copy Record/Request"
+  },
+  "Correct Word": {
+    "enable_default": true,
+    "id": 106,
+    "name": "Correct Word",
+    "xml_step_name": "Correct Word"
+  },
+  "Cut": {
+    "enable_default": true,
+    "id": 46,
+    "name": "Cut",
+    "xml_step_name": "Cut"
+  },
+  "Delete Account": {
+    "enable_default": true,
+    "id": 135,
+    "name": "Delete Account",
+    "xml_step_name": "Delete Account"
+  },
+  "Delete All Records": {
+    "enable_default": true,
+    "id": 10,
+    "name": "Delete All Records",
+    "xml_step_name": "Delete All Records"
+  },
+  "Delete Portal Row": {
+    "enable_default": true,
+    "id": 104,
+    "name": "Delete Portal Row",
+    "xml_step_name": "Delete Portal Row"
+  },
+  "Delete Record/Request": {
+    "enable_default": true,
+    "id": 9,
+    "name": "Delete Record/Request",
+    "xml_step_name": "Delete Record/Request"
+  },
+  "Dial Phone": {
+    "enable_default": true,
+    "id": 65,
+    "name": "Dial Phone",
+    "xml_step_name": "Dial Phone"
+  },
+  "Duplicate Record/Request": {
+    "enable_default": true,
+    "id": 8,
+    "name": "Duplicate Record/Request",
+    "xml_step_name": "Duplicate Record/Request"
+  },
+  "Edit User Dictionary": {
+    "enable_default": true,
+    "id": 109,
+    "name": "Edit User Dictionary",
+    "xml_step_name": "Edit User Dictionary"
+  },
+  "Else": {
+    "enable_default": true,
+    "id": 69,
+    "name": "Else",
+    "xml_step_name": "Else"
+  },
+  "Else If": {
+    "enable_default": true,
+    "id": 125,
+    "name": "Else If",
+    "xml_step_name": "Else If"
+  },
+  "Enable Account": {
+    "enable_default": true,
+    "id": 137,
+    "name": "Enable Account",
+    "xml_step_name": "Enable Account"
+  },
+  "Enable Touch Keyboard": {
+    "enable_default": true,
+    "id": 174,
+    "name": "Enable Touch Keyboard",
+    "xml_step_name": "Enable Touch Keyboard"
+  },
+  "End If": {
+    "enable_default": true,
+    "id": 70,
+    "name": "End If",
+    "xml_step_name": "End If"
+  },
+  "End Loop": {
+    "enable_default": true,
+    "id": 73,
+    "name": "End Loop",
+    "xml_step_name": "End Loop"
+  },
+  "Enter Browse Mode": {
+    "enable_default": true,
+    "id": 55,
+    "name": "Enter Browse Mode",
+    "xml_step_name": "Enter Browse Mode"
+  },
+  "Enter Find Mode": {
+    "enable_default": true,
+    "id": 22,
+    "name": "Enter Find Mode",
+    "xml_step_name": "Enter Find Mode"
+  },
+  "Enter Preview Mode": {
+    "enable_default": true,
+    "id": 41,
+    "name": "Enter Preview Mode",
+    "xml_step_name": "Enter Preview Mode"
+  },
+  "Execute SQL": {
+    "enable_default": true,
+    "id": 117,
+    "name": "Execute SQL",
+    "xml_step_name": "Execute SQL"
+  },
+  "Exit Application": {
+    "enable_default": true,
+    "id": 44,
+    "name": "Exit Application",
+    "xml_step_name": "Exit Application"
+  },
+  "Exit Loop If": {
+    "enable_default": true,
+    "id": 72,
+    "name": "Exit Loop If",
+    "xml_step_name": "Exit Loop If"
+  },
+  "Exit Script": {
+    "enable_default": true,
+    "id": 103,
+    "name": "Exit Script",
+    "xml_step_name": "Exit Script"
+  },
+  "Export Field Contents": {
+    "enable_default": true,
+    "id": 132,
+    "name": "Export Field Contents",
+    "xml_step_name": "Export Field Contents"
+  },
+  "Export Records": {
+    "enable_default": true,
+    "id": 36,
+    "name": "Export Records",
+    "xml_step_name": "Export Records"
+  },
+  "Extend Found Set": {
+    "enable_default": true,
+    "id": 127,
+    "name": "Extend Found Set",
+    "xml_step_name": "Extend Found Set"
+  },
+  "Find Matching Records": {
+    "enable_default": true,
+    "id": 155,
+    "name": "Find Matching Records",
+    "xml_step_name": "Find Matching Records"
+  },
+  "Flush Cache to Disk": {
+    "enable_default": true,
+    "id": 102,
+    "name": "Flush Cache to Disk",
+    "xml_step_name": "Flush Cache to Disk"
+  },
+  "Freeze Window": {
+    "enable_default": true,
+    "id": 79,
+    "name": "Freeze Window",
+    "xml_step_name": "Freeze Window"
+  },
+  "Get Directory": {
+    "enable_default": true,
+    "id": 173,
+    "name": "Get Directory",
+    "xml_step_name": "Get Directory"
+  },
+  "Go to Field": {
+    "enable_default": true,
+    "id": 17,
+    "name": "Go to Field",
+    "xml_step_name": "Go to Field"
+  },
+  "Go to Layout": {
+    "enable_default": true,
+    "id": 6,
+    "name": "Go to Layout",
+    "xml_step_name": "Go to Layout"
+  },
+  "Go to Next Field": {
+    "enable_default": true,
+    "id": 4,
+    "name": "Go to Next Field",
+    "xml_step_name": "Go to Next Field"
+  },
+  "Go to Object": {
+    "enable_default": true,
+    "id": 145,
+    "name": "Go to Object",
+    "xml_step_name": "Go to Object"
+  },
+  "Go to Portal Row": {
+    "enable_default": true,
+    "id": 99,
+    "name": "Go to Portal Row",
+    "xml_step_name": "Go to Portal Row"
+  },
+  "Go to Previous Field": {
+    "enable_default": true,
+    "id": 5,
+    "name": "Go to Previous Field",
+    "xml_step_name": "Go to Previous Field"
+  },
+  "Go to Record/Request/Page": {
+    "enable_default": true,
+    "id": 16,
+    "name": "Go to Record/Request/Page",
+    "xml_step_name": "Go to Record/Request/Page"
+  },
+  "Go to Related Record": {
+    "enable_default": true,
+    "id": 74,
+    "name": "Go to Related Record",
+    "xml_step_name": "Go to Related Record"
+  },
+  "Halt Script": {
+    "enable_default": true,
+    "id": 90,
+    "name": "Halt Script",
+    "xml_step_name": "Halt Script"
+  },
+  "If": {
+    "enable_default": true,
+    "id": 68,
+    "name": "If",
+    "xml_step_name": "If"
+  },
+  "Import Records": {
+    "enable_default": true,
+    "id": 35,
+    "name": "Import Records",
+    "xml_step_name": "Import Records"
+  },
+  "Insert Audio/Video": {
+    "enable_default": true,
+    "id": 159,
+    "name": "Insert Audio/Video",
+    "xml_step_name": "Insert Audio/Video"
+  },
+  "Insert Calculated Result": {
+    "enable_default": true,
+    "id": 77,
+    "name": "Insert Calculated Result",
+    "xml_step_name": "Insert Calculated Result"
+  },
+  "Insert Current Date": {
+    "enable_default": true,
+    "id": 13,
+    "name": "Insert Current Date",
+    "xml_step_name": "Insert Current Date"
+  },
+  "Insert Current Time": {
+    "enable_default": true,
+    "id": 14,
+    "name": "Insert Current Time",
+    "xml_step_name": "Insert Current Time"
+  },
+  "Insert Current User Name": {
+    "enable_default": true,
+    "id": 60,
+    "name": "Insert Current User Name",
+    "xml_step_name": "Insert Current User Name"
+  },
+  "Insert File": {
+    "enable_default": true,
+    "id": 131,
+    "name": "Insert File",
+    "xml_step_name": "Insert File"
+  },
+  "Insert PDF": {
+    "enable_default": true,
+    "id": 158,
+    "name": "Insert PDF",
+    "xml_step_name": "Insert PDF"
+  },
+  "Insert Picture": {
+    "enable_default": true,
+    "id": 56,
+    "name": "Insert Picture",
+    "xml_step_name": "Insert Picture"
+  },
+  "Insert Text": {
+    "enable_default": true,
+    "id": 61,
+    "name": "Insert Text",
+    "xml_step_name": "Insert Text"
+  },
+  "Insert from Device": {
+    "enable_default": true,
+    "id": 161,
+    "name": "Insert from Device",
+    "xml_step_name": "Insert from Device"
+  },
+  "Insert from Index": {
+    "enable_default": true,
+    "id": 11,
+    "name": "Insert from Index",
+    "xml_step_name": "Insert from Index"
+  },
+  "Insert from Last Visited": {
+    "enable_default": true,
+    "id": 12,
+    "name": "Insert from Last Visited",
+    "xml_step_name": "Insert from Last Visited"
+  },
+  "Insert from URL": {
+    "enable_default": true,
+    "id": 160,
+    "name": "Insert from URL",
+    "xml_step_name": "Insert from URL"
+  },
+  "Install Menu Set": {
+    "enable_default": true,
+    "id": 142,
+    "name": "Install Menu Set",
+    "xml_step_name": "Install Menu Set"
+  },
+  "Install OnTimer Script": {
+    "enable_default": true,
+    "id": 148,
+    "name": "Install OnTimer Script",
+    "xml_step_name": "Install OnTimer Script"
+  },
+  "Loop": {
+    "enable_default": true,
+    "id": 71,
+    "name": "Loop",
+    "xml_step_name": "Loop"
+  },
+  "Modify Last Find": {
+    "enable_default": true,
+    "id": 24,
+    "name": "Modify Last Find",
+    "xml_step_name": "Modify Last Find"
+  },
+  "Move/Resize Window": {
+    "enable_default": true,
+    "id": 119,
+    "name": "Move/Resize Window",
+    "xml_step_name": "Move/Resize Window"
+  },
+  "New File": {
+    "enable_default": true,
+    "id": 82,
+    "name": "New File",
+    "xml_step_name": "New File"
+  },
+  "New Record/Request": {
+    "enable_default": true,
+    "id": 7,
+    "name": "New Record/Request",
+    "xml_step_name": "New Record/Request"
+  },
+  "New Window": {
+    "enable_default": true,
+    "id": 122,
+    "name": "New Window",
+    "xml_step_name": "New Window"
+  },
+  "Omit Multiple Records": {
+    "enable_default": true,
+    "id": 26,
+    "name": "Omit Multiple Records",
+    "xml_step_name": "Omit Multiple Records"
+  },
+  "Omit Record": {
+    "enable_default": true,
+    "id": 25,
+    "name": "Omit Record",
+    "xml_step_name": "Omit Record"
+  },
+  "Open Edit Saved Finds": {
+    "enable_default": true,
+    "id": 149,
+    "name": "Open Edit Saved Finds",
+    "xml_step_name": "Open Edit Saved Finds"
+  },
+  "Open File": {
+    "enable_default": true,
+    "id": 33,
+    "name": "Open File",
+    "xml_step_name": "Open File"
+  },
+  "Open File Options": {
+    "enable_default": true,
+    "id": 114,
+    "name": "Open File Options",
+    "xml_step_name": "Open File Options"
+  },
+  "Open Find/Replace": {
+    "enable_default": true,
+    "id": 129,
+    "name": "Open Find/Replace",
+    "xml_step_name": "Open Find/Replace"
+  },
+  "Open Help": {
+    "enable_default": true,
+    "id": 32,
+    "name": "Open Help",
+    "xml_step_name": "Open Help"
+  },
+  "Open Hosts": {
+    "enable_default": true,
+    "id": 118,
+    "name": "Open Hosts",
+    "xml_step_name": "Open Hosts"
+  },
+  "Open Manage Containers": {
+    "enable_default": true,
+    "id": 156,
+    "name": "Open Manage Containers",
+    "xml_step_name": "Open Manage Containers"
+  },
+  "Open Manage Data Sources": {
+    "enable_default": true,
+    "id": 140,
+    "name": "Open Manage Data Sources",
+    "xml_step_name": "Open Manage Data Sources"
+  },
+  "Open Manage Database": {
+    "enable_default": true,
+    "id": 38,
+    "name": "Open Manage Database",
+    "xml_step_name": "Open Manage Database"
+  },
+  "Open Manage Layouts ": {
+    "enable_default": true,
+    "id": 151,
+    "name": "Open Manage Layouts ",
+    "xml_step_name": "Open Manage Layouts "
+  },
+  "Open Manage Themes": {
+    "enable_default": true,
+    "id": 165,
+    "name": "Open Manage Themes",
+    "xml_step_name": "Open Manage Themes"
+  },
+  "Open Manage Value Lists": {
+    "enable_default": true,
+    "id": 112,
+    "name": "Open Manage Value Lists",
+    "xml_step_name": "Open Manage Value Lists"
+  },
+  "Open My Apps": {
+    "enable_default": true,
+    "id": 183,
+    "name": "Open My Apps",
+    "xml_step_name": "Open My Apps"
+  },
+  "Open Preferences": {
+    "enable_default": true,
+    "id": 105,
+    "name": "Open Preferences",
+    "xml_step_name": "Open Preferences"
+  },
+  "Open Record/Request": {
+    "enable_default": true,
+    "id": 133,
+    "name": "Open Record/Request",
+    "xml_step_name": "Open Record/Request"
+  },
+  "Open Script Workspace": {
+    "enable_default": true,
+    "id": 88,
+    "name": "Open Script Workspace",
+    "xml_step_name": "Open Script Workspace"
+  },
+  "Open Sharing": {
+    "enable_default": true,
+    "id": 113,
+    "name": "Open Sharing",
+    "xml_step_name": "Open Sharing"
+  },
+  "Open URL": {
+    "enable_default": true,
+    "id": 111,
+    "name": "Open URL",
+    "xml_step_name": "Open URL"
+  },
+  "Paste": {
+    "enable_default": true,
+    "id": 48,
+    "name": "Paste",
+    "xml_step_name": "Paste"
+  },
+  "Pause/Resume Script": {
+    "enable_default": true,
+    "id": 62,
+    "name": "Pause/Resume Script",
+    "xml_step_name": "Pause/Resume Script"
+  },
+  "Perform AppleScript": {
+    "enable_default": true,
+    "id": 67,
+    "name": "Perform AppleScript",
+    "xml_step_name": "Perform AppleScript"
+  },
+  "Perform Find": {
+    "enable_default": true,
+    "id": 28,
+    "name": "Perform Find",
+    "xml_step_name": "Perform Find"
+  },
+  "Perform Find/Replace": {
+    "enable_default": true,
+    "id": 128,
+    "name": "Perform Find/Replace",
+    "xml_step_name": "Perform Find/Replace"
+  },
+  "Perform Quick Find": {
+    "enable_default": true,
+    "id": 150,
+    "name": "Perform Quick Find",
+    "xml_step_name": "Perform Quick Find"
+  },
+  "Perform Script": {
+    "enable_default": true,
+    "id": 1,
+    "name": "Perform Script",
+    "xml_step_name": "Perform Script"
+  },
+  "Perform Script on Server": {
+    "enable_default": true,
+    "id": 164,
+    "name": "Perform Script on Server",
+    "xml_step_name": "Perform Script on Server"
+  },
+  "Print": {
+    "enable_default": true,
+    "id": 43,
+    "name": "Print",
+    "xml_step_name": "Print"
+  },
+  "Print Setup": {
+    "enable_default": true,
+    "id": 42,
+    "name": "Print Setup",
+    "xml_step_name": "Print Setup"
+  },
+  "Re-Login": {
+    "enable_default": true,
+    "id": 138,
+    "name": "Re-Login",
+    "xml_step_name": "Re-Login"
+  },
+  "Recover File": {
+    "enable_default": true,
+    "id": 95,
+    "name": "Recover File",
+    "xml_step_name": "Recover File"
+  },
+  "Refresh Object": {
+    "enable_default": true,
+    "id": 167,
+    "name": "Refresh Object",
+    "xml_step_name": "Refresh Object"
+  },
+  "Refresh Portal": {
+    "enable_default": true,
+    "id": 180,
+    "name": "Refresh Portal",
+    "xml_step_name": "Refresh Portal"
+  },
+  "Refresh Window": {
+    "enable_default": true,
+    "id": 80,
+    "name": "Refresh Window",
+    "xml_step_name": "Refresh Window"
+  },
+  "Relookup Field Contents": {
+    "enable_default": true,
+    "id": 40,
+    "name": "Relookup Field Contents",
+    "xml_step_name": "Relookup Field Contents"
+  },
+  "Replace Field Contents": {
+    "enable_default": true,
+    "id": 91,
+    "name": "Replace Field Contents",
+    "xml_step_name": "Replace Field Contents"
+  },
+  "Reset Account Password": {
+    "enable_default": true,
+    "id": 136,
+    "name": "Reset Account Password",
+    "xml_step_name": "Reset Account Password"
+  },
+  "Revert Record/Request": {
+    "enable_default": true,
+    "id": 51,
+    "name": "Revert Record/Request",
+    "xml_step_name": "Revert Record/Request"
+  },
+  "Save Records as Excel": {
+    "enable_default": true,
+    "id": 143,
+    "name": "Save Records as Excel",
+    "xml_step_name": "Save Records as Excel"
+  },
+  "Save Records as PDF": {
+    "enable_default": true,
+    "id": 144,
+    "name": "Save Records as PDF",
+    "xml_step_name": "Save Records as PDF"
+  },
+  "Save Records as Snapshot Link": {
+    "enable_default": true,
+    "id": 152,
+    "name": "Save Records as Snapshot Link",
+    "xml_step_name": "Save Records as Snapshot Link"
+  },
+  "Save a Copy as": {
+    "enable_default": true,
+    "id": 37,
+    "name": "Save a Copy as",
+    "xml_step_name": "Save a Copy as"
+  },
+  "Scroll Window": {
+    "enable_default": true,
+    "id": 81,
+    "name": "Scroll Window",
+    "xml_step_name": "Scroll Window"
+  },
+  "Select All": {
+    "enable_default": true,
+    "id": 50,
+    "name": "Select All",
+    "xml_step_name": "Select All"
+  },
+  "Select Dictionaries": {
+    "enable_default": true,
+    "id": 108,
+    "name": "Select Dictionaries",
+    "xml_step_name": "Select Dictionaries"
+  },
+  "Select Window": {
+    "enable_default": true,
+    "id": 123,
+    "name": "Select Window",
+    "xml_step_name": "Select Window"
+  },
+  "Send DDE Execute": {
+    "enable_default": true,
+    "id": 64,
+    "name": "Send DDE Execute",
+    "xml_step_name": "Send DDE Execute"
+  },
+  "Send Mail": {
+    "enable_default": true,
+    "id": 63,
+    "name": "Send Mail",
+    "xml_step_name": "Send Mail"
+  },
+  "Send event": {
+    "enable_default": true,
+    "id": 57,
+    "name": "Send event",
+    "xml_step_name": "Send event"
+  },
+  "Set Error Capture": {
+    "enable_default": true,
+    "id": 86,
+    "name": "Set Error Capture",
+    "xml_step_name": "Set Error Capture"
+  },
+  "Set Field": {
+    "enable_default": true,
+    "id": 76,
+    "name": "Set Field",
+    "xml_step_name": "Set Field"
+  },
+  "Set Field By Name": {
+    "enable_default": true,
+    "id": 147,
+    "name": "Set Field By Name",
+    "xml_step_name": "Set Field By Name"
+  },
+  "Set Layout Object Animation": {
+    "enable_default": true,
+    "id": 84,
+    "name": "Set Layout Object Animation",
+    "xml_step_name": "Set Layout Object Animation"
+  },
+  "Set Multi-User": {
+    "enable_default": true,
+    "id": 84,
+    "name": "Set Multi-User",
+    "xml_step_name": "Set Multi-User"
+  },
+  "Set Next Serial Value": {
+    "enable_default": true,
+    "id": 116,
+    "name": "Set Next Serial Value",
+    "xml_step_name": "Set Next Serial Value"
+  },
+  "Set Selection": {
+    "enable_default": true,
+    "id": 130,
+    "name": "Set Selection",
+    "xml_step_name": "Set Selection"
+  },
+  "Set Use System Formats": {
+    "enable_default": true,
+    "id": 94,
+    "name": "Set Use System Formats",
+    "xml_step_name": "Set Use System Formats"
+  },
+  "Set Variable": {
+    "enable_default": true,
+    "id": 141,
+    "name": "Set Variable",
+    "xml_step_name": "Set Variable"
+  },
+  "Set Web Viewer": {
+    "enable_default": true,
+    "id": 146,
+    "name": "Set Web Viewer",
+    "xml_step_name": "Set Web Viewer"
+  },
+  "Set Window Title": {
+    "enable_default": true,
+    "id": 124,
+    "name": "Set Window Title",
+    "xml_step_name": "Set Window Title"
+  },
+  "Set Zoom Level": {
+    "enable_default": true,
+    "id": 97,
+    "name": "Set Zoom Level",
+    "xml_step_name": "Set Zoom Level"
+  },
+  "Show All Records": {
+    "enable_default": true,
+    "id": 23,
+    "name": "Show All Records",
+    "xml_step_name": "Show All Records"
+  },
+  "Show Custom Dialog": {
+    "enable_default": true,
+    "id": 87,
+    "name": "Show Custom Dialog",
+    "xml_step_name": "Show Custom Dialog"
+  },
+  "Show Omitted Only": {
+    "enable_default": true,
+    "id": 27,
+    "name": "Show Omitted Only",
+    "xml_step_name": "Show Omitted Only"
+  },
+  "Show/Hide Menubar": {
+    "enable_default": true,
+    "id": 166,
+    "name": "Show/Hide Menubar",
+    "xml_step_name": "Show/Hide Menubar"
+  },
+  "Show/Hide Text Ruler": {
+    "enable_default": true,
+    "id": 92,
+    "name": "Show/Hide Text Ruler",
+    "xml_step_name": "Show/Hide Text Ruler"
+  },
+  "Show/Hide Toolbars": {
+    "enable_default": true,
+    "id": 29,
+    "name": "Show/Hide Toolbars",
+    "xml_step_name": "Show/Hide Toolbars"
+  },
+  "Sort Records": {
+    "enable_default": true,
+    "id": 39,
+    "name": "Sort Records",
+    "xml_step_name": "Sort Records"
+  },
+  "Sort Records by Field": {
+    "enable_default": true,
+    "id": 154,
+    "name": "Sort Records by Field",
+    "xml_step_name": "Sort Records by Field"
+  },
+  "Speak": {
+    "enable_default": true,
+    "id": 66,
+    "name": "Speak",
+    "xml_step_name": "Speak"
+  },
+  "Spelling Options": {
+    "enable_default": true,
+    "id": 107,
+    "name": "Spelling Options",
+    "xml_step_name": "Spelling Options"
+  },
+  "Truncate Table": {
+    "enable_default": true,
+    "id": 182,
+    "name": "Truncate Table",
+    "xml_step_name": "Truncate Table"
+  },
+  "Undo/Redo": {
+    "enable_default": true,
+    "id": 45,
+    "name": "Undo/Redo",
+    "xml_step_name": "Undo/Redo"
+  },
+  "Unsort Records": {
+    "enable_default": true,
+    "id": 21,
+    "name": "Unsort Records",
+    "xml_step_name": "Unsort Records"
+  },
+  "Upload to FileMaker Server": {
+    "enable_default": true,
+    "id": 172,
+    "name": "Upload to FileMaker Server",
+    "xml_step_name": "Upload to FileMaker Server"
+  },
+  "View As": {
+    "enable_default": true,
+    "id": 30,
+    "name": "View As",
+    "xml_step_name": "View As"
+  }
+}

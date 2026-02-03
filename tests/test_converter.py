@@ -11,13 +11,7 @@ class TestConverter:
     @pytest.fixture
     def converter(self):
         """Create converter instance."""
-        base_dir = Path(__file__).parent.parent.parent.parent
-        steps_dir = base_dir / "docs" / "steps"
-
-        if not steps_dir.exists():
-            pytest.skip("docs/steps directory not found")
-
-        return Converter(str(steps_dir))
+        return Converter()
 
     def test_convert_simple_script(self, converter):
         """Test converting a simple script."""

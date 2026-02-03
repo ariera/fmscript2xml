@@ -8,7 +8,6 @@ for a specific FileMaker script step type.
 from xml.etree import ElementTree as ET
 from typing import List, Optional, Dict, Any
 from ..parser.parser import ParsedStep
-from ..registry.step_def import StepDefinition
 from .xml_builder import (
     create_step_element,
     create_cdata_element,
@@ -23,17 +22,21 @@ from .xml_builder import (
 class StepHandler:
     """Base class for step handlers."""
 
-    def can_handle(self, step: ParsedStep, step_def: StepDefinition) -> bool:
+    def can_handle(self, step: ParsedStep, step_def: dict) -> bool:
         """Check if this handler can handle the given step."""
-        return step.name == step_def.name
+        return step.name == step_def['name']
 
     def generate(
         self,
         step: ParsedStep,
-        step_def: StepDefinition
+        step_def: dict
     ) -> List[ET.Element]:
         """
         Generate XML elements for this step.
+
+        Args:
+            step: Parsed step data
+            step_def: Step definition dict with keys: id, name, xml_step_name, enable_default
 
         Returns:
             List of Step elements (may include helper comments)
@@ -47,13 +50,13 @@ class CommentHandler(StepHandler):
     def generate(
         self,
         step: ParsedStep,
-        step_def: StepDefinition
+        step_def: dict
     ) -> List[ET.Element]:
         # Check if step is disabled (// prefix)
-        enabled = step_def.enable_default and not step.is_disabled
+        enabled = step_def['enable_default'] and not step.is_disabled
         step_elem = create_step_element(
-            step_def.id,
-            step_def.xml_step_name,
+            step_def['id'],
+            step_def['xml_step_name'],
             enabled
         )
 
@@ -75,13 +78,13 @@ class SetVariableHandler(StepHandler):
     def generate(
         self,
         step: ParsedStep,
-        step_def: StepDefinition
+        step_def: dict
     ) -> List[ET.Element]:
         # Check if step is disabled (// prefix)
-        enabled = step_def.enable_default and not step.is_disabled
+        enabled = step_def['enable_default'] and not step.is_disabled
         step_elem = create_step_element(
-            step_def.id,
-            step_def.xml_step_name,
+            step_def['id'],
+            step_def['xml_step_name'],
             enabled
         )
 
@@ -134,13 +137,13 @@ class IfHandler(StepHandler):
     def generate(
         self,
         step: ParsedStep,
-        step_def: StepDefinition
+        step_def: dict
     ) -> List[ET.Element]:
         # Check if step is disabled (// prefix)
-        enabled = step_def.enable_default and not step.is_disabled
+        enabled = step_def['enable_default'] and not step.is_disabled
         step_elem = create_step_element(
-            step_def.id,
-            step_def.xml_step_name,
+            step_def['id'],
+            step_def['xml_step_name'],
             enabled
         )
 
@@ -162,13 +165,13 @@ class ElseIfHandler(StepHandler):
     def generate(
         self,
         step: ParsedStep,
-        step_def: StepDefinition
+        step_def: dict
     ) -> List[ET.Element]:
         # Check if step is disabled (// prefix)
-        enabled = step_def.enable_default and not step.is_disabled
+        enabled = step_def['enable_default'] and not step.is_disabled
         step_elem = create_step_element(
-            step_def.id,
-            step_def.xml_step_name,
+            step_def['id'],
+            step_def['xml_step_name'],
             enabled
         )
 
@@ -190,13 +193,13 @@ class ElseHandler(StepHandler):
     def generate(
         self,
         step: ParsedStep,
-        step_def: StepDefinition
+        step_def: dict
     ) -> List[ET.Element]:
         # Check if step is disabled (// prefix)
-        enabled = step_def.enable_default and not step.is_disabled
+        enabled = step_def['enable_default'] and not step.is_disabled
         step_elem = create_step_element(
-            step_def.id,
-            step_def.xml_step_name,
+            step_def['id'],
+            step_def['xml_step_name'],
             enabled
         )
         return [step_elem]
@@ -208,13 +211,13 @@ class SetErrorCaptureHandler(StepHandler):
     def generate(
         self,
         step: ParsedStep,
-        step_def: StepDefinition
+        step_def: dict
     ) -> List[ET.Element]:
         # Check if step is disabled (// prefix)
-        enabled = step_def.enable_default and not step.is_disabled
+        enabled = step_def['enable_default'] and not step.is_disabled
         step_elem = create_step_element(
-            step_def.id,
-            step_def.xml_step_name,
+            step_def['id'],
+            step_def['xml_step_name'],
             enabled
         )
 
@@ -240,13 +243,13 @@ class NewWindowHandler(StepHandler):
     def generate(
         self,
         step: ParsedStep,
-        step_def: StepDefinition
+        step_def: dict
     ) -> List[ET.Element]:
         # Check if step is disabled (// prefix)
-        enabled = step_def.enable_default and not step.is_disabled
+        enabled = step_def['enable_default'] and not step.is_disabled
         step_elem = create_step_element(
-            step_def.id,
-            step_def.xml_step_name,
+            step_def['id'],
+            step_def['xml_step_name'],
             enabled
         )
 
@@ -324,13 +327,13 @@ class CloseWindowHandler(StepHandler):
     def generate(
         self,
         step: ParsedStep,
-        step_def: StepDefinition
+        step_def: dict
     ) -> List[ET.Element]:
         # Check if step is disabled (// prefix)
-        enabled = step_def.enable_default and not step.is_disabled
+        enabled = step_def['enable_default'] and not step.is_disabled
         step_elem = create_step_element(
-            step_def.id,
-            step_def.xml_step_name,
+            step_def['id'],
+            step_def['xml_step_name'],
             enabled
         )
 
@@ -369,13 +372,13 @@ class EnterPreviewModeHandler(StepHandler):
     def generate(
         self,
         step: ParsedStep,
-        step_def: StepDefinition
+        step_def: dict
     ) -> List[ET.Element]:
         # Check if step is disabled (// prefix)
-        enabled = step_def.enable_default and not step.is_disabled
+        enabled = step_def['enable_default'] and not step.is_disabled
         step_elem = create_step_element(
-            step_def.id,
-            step_def.xml_step_name,
+            step_def['id'],
+            step_def['xml_step_name'],
             enabled
         )
 
@@ -396,13 +399,13 @@ class PrintHandler(StepHandler):
     def generate(
         self,
         step: ParsedStep,
-        step_def: StepDefinition
+        step_def: dict
     ) -> List[ET.Element]:
         # Check if step is disabled (// prefix)
-        enabled = step_def.enable_default and not step.is_disabled
+        enabled = step_def['enable_default'] and not step.is_disabled
         step_elem = create_step_element(
-            step_def.id,
-            step_def.xml_step_name,
+            step_def['id'],
+            step_def['xml_step_name'],
             enabled
         )
 
@@ -434,13 +437,13 @@ class EndIfHandler(StepHandler):
     def generate(
         self,
         step: ParsedStep,
-        step_def: StepDefinition
+        step_def: dict
     ) -> List[ET.Element]:
         # Check if step is disabled (// prefix)
-        enabled = step_def.enable_default and not step.is_disabled
+        enabled = step_def['enable_default'] and not step.is_disabled
         step_elem = create_step_element(
-            step_def.id,
-            step_def.xml_step_name,
+            step_def['id'],
+            step_def['xml_step_name'],
             enabled
         )
         return [step_elem]
@@ -452,13 +455,13 @@ class ExitScriptHandler(StepHandler):
     def generate(
         self,
         step: ParsedStep,
-        step_def: StepDefinition
+        step_def: dict
     ) -> List[ET.Element]:
         # Check if step is disabled (// prefix)
-        enabled = step_def.enable_default and not step.is_disabled
+        enabled = step_def['enable_default'] and not step.is_disabled
         step_elem = create_step_element(
-            step_def.id,
-            step_def.xml_step_name,
+            step_def['id'],
+            step_def['xml_step_name'],
             enabled
         )
 
@@ -492,7 +495,7 @@ class PerformScriptHandler(StepHandler):
     def generate(
         self,
         step: ParsedStep,
-        step_def: StepDefinition
+        step_def: dict
     ) -> List[ET.Element]:
         elements = []
 
@@ -503,10 +506,10 @@ class PerformScriptHandler(StepHandler):
             comment_elem = create_helper_comment_step(step.raw_text)
             elements.append(comment_elem)
 
-        enabled = step_def.enable_default and not step.is_disabled
+        enabled = step_def['enable_default'] and not step.is_disabled
         step_elem = create_step_element(
-            step_def.id,
-            step_def.xml_step_name,
+            step_def['id'],
+            step_def['xml_step_name'],
             enabled
         )
 
@@ -551,7 +554,7 @@ class GoToLayoutHandler(StepHandler):
     def generate(
         self,
         step: ParsedStep,
-        step_def: StepDefinition
+        step_def: dict
     ) -> List[ET.Element]:
         elements = []
 
@@ -559,10 +562,10 @@ class GoToLayoutHandler(StepHandler):
         comment_elem = create_helper_comment_step(step.raw_text)
         elements.append(comment_elem)
 
-        enabled = step_def.enable_default and not step.is_disabled
+        enabled = step_def['enable_default'] and not step.is_disabled
         step_elem = create_step_element(
-            step_def.id,
-            step_def.xml_step_name,
+            step_def['id'],
+            step_def['xml_step_name'],
             enabled
         )
 
@@ -619,12 +622,12 @@ class GoToRecordRequestPageHandler(StepHandler):
     def generate(
         self,
         step: ParsedStep,
-        step_def: StepDefinition
+        step_def: dict
     ) -> List[ET.Element]:
-        enabled = step_def.enable_default and not step.is_disabled
+        enabled = step_def['enable_default'] and not step.is_disabled
         step_elem = create_step_element(
-            step_def.id,
-            step_def.xml_step_name,
+            step_def['id'],
+            step_def['xml_step_name'],
             enabled
         )
 
@@ -671,12 +674,12 @@ class GoToRelatedRecordHandler(StepHandler):
     def generate(
         self,
         step: ParsedStep,
-        step_def: StepDefinition
+        step_def: dict
     ) -> List[ET.Element]:
-        enabled = step_def.enable_default and not step.is_disabled
+        enabled = step_def['enable_default'] and not step.is_disabled
         step_elem = create_step_element(
-            step_def.id,
-            step_def.xml_step_name,
+            step_def['id'],
+            step_def['xml_step_name'],
             enabled
         )
 
@@ -771,7 +774,7 @@ class SetFieldHandler(StepHandler):
     def generate(
         self,
         step: ParsedStep,
-        step_def: StepDefinition
+        step_def: dict
     ) -> List[ET.Element]:
         elements = []
 
@@ -780,10 +783,10 @@ class SetFieldHandler(StepHandler):
             comment_elem = create_helper_comment_step(step.raw_text)
             elements.append(comment_elem)
 
-        enabled = step_def.enable_default and not step.is_disabled
+        enabled = step_def['enable_default'] and not step.is_disabled
         step_elem = create_step_element(
-            step_def.id,
-            step_def.xml_step_name,
+            step_def['id'],
+            step_def['xml_step_name'],
             enabled
         )
 
@@ -824,7 +827,7 @@ class PerformFindHandler(StepHandler):
     def generate(
         self,
         step: ParsedStep,
-        step_def: StepDefinition
+        step_def: dict
     ) -> List[ET.Element]:
         elements = []
 
@@ -832,10 +835,10 @@ class PerformFindHandler(StepHandler):
         comment_elem = create_helper_comment_step(step.raw_text)
         elements.append(comment_elem)
 
-        enabled = step_def.enable_default and not step.is_disabled
+        enabled = step_def['enable_default'] and not step.is_disabled
         step_elem = create_step_element(
-            step_def.id,
-            step_def.xml_step_name,
+            step_def['id'],
+            step_def['xml_step_name'],
             enabled
         )
 
@@ -880,7 +883,7 @@ class ShowCustomDialogHandler(StepHandler):
     def generate(
         self,
         step: ParsedStep,
-        step_def: StepDefinition
+        step_def: dict
     ) -> List[ET.Element]:
         elements = []
 
@@ -890,9 +893,9 @@ class ShowCustomDialogHandler(StepHandler):
             elements.append(comment_elem)
 
         step_elem = create_step_element(
-            step_def.id,
-            step_def.xml_step_name,
-            step_def.enable_default
+            step_def['id'],
+            step_def['xml_step_name'],
+            step_def['enable_default']
         )
 
         # Title
@@ -948,13 +951,13 @@ class OpenURLHandler(StepHandler):
     def generate(
         self,
         step: ParsedStep,
-        step_def: StepDefinition
+        step_def: dict
     ) -> List[ET.Element]:
         # Check if step is disabled (// prefix)
-        enabled = step_def.enable_default and not step.is_disabled
+        enabled = step_def['enable_default'] and not step.is_disabled
         step_elem = create_step_element(
-            step_def.id,
-            step_def.xml_step_name,
+            step_def['id'],
+            step_def['xml_step_name'],
             enabled
         )
 
@@ -981,13 +984,13 @@ class SendMailHandler(StepHandler):
     def generate(
         self,
         step: ParsedStep,
-        step_def: StepDefinition
+        step_def: dict
     ) -> List[ET.Element]:
         # Check if step is disabled (// prefix)
-        enabled = step_def.enable_default and not step.is_disabled
+        enabled = step_def['enable_default'] and not step.is_disabled
         step_elem = create_step_element(
-            step_def.id,
-            step_def.xml_step_name,
+            step_def['id'],
+            step_def['xml_step_name'],
             enabled
         )
 
@@ -1071,13 +1074,13 @@ class SetFieldByNameHandler(StepHandler):
     def generate(
         self,
         step: ParsedStep,
-        step_def: StepDefinition
+        step_def: dict
     ) -> List[ET.Element]:
         # Check if step is disabled (// prefix)
-        enabled = step_def.enable_default and not step.is_disabled
+        enabled = step_def['enable_default'] and not step.is_disabled
         step_elem = create_step_element(
-            step_def.id,
-            step_def.xml_step_name,
+            step_def['id'],
+            step_def['xml_step_name'],
             enabled
         )
 
@@ -1106,12 +1109,12 @@ class InstallOnTimerScriptHandler(StepHandler):
     def generate(
         self,
         step: ParsedStep,
-        step_def: StepDefinition
+        step_def: dict
     ) -> List[ET.Element]:
-        enabled = step_def.enable_default and not step.is_disabled
+        enabled = step_def['enable_default'] and not step.is_disabled
         step_elem = create_step_element(
-            step_def.id,
-            step_def.xml_step_name,
+            step_def['id'],
+            step_def['xml_step_name'],
             enabled
         )
 
@@ -1141,13 +1144,13 @@ class CommitRecordsRequestsHandler(StepHandler):
     def generate(
         self,
         step: ParsedStep,
-        step_def: StepDefinition
+        step_def: dict
     ) -> List[ET.Element]:
         # Check if step is disabled (// prefix)
-        enabled = step_def.enable_default and not step.is_disabled
+        enabled = step_def['enable_default'] and not step.is_disabled
         step_elem = create_step_element(
-            step_def.id,
-            step_def.xml_step_name,
+            step_def['id'],
+            step_def['xml_step_name'],
             enabled
         )
 
@@ -1211,14 +1214,14 @@ def get_handler(step_name: str) -> Optional[StepHandler]:
 
 def generate_xml(
     step: ParsedStep,
-    step_def: StepDefinition
+    step_def: dict
 ) -> List[ET.Element]:
     """
     Generate XML for a parsed step using appropriate handler.
 
     Args:
         step: Parsed step
-        step_def: Step definition
+        step_def: Step definition dict with keys: id, name, xml_step_name, enable_default
 
     Returns:
         List of XML elements (may include helper comments)
@@ -1231,10 +1234,10 @@ def generate_xml(
 
     # Default handler: create basic step element
     # Check if step is disabled (// prefix)
-    enabled = step_def.enable_default and not step.is_disabled
+    enabled = step_def['enable_default'] and not step.is_disabled
     step_elem = create_step_element(
-        step_def.id,
-        step_def.xml_step_name,
+        step_def['id'],
+        step_def['xml_step_name'],
         enabled
     )
 

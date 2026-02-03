@@ -15,9 +15,9 @@ Contains individual markdown files for each FileMaker script step (167 total). E
 - XML examples showing the expected output format
 - Conditional elements (XML elements that only appear under certain conditions)
 
-The parser loads these files at runtime to understand how to convert each script step from plain text to XML.
-
 **File naming**: Files are named with the step ID (zero-padded to 3 digits) and step name, e.g., `001-perform-script.md`, `141-set-variable.md`.
+
+**Runtime usage**: These markdown files are NOT loaded at runtime. Instead, they are pre-compiled into a compact JSON file (`src/fmscript2xml/data/steps.json`) that is bundled with the package. The JSON file contains only the minimal metadata needed for conversion (id, name, xml_step_name, enable_default).
 
 ### `layout-and-object-ids.md`
 
@@ -64,6 +64,22 @@ To add or update step definitions:
 2. Follow the existing format with YAML frontmatter and markdown sections
 3. Include real examples from actual FileMaker XML exports
 4. Ensure the mapping rules are clear and complete
-5. Test that the parser can load and use the updated definition
+5. **Regenerate the JSON registry**: Run `python scripts/build_steps_registry.py` to rebuild `src/fmscript2xml/data/steps.json`
+6. Test that the parser can load and use the updated definition
 
 For questions about the XML format, refer to `DRR XML Grammar/` or the official FileMaker documentation.
+
+### Regenerating the Step Registry
+
+After editing any step definition in `steps/`, you must regenerate the JSON registry:
+
+```bash
+python scripts/build_steps_registry.py
+```
+
+This script:
+- Reads all markdown files from `docs/steps/*.md`
+- Extracts only the minimal metadata needed at runtime (id, name, xml_step_name, enable_default)
+- Writes to `src/fmscript2xml/data/steps.json`
+
+The JSON file is what gets bundled with the package and loaded at runtime for fast startup (~10-20x faster than parsing markdown files).
