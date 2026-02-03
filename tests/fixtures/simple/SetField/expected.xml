@@ -1,14 +1,14 @@
 <fmxmlsnippet type="FMObjectList">
   <Step enable="True" id="76" name="Set Field">
-    <Field table="SCO__Scores" name="SCO__Score"/>
-    <Repetition>
-      <Calculation><![CDATA[100]]></Calculation>
-    </Repetition>
+    <Calculation>
+      <![CDATA[100]]>
+    </Calculation>
+    <Field table="SCO__Scores" name="SCO__Score"></Field>
   </Step>
   <Step enable="True" id="76" name="Set Field">
-    <Field table="SCO__Scores" repetition="2" name="SCO__Comment"/>
-    <Repetition>
-      <Calculation><![CDATA[$comments]]></Calculation>
-    </Repetition>
+    <Calculation>
+      <![CDATA[$comments]]>
+    </Calculation>
+    <Field table="SCO__Scores" repetition="2" name="SCO__Comment"></Field>
   </Step>
 </fmxmlsnippet>
