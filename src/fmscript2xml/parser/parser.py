@@ -11,7 +11,57 @@ from dataclasses import dataclass, field
 
 @dataclass
 class ParsedStep:
-    """Represents a parsed FileMaker script step."""
+    """
+    Represents a parsed FileMaker script step.
+
+    This is the normalized output of the plain-text parser. Each field captures
+    a different part of the source line and how it should be treated by the
+    generator.
+
+    Example (Set Variable):
+        Source line:
+            Set Variable [ $var ; Value: 1 ]
+
+        ParsedStep:
+            name="Set Variable"
+            params={"0": "$var", "Value": "1"}
+            raw_text="Set Variable [ $var ; Value: 1 ]"
+            line_number=1
+            is_comment=False
+            comment_text=""
+            is_disabled=False
+
+    Fields:
+        name:
+            Script step name as parsed from the line. Used to select the step
+            handler (e.g., "Set Variable", "Go to Layout").
+
+        params:
+            Parsed parameters for the step. Positional params are keyed as
+            "0", "1", ... while named params use the label (e.g., "Value",
+            "With dialog"). Values are preserved as strings for XML generation.
+
+        raw_text:
+            The original line text (minus leading/trailing whitespace). Used
+            for helper comments and edge-case parsing (e.g., extracting a
+            variable name when the param is missing).
+
+        line_number:
+            1-based line number in the input. Used for error reporting and
+            debugging.
+
+        is_comment:
+            True when the line is a comment-only step (e.g., "# note").
+            Comment steps are emitted as Comment XML steps.
+
+        comment_text:
+            The comment body without the leading "#" marker. Used to populate
+            the Comment step Text element.
+
+        is_disabled:
+            True when the line is a disabled step (prefixed with "//"). Used
+            to set enable="False" on the generated <Step>.
+    """
 
     name: str
     params: Dict[str, Any] = field(default_factory=dict)

@@ -98,7 +98,7 @@ class CommitRecordsRequestsHandler(StepHandler):
         # NoInteract - "With dialog: On/Off" or "No dialog" -> state="False/True"
         with_dialog = step.params.get('With dialog', '')
         no_dialog = step.params.get('0', '')
-        
+
         # "No dialog" means no interaction (NoInteract=True)
         # "With dialog: Off" means no interaction (NoInteract=True)
         # "With dialog: On" means with interaction (NoInteract=False)
@@ -115,7 +115,7 @@ class CommitRecordsRequestsHandler(StepHandler):
 
         # Check for "Force Commit" option
         force_commit = 'force' in no_dialog.lower() if no_dialog else False
-        
+
         # Option - always include, state depends on force commit
         option_elem = ET.Element('Option')
         option_elem.set('state', 'True' if force_commit else 'False')
