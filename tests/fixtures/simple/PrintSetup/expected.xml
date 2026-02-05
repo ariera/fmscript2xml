@@ -1,0 +1,10 @@
+<fmxmlsnippet type="FMObjectList">
+  <Step enable="True" id="42" name="Print Setup">
+    <NoInteract state="False"></NoInteract>
+    <Restore state="False"></Restore>
+  </Step>
+  <Step enable="True" id="42" name="Print Setup">
+    <NoInteract state="True"></NoInteract>
+    <Restore state="False"></Restore>
+  </Step>
+</fmxmlsnippet>

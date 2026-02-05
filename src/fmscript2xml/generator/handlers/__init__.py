@@ -40,8 +40,10 @@ from .communication import (
 )
 from .misc import (
     PrintHandler,
+    PrintSetupHandler,
     SetErrorCaptureHandler,
     CommitRecordsRequestsHandler,
+    SaveRecordsAsPDFHandler,
 )
 
 # Registry of all handlers
@@ -53,6 +55,7 @@ HANDLERS = {
     'Close Window': CloseWindowHandler(),
     'Enter Preview Mode': EnterPreviewModeHandler(),
     'Print': PrintHandler(),
+    'Print Setup': PrintSetupHandler(),
     'If': IfHandler(),
     'Else If': ElseIfHandler(),
     'Else': ElseHandler(),
@@ -70,6 +73,7 @@ HANDLERS = {
     'Set Field By Name': SetFieldByNameHandler(),
     'Install OnTimer Script': InstallOnTimerScriptHandler(),
     'Commit Records/Requests': CommitRecordsRequestsHandler(),
+    'Save Records as PDF': SaveRecordsAsPDFHandler(),
 }
 
 __all__ = [
@@ -87,6 +91,7 @@ __all__ = [
     'CloseWindowHandler',
     'EnterPreviewModeHandler',
     'PrintHandler',
+    'PrintSetupHandler',
     'PerformScriptHandler',
     'GoToLayoutHandler',
     'GoToRecordRequestPageHandler',
@@ -99,4 +104,5 @@ __all__ = [
     'SetFieldByNameHandler',
     'InstallOnTimerScriptHandler',
     'CommitRecordsRequestsHandler',
+    'SaveRecordsAsPDFHandler',
 ]
