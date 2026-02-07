@@ -89,6 +89,35 @@ def is_macos() -> bool:
     return platform.system() == 'Darwin'
 
 
+def get_clipboard_text() -> str:
+    """
+    Get plain text from macOS clipboard.
+
+    Returns:
+        Clipboard text (may be empty)
+
+    Raises:
+        UnsupportedPlatformError: If not running on macOS
+        FMClipError: If clipboard read fails
+    """
+    if not is_macos():
+        raise UnsupportedPlatformError(
+            "Clipboard functionality is only available on macOS"
+        )
+
+    result = subprocess.run(
+        ['pbpaste'],
+        capture_output=True,
+        text=True
+    )
+
+    if result.returncode != 0:
+        error_msg = result.stderr.strip() or "Unknown error"
+        raise FMClipError(f"pbpaste error: {error_msg}")
+
+    return result.stdout
+
+
 def detect_fm_object_type(xml_string: str) -> Tuple[str, str]:
     """
     Detect the FileMaker object type from XML.

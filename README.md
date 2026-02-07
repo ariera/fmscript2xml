@@ -72,6 +72,7 @@ fmscript2xml input.txt -o output.xml
 | `-o, --output FILE` | Output file path for XML. If not specified, creates `input.xml` next to the input file |
 | `--validate` | Only validate the script, do not convert to XML |
 | `--continue-on-error` | Continue processing even when errors are encountered |
+| `--from-clipboard` | Read input script from clipboard (macOS only). Requires `--output` or `--no-file` |
 | `-c, --clipboard` | Copy result to clipboard as FileMaker objects (macOS only). The XML is converted to FileMaker's binary clipboard format and can be pasted directly into FileMaker Pro |
 | `--no-file` | Do not write output file. Useful when combined with `--clipboard` to only copy to clipboard |
 | `--version` | Show program version and exit |
@@ -94,6 +95,12 @@ fmscript2xml script.txt --clipboard
 
 # Copy to clipboard without creating a file
 fmscript2xml script.txt --clipboard --no-file
+
+# Convert from clipboard text to a file (macOS only)
+fmscript2xml --from-clipboard --output clipboard.xml
+
+# Clipboard in, FileMaker objects out (macOS only)
+fmscript2xml --from-clipboard --no-file --clipboard
 
 # Continue processing even if errors occur
 fmscript2xml script.txt --continue-on-error

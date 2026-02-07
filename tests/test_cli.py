@@ -4,6 +4,7 @@ import pytest
 from pathlib import Path
 import tempfile
 import os
+import sys
 
 
 def test_output_filename_generation():
@@ -42,4 +43,26 @@ def test_cli_argument_parsing():
     # With output specified (simulated)
     custom_output = Path("custom.xml")
     assert custom_output.name == "custom.xml"
+
+
+def test_from_clipboard_requires_output_or_no_file(monkeypatch, capsys):
+    from fmscript2xml import converter
+
+    monkeypatch.setattr(sys, "argv", ["fmscript2xml", "--from-clipboard"])
+    result = converter.main()
+    captured = capsys.readouterr()
+
+    assert result == 1
+    assert "--from-clipboard requires --output or --no-file" in captured.err
+
+
+def test_input_required_without_from_clipboard(monkeypatch, capsys):
+    from fmscript2xml import converter
+
+    monkeypatch.setattr(sys, "argv", ["fmscript2xml"])
+    result = converter.main()
+    captured = capsys.readouterr()
+
+    assert result == 1
+    assert "Input file is required unless --from-clipboard is used" in captured.err
 

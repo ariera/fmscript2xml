@@ -169,6 +169,8 @@ Examples:
   %(prog)s script.txt -o output.xml # Creates output.xml
   %(prog)s script.txt --validate    # Only validates, no output
   %(prog)s script.txt --clipboard   # Converts and copies to clipboard (macOS only)
+  %(prog)s --from-clipboard --output clipboard.xml  # Converts clipboard text
+  %(prog)s --from-clipboard --no-file --clipboard   # Clipboard in, FM objects out
         """
     )
     parser.add_argument(
@@ -176,7 +178,11 @@ Examples:
         action='version',
         version=f'%(prog)s {__version__}'
     )
-    parser.add_argument('input', help='Input file (plain text)')
+    parser.add_argument(
+        'input',
+        nargs='?',
+        help='Input file (plain text). Required unless --from-clipboard is used.'
+    )
     parser.add_argument(
         '-o', '--output',
         help='Output file (XML). If not specified, creates input.xml next to input file.'
@@ -192,6 +198,12 @@ Examples:
         help='Continue processing on errors'
     )
     parser.add_argument(
+        '--from-clipboard',
+        action='store_true',
+        help='Read input script from clipboard (macOS only). '
+             'Requires --output or --no-file.'
+    )
+    parser.add_argument(
         '-c', '--clipboard',
         action='store_true',
         help='Copy result to clipboard as FileMaker objects (macOS only). '
@@ -205,26 +217,62 @@ Examples:
 
     args = parser.parse_args()
 
-    # Resolve input path
-    input_path = Path(args.input)
-    if not input_path.exists():
-        print(f"Error: Input file not found: {input_path}", file=sys.stderr)
-        return 1
+    if args.from_clipboard:
+        if not args.output and not args.no_file:
+            print(
+                "Error: --from-clipboard requires --output or --no-file.",
+                file=sys.stderr
+            )
+            return 1
+    else:
+        if not args.input:
+            print(
+                "Error: Input file is required unless --from-clipboard is used.",
+                file=sys.stderr
+            )
+            return 1
+
+        # Resolve input path
+        input_path = Path(args.input)
+        if not input_path.exists():
+            print(f"Error: Input file not found: {input_path}", file=sys.stderr)
+            return 1
 
     # Determine output path
     if args.output:
         output_path = Path(args.output)
+    elif args.no_file:
+        output_path = None
     else:
         # Create output file next to input with .xml extension
         output_path = input_path.with_suffix(input_path.suffix + '.xml')
 
     # Read input
-    try:
-        with open(input_path, 'r', encoding='utf-8') as f:
-            text = f.read()
-    except Exception as e:
-        print(f"Error reading input file: {e}", file=sys.stderr)
-        return 1
+    if args.from_clipboard:
+        try:
+            from .fmclip import get_clipboard_text, UnsupportedPlatformError
+
+            text = get_clipboard_text()
+        except UnsupportedPlatformError:
+            print(
+                "Error: Clipboard functionality is only available on macOS.",
+                file=sys.stderr
+            )
+            return 1
+        except Exception as e:
+            print(f"Error reading clipboard: {e}", file=sys.stderr)
+            return 1
+
+        if not text.strip():
+            print("Error: Clipboard is empty.", file=sys.stderr)
+            return 1
+    else:
+        try:
+            with open(input_path, 'r', encoding='utf-8') as f:
+                text = f.read()
+        except Exception as e:
+            print(f"Error reading input file: {e}", file=sys.stderr)
+            return 1
 
     # Convert
     converter = Converter()
