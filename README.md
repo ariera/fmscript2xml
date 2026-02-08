@@ -147,6 +147,8 @@ See `examples/example_usage.py` for more detailed examples.
 
 ## Documentation
 
+- **[macOS: Global keyboard shortcut](docs/automator-keyboard-shortcut.md)** — Set up a hotkey that converts clipboard text to FileMaker’s binary format so you can paste directly into the Script editor. Great for copying script snippets (e.g. from docs or AI-generated code) and pasting them into FileMaker without manual conversion, speeding up development.
+
 This parser loads step definitions from `docs/steps/` at runtime. It follows strict policies:
 - **Database ID omission**: Never guesses database-specific IDs (see `docs/layout-and-object-ids.md`)
 - **Calculation preservation**: All calculations preserved exactly as written
