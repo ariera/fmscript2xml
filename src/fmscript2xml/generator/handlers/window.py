@@ -109,31 +109,35 @@ class CloseWindowHandler(StepHandler):
             enabled
         )
 
-        # LimitToWindowsOfCurrentFile - default to True
+        # Resolve the window name. It may be given as "Name: <calc>" or as a
+        # bare positional value. "Current Window"/"Current file" are options,
+        # not window names.
+        window_name = step.params.get('Name', '')
+        if not window_name:
+            positional = step.params.get('0', '')
+            if positional.lower() not in ('current window', 'current', 'current file'):
+                window_name = positional
+
+        # LimitToWindowsOfCurrentFile is True for the current window or when the
+        # "Current file" option is present; a named window without it is False.
+        has_current_file = 'current file' in step.raw_text.lower()
+        limit_state = 'False' if (window_name and not has_current_file) else 'True'
+
         limit_elem = ET.Element('LimitToWindowsOfCurrentFile')
-        limit_elem.set('state', 'True')
+        limit_elem.set('state', limit_state)
         step_elem.append(limit_elem)
 
-        # Window value - check if it's "Current Window" or a named window
-        window_value = step.params.get('0', 'Current Window')
-        if not window_value:
-            window_value = 'Current Window'
-
-        if window_value.lower() == 'current window' or window_value.lower() == 'current':
-            # Current Window
-            window_elem = ET.Element('Window')
-            window_elem.set('value', 'Current')
-            step_elem.append(window_elem)
-        else:
-            # Named window - use ByName with Calculation
-            window_elem = ET.Element('Window')
+        window_elem = ET.Element('Window')
+        if window_name:
             window_elem.set('value', 'ByName')
             step_elem.append(window_elem)
 
             name_elem = ET.Element('Name')
-            calc_elem = create_cdata_element(window_value)
-            name_elem.append(calc_elem)
+            name_elem.append(create_cdata_element(window_name))
             step_elem.append(name_elem)
+        else:
+            window_elem.set('value', 'Current')
+            step_elem.append(window_elem)
 
         return [step_elem]
 

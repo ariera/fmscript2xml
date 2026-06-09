@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fmxmlsnippet type="FMObjectList">
+  <Step enable="True" id="121" name="Close Window">
+    <LimitToWindowsOfCurrentFile state="True"/>
+    <Window value="Current"/>
+  </Step>
+  <Step enable="True" id="121" name="Close Window">
+    <LimitToWindowsOfCurrentFile state="False"/>
+    <Window value="ByName"/>
+    <Name>
+      <Calculation><![CDATA[$workWindowName]]></Calculation>
+    </Name>
+  </Step>
+  <Step enable="True" id="121" name="Close Window">
+    <LimitToWindowsOfCurrentFile state="True"/>
+    <Window value="ByName"/>
+    <Name>
+      <Calculation><![CDATA[$workWindowName]]></Calculation>
+    </Name>
+  </Step>
+</fmxmlsnippet>

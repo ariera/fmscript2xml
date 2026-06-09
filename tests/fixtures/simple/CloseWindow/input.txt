@@ -1,0 +1,3 @@
+Close Window [ Current Window ]
+Close Window [ Name: $workWindowName ]
+Close Window [ Name: $workWindowName ; Current file ]
