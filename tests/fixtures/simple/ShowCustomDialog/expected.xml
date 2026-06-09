@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fmxmlsnippet type="FMObjectList">
+  <Step enable="True" id="87" name="Show Custom Dialog">
+    <Title>
+      <Calculation><![CDATA["title"]]></Calculation>
+    </Title>
+    <Message>
+      <Calculation><![CDATA["message"]]></Calculation>
+    </Message>
+    <Buttons>
+      <Button CommitState="True">
+        <Calculation><![CDATA["OK"]]></Calculation>
+      </Button>
+      <Button CommitState="False">
+        <Calculation><![CDATA["Cancel"]]></Calculation>
+      </Button>
+      <Button CommitState="False"/>
+    </Buttons>
+  </Step>
+  <Step enable="True" id="87" name="Show Custom Dialog">
+    <Title>
+      <Calculation><![CDATA["Replace STF unique number?"]]></Calculation>
+    </Title>
+    <Message>
+      <Calculation><![CDATA["The current STF unique number (" & $existingUniqueNumber & ") will be replaced by the next available number. Continue?"]]></Calculation>
+    </Message>
+    <Buttons>
+      <Button CommitState="True">
+        <Calculation><![CDATA["Cancel"]]></Calculation>
+      </Button>
+      <Button CommitState="False">
+        <Calculation><![CDATA["Replace"]]></Calculation>
+      </Button>
+      <Button CommitState="False"/>
+    </Buttons>
+  </Step>
+</fmxmlsnippet>

@@ -46,19 +46,25 @@ class ShowCustomDialogHandler(StepHandler):
             msg_elem.append(calc_elem)
             step_elem.append(msg_elem)
 
-        # Buttons (simplified - would parse button list)
-        buttons = step.params.get('Buttons', '')
-        if buttons:
-            buttons_elem = ET.Element('Buttons')
-            # Parse button list (simplified)
-            button_list = buttons.split(',') if ',' in buttons else [buttons]
-            for i, btn_text in enumerate(button_list):
-                btn_elem = ET.Element('Button')
-                btn_elem.set('CommitState', 'True' if i == 0 else 'False')
-                calc_elem = create_cdata_element(btn_text.strip())
-                btn_elem.append(calc_elem)
-                buttons_elem.append(btn_elem)
-            step_elem.append(buttons_elem)
+        # Buttons: always three. Button 1 commits (CommitState="True"); buttons
+        # 2 and 3 do not. Defaults match FileMaker: "OK", "Cancel", and an empty
+        # third button (rendered as a self-closing <Button>).
+        button1 = step.params.get('Default Button', '"OK"')
+        button2 = step.params.get('Button 2', '"Cancel"')
+        button3 = step.params.get('Button 3', '')
+
+        buttons_elem = ET.Element('Buttons')
+        for btn_text, commit_state in (
+            (button1, 'True'),
+            (button2, 'False'),
+            (button3, 'False'),
+        ):
+            btn_elem = ET.Element('Button')
+            btn_elem.set('CommitState', commit_state)
+            if btn_text:
+                btn_elem.append(create_cdata_element(btn_text))
+            buttons_elem.append(btn_elem)
+        step_elem.append(buttons_elem)
 
         # InputFields (simplified - would parse field list)
         input_fields = step.params.get('InputFields', '')

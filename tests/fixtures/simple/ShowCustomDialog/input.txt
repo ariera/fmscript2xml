@@ -1,0 +1,2 @@
+Show Custom Dialog [ "title" ; "message" ]
+Show Custom Dialog [ "Replace STF unique number?" ; "The current STF unique number (" & $existingUniqueNumber & ") will be replaced by the next available number. Continue?" ; Default Button: "Cancel" ; Button 2: "Replace" ]
