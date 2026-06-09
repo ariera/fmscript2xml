@@ -1,0 +1,6 @@
+Perform Script on Server with Callback [ Specified: From list ; “START” ; Parameter: "params" ; Callback script specified: From list ; “MBS” ; Parameter: "callabackparams" ; State: Continue ]
+Perform Script on Server with Callback [ Specified: From list ; “START” ; Parameter: "params" ; Callback script specified: From list ; “MBS” ; Parameter: "callabackparams" ; State: Halt ]
+Perform Script on Server with Callback [ Specified: From list ; “START” ; Parameter: "params" ; Callback script specified: From list ; “MBS” ; Parameter: "callabackparams" ; State: Exit ]
+Perform Script on Server with Callback [ Specified: From list ; “START” ; Parameter: "params" ; Callback script specified: From list ; “MBS” ; Parameter: "callabackparams" ; State: Resume ]
+Perform Script on Server with Callback [ Specified: From list ; “START” ; Parameter: "params" ; Callback script specified: From list ; “MBS” ; Parameter: "callabackparams" ; State: Pause ]
+Perform Script on Server with Callback [ Specified: By name ; $ScriptName ; Parameter: "params" ; Callback script specified: By name ; $CallbackScriptName ; Parameter: "callabackparams" ; State: Continue ]

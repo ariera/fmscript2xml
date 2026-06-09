@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fmxmlsnippet type="FMObjectList">
+  <Step enable="True" id="210" name="Perform Script on Server with Callback">
+    <CallbackScriptState value="Continue"/>
+    <Calculation><![CDATA["params"]]></Calculation>
+    <Script name="START"/>
+    <CallbackScript>
+      <ScriptName name="MBS"/>
+      <ScriptParameter>
+        <Calculation><![CDATA["callabackparams"]]></Calculation>
+      </ScriptParameter>
+    </CallbackScript>
+  </Step>
+  <Step enable="True" id="210" name="Perform Script on Server with Callback">
+    <CallbackScriptState value="Halt"/>
+    <Calculation><![CDATA["params"]]></Calculation>
+    <Script name="START"/>
+    <CallbackScript>
+      <ScriptName name="MBS"/>
+      <ScriptParameter>
+        <Calculation><![CDATA["callabackparams"]]></Calculation>
+      </ScriptParameter>
+    </CallbackScript>
+  </Step>
+  <Step enable="True" id="210" name="Perform Script on Server with Callback">
+    <CallbackScriptState value="Exit"/>
+    <Calculation><![CDATA["params"]]></Calculation>
+    <Script name="START"/>
+    <CallbackScript>
+      <ScriptName name="MBS"/>
+      <ScriptParameter>
+        <Calculation><![CDATA["callabackparams"]]></Calculation>
+      </ScriptParameter>
+    </CallbackScript>
+  </Step>
+  <Step enable="True" id="210" name="Perform Script on Server with Callback">
+    <CallbackScriptState value="Resume"/>
+    <Calculation><![CDATA["params"]]></Calculation>
+    <Script name="START"/>
+    <CallbackScript>
+      <ScriptName name="MBS"/>
+      <ScriptParameter>
+        <Calculation><![CDATA["callabackparams"]]></Calculation>
+      </ScriptParameter>
+    </CallbackScript>
+  </Step>
+  <Step enable="True" id="210" name="Perform Script on Server with Callback">
+    <CallbackScriptState value="Pause"/>
+    <Calculation><![CDATA["params"]]></Calculation>
+    <Script name="START"/>
+    <CallbackScript>
+      <ScriptName name="MBS"/>
+      <ScriptParameter>
+        <Calculation><![CDATA["callabackparams"]]></Calculation>
+      </ScriptParameter>
+    </CallbackScript>
+  </Step>
+  <Step enable="True" id="210" name="Perform Script on Server with Callback">
+    <Calculated>
+      <Calculation><![CDATA[$ScriptName]]></Calculation>
+    </Calculated>
+    <CallbackScriptState value="Continue"/>
+    <Calculation><![CDATA["params"]]></Calculation>
+    <CallbackScript>
+      <Calculated>
+        <Calculation><![CDATA[$CallbackScriptName]]></Calculation>
+      </Calculated>
+      <ScriptParameter>
+        <Calculation><![CDATA["callabackparams"]]></Calculation>
+      </ScriptParameter>
+    </CallbackScript>
+  </Step>
+</fmxmlsnippet>

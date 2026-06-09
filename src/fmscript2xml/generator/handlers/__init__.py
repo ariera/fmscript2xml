@@ -31,6 +31,8 @@ from .field import (
 from .script import (
     PerformScriptHandler,
     InstallOnTimerScriptHandler,
+    PerformScriptOnServerHandler,
+    PerformScriptOnServerWithCallbackHandler,
 )
 from .find import PerformFindHandler
 from .dialog import ShowCustomDialogHandler
@@ -76,6 +78,8 @@ HANDLERS = {
     'Commit Records/Requests': CommitRecordsRequestsHandler(),
     'Save Records as PDF': SaveRecordsAsPDFHandler(),
     'Sort Records by Field': SortRecordsByFieldHandler(),
+    'Perform Script on Server': PerformScriptOnServerHandler(),
+    'Perform Script on Server with Callback': PerformScriptOnServerWithCallbackHandler(),
 }
 
 __all__ = [
@@ -108,4 +112,6 @@ __all__ = [
     'CommitRecordsRequestsHandler',
     'SaveRecordsAsPDFHandler',
     'SortRecordsByFieldHandler',
+    'PerformScriptOnServerHandler',
+    'PerformScriptOnServerWithCallbackHandler',
 ]

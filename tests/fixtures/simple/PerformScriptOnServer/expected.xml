@@ -1,0 +1,12 @@
+<fmxmlsnippet type="FMObjectList">
+  <Step enable="True" id="164" name="Perform Script on Server">
+    <WaitForCompletion state="False"></WaitForCompletion>
+    <Calculation><![CDATA["1¶2¶3¶4"]]></Calculation>
+    <Script name="ALL__CalculateNextUniqueID"></Script>
+  </Step>
+  <Step enable="True" id="164" name="Perform Script on Server">
+    <WaitForCompletion state="True"></WaitForCompletion>
+    <Calculation><![CDATA["1¶2¶3¶4"]]></Calculation>
+    <Script name="ALL__CalculateNextUniqueID"></Script>
+  </Step>
+</fmxmlsnippet>

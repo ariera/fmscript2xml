@@ -701,6 +701,12 @@
     "name": "Perform Script on Server",
     "xml_step_name": "Perform Script on Server"
   },
+  "Perform Script on Server with Callback": {
+    "enable_default": true,
+    "id": 210,
+    "name": "Perform Script on Server with Callback",
+    "xml_step_name": "Perform Script on Server with Callback"
+  },
   "Print": {
     "enable_default": true,
     "id": 43,
