@@ -1,0 +1,6 @@
+Sort Records by Field [ Descending ]
+Sort Records by Field [ Ascending ]
+Sort Records by Field [ Associated value list ]
+Sort Records by Field [ Descending ; HOM__Home::CurrentUserID__glt ]
+Sort Records by Field [ Ascending ; HOM__Home::CurrentUserID__glt ]
+Sort Records by Field [ Associated value list ; HOM__Home::CurrentUserID__glt ]

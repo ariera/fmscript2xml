@@ -2,10 +2,16 @@
 Miscellaneous handlers: Set Error Capture, Print, Commit Records/Requests.
 """
 
+import re
 from typing import List
 from xml.etree import ElementTree as ET
 from ...parser.parser import ParsedStep
-from ..xml_builder import create_step_element, create_cdata_element
+from ..xml_builder import (
+    create_step_element,
+    create_cdata_element,
+    create_field_element,
+    create_helper_comment_step,
+)
 from .base import StepHandler
 
 
@@ -308,3 +314,64 @@ class SaveRecordsAsPDFHandler(StepHandler):
         step_elem.append(self._pdf_options(source, appearance))
 
         return [step_elem]
+
+
+class SortRecordsByFieldHandler(StepHandler):
+    """Handler for Sort Records by Field steps."""
+
+    # Sort order keyword -> SortRecordsByField value
+    _ORDER_MAP = {
+        'descending': 'SortDescending',
+        'ascending': 'SortAscending',
+        'associated value list': 'SortValueList',
+    }
+
+    def generate(
+        self,
+        step: ParsedStep,
+        step_def: dict
+    ) -> List[ET.Element]:
+        elements = []
+
+        enabled = step_def['enable_default'] and not step.is_disabled
+        step_elem = create_step_element(
+            step_def['id'],
+            step_def['xml_step_name'],
+            enabled
+        )
+
+        # First positional param is the sort order; default to ascending.
+        order_text = step.params.get('0', '').strip().lower()
+        order_value = self._ORDER_MAP.get(order_text, 'SortAscending')
+
+        sort_elem = ET.Element('SortRecordsByField')
+        sort_elem.set('value', order_value)
+        step_elem.append(sort_elem)
+
+        # Optional second positional param is the field to sort by.
+        field_ref = step.params.get('1', '').strip()
+        if field_ref:
+            # The sort field needs database-specific IDs we can't resolve, so
+            # emit a helper comment for manual reference (like Go to Layout).
+            elements.append(create_helper_comment_step(step.raw_text))
+
+            table_name = None
+            repetition = None
+
+            repetition_match = re.search(r'\[(\d+)\]$', field_ref)
+            if repetition_match:
+                repetition = repetition_match.group(1)
+                field_ref = field_ref[:repetition_match.start()]
+
+            if '::' in field_ref:
+                table_name, field_ref = field_ref.split('::', 1)
+
+            step_elem.append(create_field_element(
+                field_ref,
+                table_name=table_name,
+                repetition=repetition,
+                omit_id=True,
+            ))
+
+        elements.append(step_elem)
+        return elements

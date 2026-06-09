@@ -1,0 +1,23 @@
+<fmxmlsnippet type="FMObjectList">
+    <Step enable="True" id="154" name="Sort Records by Field">
+        <SortRecordsByField value="SortDescending"></SortRecordsByField>
+    </Step>
+    <Step enable="True" id="154" name="Sort Records by Field">
+        <SortRecordsByField value="SortAscending"></SortRecordsByField>
+    </Step>
+    <Step enable="True" id="154" name="Sort Records by Field">
+        <SortRecordsByField value="SortValueList"></SortRecordsByField>
+    </Step>
+    <Step enable="True" id="154" name="Sort Records by Field">
+        <SortRecordsByField value="SortDescending"></SortRecordsByField>
+        <Field table="HOM__Home" id="1" name="CurrentUserID__glt"></Field>
+    </Step>
+    <Step enable="True" id="154" name="Sort Records by Field">
+        <SortRecordsByField value="SortAscending"></SortRecordsByField>
+        <Field table="HOM__Home" id="1" name="CurrentUserID__glt"></Field>
+    </Step>
+    <Step enable="True" id="154" name="Sort Records by Field">
+        <SortRecordsByField value="SortValueList"></SortRecordsByField>
+        <Field table="HOM__Home" id="1" name="CurrentUserID__glt"></Field>
+    </Step>
+</fmxmlsnippet>

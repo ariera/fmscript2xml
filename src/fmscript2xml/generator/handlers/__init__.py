@@ -44,6 +44,7 @@ from .misc import (
     SetErrorCaptureHandler,
     CommitRecordsRequestsHandler,
     SaveRecordsAsPDFHandler,
+    SortRecordsByFieldHandler,
 )
 
 # Registry of all handlers
@@ -74,6 +75,7 @@ HANDLERS = {
     'Install OnTimer Script': InstallOnTimerScriptHandler(),
     'Commit Records/Requests': CommitRecordsRequestsHandler(),
     'Save Records as PDF': SaveRecordsAsPDFHandler(),
+    'Sort Records by Field': SortRecordsByFieldHandler(),
 }
 
 __all__ = [
@@ -105,4 +107,5 @@ __all__ = [
     'InstallOnTimerScriptHandler',
     'CommitRecordsRequestsHandler',
     'SaveRecordsAsPDFHandler',
+    'SortRecordsByFieldHandler',
 ]
