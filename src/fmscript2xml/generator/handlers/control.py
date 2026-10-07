@@ -139,3 +139,33 @@ class ExitScriptHandler(StepHandler):
             step_elem.append(calc_elem)
 
         return [step_elem]
+
+
+class PauseResumeScriptHandler(StepHandler):
+    """Handler for Pause/Resume Script steps."""
+
+    def generate(
+        self,
+        step: ParsedStep,
+        step_def: dict
+    ) -> List[ET.Element]:
+        # Check if step is disabled (// prefix)
+        enabled = step_def['enable_default'] and not step.is_disabled
+        step_elem = create_step_element(
+            step_def['id'],
+            step_def['xml_step_name'],
+            enabled
+        )
+
+        # "Duration (seconds): <calc>" pauses for a duration; anything else
+        # (e.g. "Indefinitely" or no option) pauses indefinitely.
+        duration = step.params.get('Duration (seconds)', '')
+
+        pause_elem = ET.Element('PauseTime')
+        pause_elem.set('value', 'ForDuration' if duration else 'Indefinitely')
+        step_elem.append(pause_elem)
+
+        if duration:
+            step_elem.append(create_cdata_element(duration))
+
+        return [step_elem]

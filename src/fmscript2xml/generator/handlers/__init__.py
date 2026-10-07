@@ -13,6 +13,7 @@ from .control import (
     ElseHandler,
     EndIfHandler,
     ExitScriptHandler,
+    PauseResumeScriptHandler,
 )
 from .window import (
     NewWindowHandler,
@@ -64,6 +65,7 @@ HANDLERS = {
     'Else': ElseHandler(),
     'End If': EndIfHandler(),
     'Exit Script': ExitScriptHandler(),
+    'Pause/Resume Script': PauseResumeScriptHandler(),
     'Perform Script': PerformScriptHandler(),
     'Go to Layout': GoToLayoutHandler(),
     'Go to Record/Request/Page': GoToRecordRequestPageHandler(),
@@ -92,6 +94,7 @@ __all__ = [
     'ElseHandler',
     'EndIfHandler',
     'ExitScriptHandler',
+    'PauseResumeScriptHandler',
     'SetErrorCaptureHandler',
     'NewWindowHandler',
     'CloseWindowHandler',

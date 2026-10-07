@@ -1,0 +1,3 @@
+Pause/Resume Script [ Duration (seconds): $RETRY_PAUSE ]
+Pause/Resume Script [ Duration (seconds): 1 ]
+Pause/Resume Script [ Indefinitely ]

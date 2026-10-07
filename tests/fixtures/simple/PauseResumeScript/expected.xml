@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fmxmlsnippet type="FMObjectList">
+  <Step enable="True" id="62" name="Pause/Resume Script">
+    <PauseTime value="ForDuration"/>
+    <Calculation><![CDATA[$RETRY_PAUSE]]></Calculation>
+  </Step>
+  <Step enable="True" id="62" name="Pause/Resume Script">
+    <PauseTime value="ForDuration"/>
+    <Calculation><![CDATA[1]]></Calculation>
+  </Step>
+  <Step enable="True" id="62" name="Pause/Resume Script">
+    <PauseTime value="Indefinitely"/>
+  </Step>
+</fmxmlsnippet>
