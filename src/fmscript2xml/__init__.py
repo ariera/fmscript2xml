@@ -1,6 +1,6 @@
 """FileMaker Script to XML Parser"""
 
-__version__ = "0.5.2"
+__version__ = "0.5.3"
 
 from .converter import Converter, UnknownStepError
 from .fmclip import (
