@@ -1,0 +1,6 @@
+If [ not IsEmpty ( $fields_json ) and Left ( $fields_json ; 1 ) ≠ "[" ]
+    Set Variable [ $IsError ; 1 ]
+End If
+If [ Right ( $fields_json ; 1 ) ≠ "]" ]
+    Set Variable [ $IsError ; 2 ]
+End If

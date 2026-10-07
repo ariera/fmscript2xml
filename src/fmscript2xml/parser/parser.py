@@ -5,8 +5,42 @@ Converts plain text into structured ParsedStep objects.
 """
 
 import re
-from typing import List, Optional, Dict, Any
+from typing import List, Optional, Dict, Any, Tuple
 from dataclasses import dataclass, field
+
+
+def _bracket_balance(text: str, in_string: bool = False) -> Tuple[int, bool]:
+    """
+    Count net open square brackets in text, ignoring brackets inside string literals.
+
+    FileMaker string literals are double-quoted and use backslash escapes
+    (e.g. "a \\" quote"). A literal may span lines, so the in-string state is
+    taken as input and returned for the next line.
+
+    Args:
+        text: Text to scan
+        in_string: Whether text starts inside a string literal
+
+    Returns:
+        Tuple of (number of '[' minus number of ']', in-string state at end of text)
+    """
+    balance = 0
+    i = 0
+    while i < len(text):
+        char = text[i]
+        if in_string:
+            if char == '\\':
+                i += 1  # Skip escaped character
+            elif char == '"':
+                in_string = False
+        elif char == '"':
+            in_string = True
+        elif char == '[':
+            balance += 1
+        elif char == ']':
+            balance -= 1
+        i += 1
+    return balance, in_string
 
 
 @dataclass
@@ -171,7 +205,7 @@ class Parser:
                 # Try to close brackets if needed (but preserve ellipsis in the content)
                 # Count brackets before the ellipsis
                 before_ellipsis = line[:ellipsis_pos]
-                open_brackets = before_ellipsis.count('[') - before_ellipsis.count(']')
+                open_brackets, _ = _bracket_balance(before_ellipsis)
                 if open_brackets > 0:
                     # Add closing brackets after the ellipsis
                     truncated_line += ']' * open_brackets
@@ -183,7 +217,8 @@ class Parser:
             # If it has an opening bracket, collect continuation lines until brackets are balanced
             full_line = line
             if '[' in line:
-                bracket_count = line.count('[') - line.count(']')
+                # Brackets inside string literals (e.g. "[") don't count
+                bracket_count, in_string = _bracket_balance(line)
                 j = i + 1
                 while bracket_count > 0 and j < len(lines):
                     next_line = lines[j].strip()
@@ -193,16 +228,18 @@ class Parser:
                         ellipsis_pos = next_line.find('…')
                         next_line = next_line[:ellipsis_pos].strip()
                         # Close any remaining brackets
-                        remaining_brackets = bracket_count - (next_line.count('[') - next_line.count(']'))
+                        remaining_brackets = bracket_count - _bracket_balance(next_line, in_string)[0]
                         if remaining_brackets > 0:
                             next_line += ']' * remaining_brackets
                             bracket_count = 0
+                            in_string = False
                         else:
-                            bracket_count += next_line.count('[') - next_line.count(']')
+                            bracket_count += _bracket_balance(next_line, in_string)[0]
 
                     if next_line:  # Skip empty continuation lines
                         full_line += ' ' + next_line
-                        bracket_count += next_line.count('[') - next_line.count(']')
+                        delta, in_string = _bracket_balance(next_line, in_string)
+                        bracket_count += delta
                     j += 1
                     if bracket_count <= 0:
                         break
@@ -253,7 +290,8 @@ class Parser:
 
     def _extract_bracketed_content(self, text: str, start_pos: int) -> str:
         """
-        Extract content between matching brackets, handling nested brackets.
+        Extract content between matching brackets, handling nested brackets
+        and ignoring brackets inside string literals.
 
         Args:
             text: Full text
@@ -266,12 +304,21 @@ class Parser:
             return ""
 
         depth = 0
+        in_string = False
         pos = start_pos
 
         while pos < len(text):
-            if text[pos] == '[':
+            char = text[pos]
+            if in_string:
+                if char == '\\':
+                    pos += 1  # Skip escaped character
+                elif char == '"':
+                    in_string = False
+            elif char == '"':
+                in_string = True
+            elif char == '[':
                 depth += 1
-            elif text[pos] == ']':
+            elif char == ']':
                 depth -= 1
                 if depth == 0:
                     # Found matching closing bracket
