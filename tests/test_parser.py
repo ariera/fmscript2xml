@@ -62,3 +62,56 @@ End If"""
         # Calculation should be preserved
         assert "Get" in str(steps[0].params.values()) or "ScriptParameter" in str(steps[0].params.values())
 
+
+    def test_multiline_string_keeps_line_breaks(self):
+        """Line breaks and indentation inside a string literal are part of its value."""
+        parser = Parser()
+        text = 'Set Variable [ $sql ; Value: "SELECT a\n    FROM b" ]\nBeep'
+        steps = parser.parse(text)
+
+        assert [s.name for s in steps] == ["Set Variable", "Beep"]
+        assert steps[0].params["Value"] == '"SELECT a\n    FROM b"'
+
+    def test_multiline_calc_keeps_line_breaks_after_line_comment(self):
+        """A // comment ends at the line break, so continuation lines must not be joined onto it."""
+        parser = Parser()
+        text = 'Set Variable [ $x ; Value: 1 & // first [ part\n    2 ]\nBeep'
+        steps = parser.parse(text)
+
+        assert [s.name for s in steps] == ["Set Variable", "Beep"]
+        assert steps[0].params["Value"] == "1 & // first [ part\n    2"
+
+    def test_comments_hide_brackets_and_separators(self):
+        """Brackets, semicolons and colons inside calculation comments are not syntax."""
+        parser = Parser()
+        text = (
+            'Set Variable [ $a ; Value: 1 /* see [ ; x: y */ ]\n'
+            'Set Variable [ $b ; Value: 2 // note: b [c] ]\n'
+            'Beep'
+        )
+        steps = parser.parse(text)
+
+        assert [s.name for s in steps] == ["Set Variable", "Set Variable", "Beep"]
+        assert steps[0].params == {"0": "$a", "Value": "1 /* see [ ; x: y */"}
+        assert steps[1].params == {"0": "$b", "Value": "2 // note: b [c]"}
+
+    def test_trailing_line_comment_before_step_close(self):
+        """FileMaker appends the step's closing ] after a trailing // comment."""
+        parser = Parser()
+        text = 'If [ Get ( WindowMode ) = 1  // in FIND mode ]\nEnd If'
+        steps = parser.parse(text)
+
+        assert [s.name for s in steps] == ["If", "End If"]
+        assert steps[0].params == {"0": "Get ( WindowMode ) = 1  // in FIND mode"}
+
+    def test_trailing_line_comment_before_next_param(self):
+        """FileMaker writes the next parameter after a trailing // comment on the same line."""
+        parser = Parser()
+        text = 'Set Field By Name [ Specify target field: ON ; $f // the target ; $id ]'
+        steps = parser.parse(text)
+
+        assert steps[0].params == {
+            "Specify target field": "ON",
+            "0": "$f // the target",
+            "1": "$id",
+        }

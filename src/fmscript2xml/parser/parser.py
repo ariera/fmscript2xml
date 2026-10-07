@@ -5,42 +5,90 @@ Converts plain text into structured ParsedStep objects.
 """
 
 import re
-from typing import List, Optional, Dict, Any, Tuple
+from typing import Iterator, List, Optional, Dict, Any, Tuple
 from dataclasses import dataclass, field
 
 
-def _bracket_balance(text: str, in_string: bool = False) -> Tuple[int, bool]:
+class _CalcScanner:
     """
-    Count net open square brackets in text, ignoring brackets inside string literals.
+    Finds the characters of FileMaker script text that are syntax.
 
-    FileMaker string literals are double-quoted and use backslash escapes
-    (e.g. "a \\" quote"). A literal may span lines, so the in-string state is
-    taken as input and returned for the next line.
+    Brackets, semicolons and colons are ignored when they are inside:
+    - string literals: "..." with backslash escapes (e.g. "a \\" quote")
+    - quoted object names: “...” (e.g. layout and script names)
+    - calculation comments: /* ... */ and // to the end of the line (but see
+      code_chars)
 
-    Args:
-        text: Text to scan
-        in_string: Whether text starts inside a string literal
-
-    Returns:
-        Tuple of (number of '[' minus number of ']', in-string state at end of text)
+    String literals and /* */ comments may span lines, so the state carries
+    over between calls when text is fed one line at a time.
     """
-    balance = 0
-    i = 0
-    while i < len(text):
-        char = text[i]
-        if in_string:
-            if char == '\\':
-                i += 1  # Skip escaped character
+
+    CODE, STRING, NAME, BLOCK_COMMENT, LINE_COMMENT = range(5)
+
+    def __init__(self):
+        self.state = self.CODE
+
+    def code_chars(self, text: str, start: int = 0) -> Iterator[Tuple[int, str]]:
+        """
+        Yield (index, char) for each syntax character of text from start.
+
+        A // comment ends at a ; or at a ] it doesn't open itself, which are
+        yielded: FileMaker writes the rest of the step after a trailing comment
+        on the same line, e.g. Set Field By Name [ $f // note ; $id ].
+        """
+        if self.state == self.LINE_COMMENT:
+            self.state = self.CODE  # Each call starts on a new line
+        comment_depth = 0
+        i = start
+        while i < len(text):
+            char = text[i]
+            next_char = text[i + 1:i + 2]
+            if self.state == self.STRING:
+                if char == '\\':
+                    i += 1  # Skip escaped character
+                elif char == '"':
+                    self.state = self.CODE
+            elif self.state == self.NAME:
+                if char == '”':
+                    self.state = self.CODE
+            elif self.state == self.BLOCK_COMMENT:
+                if char == '*' and next_char == '/':
+                    self.state = self.CODE
+                    i += 1
+            elif self.state == self.LINE_COMMENT:
+                if char == '\n':
+                    self.state = self.CODE
+                elif char == '[':
+                    comment_depth += 1
+                elif char == ']' and comment_depth:
+                    comment_depth -= 1
+                elif char in (';', ']'):
+                    self.state = self.CODE
+                    yield i, char
             elif char == '"':
-                in_string = False
-        elif char == '"':
-            in_string = True
-        elif char == '[':
-            balance += 1
-        elif char == ']':
-            balance -= 1
-        i += 1
-    return balance, in_string
+                self.state = self.STRING
+            elif char == '“':
+                self.state = self.NAME
+            elif char == '/' and next_char == '*':
+                self.state = self.BLOCK_COMMENT
+                i += 1
+            elif char == '/' and next_char == '/':
+                self.state = self.LINE_COMMENT
+                comment_depth = 0
+                i += 1
+            else:
+                yield i, char
+            i += 1
+
+    def bracket_balance(self, text: str) -> int:
+        """Return the number of syntax '[' minus syntax ']' in text."""
+        balance = 0
+        for _, char in self.code_chars(text):
+            if char == '[':
+                balance += 1
+            elif char == ']':
+                balance -= 1
+        return balance
 
 
 @dataclass
@@ -205,7 +253,7 @@ class Parser:
                 # Try to close brackets if needed (but preserve ellipsis in the content)
                 # Count brackets before the ellipsis
                 before_ellipsis = line[:ellipsis_pos]
-                open_brackets, _ = _bracket_balance(before_ellipsis)
+                open_brackets = _CalcScanner().bracket_balance(before_ellipsis)
                 if open_brackets > 0:
                     # Add closing brackets after the ellipsis
                     truncated_line += ']' * open_brackets
@@ -217,32 +265,26 @@ class Parser:
             # If it has an opening bracket, collect continuation lines until brackets are balanced
             full_line = line
             if '[' in line:
-                # Brackets inside string literals (e.g. "[") don't count
-                bracket_count, in_string = _bracket_balance(line)
+                # Brackets inside string literals, quoted names and comments don't count
+                scanner = _CalcScanner()
+                bracket_count = scanner.bracket_balance(line)
                 j = i + 1
                 while bracket_count > 0 and j < len(lines):
-                    next_line = lines[j].strip()
-                    # Skip lines with ellipsis (they're truncated)
-                    if '…' in next_line:
-                        # Truncate and try to close brackets
-                        ellipsis_pos = next_line.find('…')
-                        next_line = next_line[:ellipsis_pos].strip()
-                        # Close any remaining brackets
-                        remaining_brackets = bracket_count - _bracket_balance(next_line, in_string)[0]
-                        if remaining_brackets > 0:
-                            next_line += ']' * remaining_brackets
-                            bracket_count = 0
-                            in_string = False
-                        else:
-                            bracket_count += _bracket_balance(next_line, in_string)[0]
-
-                    if next_line:  # Skip empty continuation lines
-                        full_line += ' ' + next_line
-                        delta, in_string = _bracket_balance(next_line, in_string)
-                        bracket_count += delta
+                    # Keep continuation lines verbatim and joined by line breaks:
+                    # they can be part of a string literal, and a // comment
+                    # ends at the line break
+                    next_line = lines[j].rstrip('\r')
                     j += 1
-                    if bracket_count <= 0:
+                    # Truncated with ellipsis: keep the text before it and close the step
+                    if '…' in next_line:
+                        next_line = next_line[:next_line.find('…')].strip()
+                        full_line += '\n' + next_line
+                        bracket_count += scanner.bracket_balance(next_line)
+                        full_line += ']' * max(bracket_count, 0)
                         break
+
+                    full_line += '\n' + next_line
+                    bracket_count += scanner.bracket_balance(next_line)
                 i = j
             else:
                 i += 1
@@ -291,7 +333,7 @@ class Parser:
     def _extract_bracketed_content(self, text: str, start_pos: int) -> str:
         """
         Extract content between matching brackets, handling nested brackets
-        and ignoring brackets inside string literals.
+        and ignoring brackets inside string literals, quoted names and comments.
 
         Args:
             text: Full text
@@ -304,26 +346,14 @@ class Parser:
             return ""
 
         depth = 0
-        in_string = False
-        pos = start_pos
-
-        while pos < len(text):
-            char = text[pos]
-            if in_string:
-                if char == '\\':
-                    pos += 1  # Skip escaped character
-                elif char == '"':
-                    in_string = False
-            elif char == '"':
-                in_string = True
-            elif char == '[':
+        for pos, char in _CalcScanner().code_chars(text, start_pos):
+            if char == '[':
                 depth += 1
             elif char == ']':
                 depth -= 1
                 if depth == 0:
                     # Found matching closing bracket
                     return text[start_pos + 1:pos].strip()
-            pos += 1
 
         # No closing bracket found - return everything after opening bracket
         return text[start_pos + 1:].strip()
@@ -358,40 +388,19 @@ class Parser:
 
             # Check if it's a key-value pair
             # Look for colon, but skip :: (table reference separator in FileMaker)
-            # and colons inside quoted strings
+            # and colons inside quoted strings, names and comments
             colon_pos = -1
-            i = 0
-            in_string = False
-            string_char = None
-            while i < len(part):
-                char = part[i]
-
-                # Handle string literals
-                if char in ('"', "'") and (i == 0 or part[i - 1] != '\\'):
-                    if not in_string:
-                        in_string = True
-                        string_char = char
-                    elif char == string_char:
-                        in_string = False
-                        string_char = None
-                    i += 1
-                    continue
-
-                if in_string:
-                    i += 1
-                    continue
-
+            code_chars = _CalcScanner().code_chars(part)
+            for i, char in code_chars:
                 if char == ':':
                     # Check if it's :: (table reference) or single : (parameter separator)
-                    if i + 1 < len(part) and part[i + 1] == ':':
+                    if part[i + 1:i + 2] == ':':
                         # Skip :: (table reference)
-                        i += 2
+                        next(code_chars, None)
                         continue
-                    else:
-                        # Found single colon - this is a parameter separator
-                        colon_pos = i
-                        break
-                i += 1
+                    # Found single colon - this is a parameter separator
+                    colon_pos = i
+                    break
 
             if colon_pos != -1:
                 key = part[:colon_pos].strip()
@@ -412,7 +421,8 @@ class Parser:
 
     def _smart_split(self, text: str, delimiter: str) -> List[str]:
         """
-        Split text by delimiter, but don't split inside brackets, parentheses, or quotes.
+        Split text by delimiter, but don't split inside brackets, parentheses,
+        quoted strings and names, or comments.
 
         Args:
             text: Text to split
@@ -422,59 +432,29 @@ class Parser:
             List of parts
         """
         parts = []
-        current_part = []
+        part_start = 0
         bracket_depth = 0
         paren_depth = 0
-        in_string = False
-        string_char = None
-        i = 0
 
-        while i < len(text):
-            char = text[i]
-
-            # Handle string literals
-            if char in ('"', "'") and (i == 0 or text[i - 1] != '\\'):
-                if not in_string:
-                    in_string = True
-                    string_char = char
-                elif char == string_char:
-                    in_string = False
-                    string_char = None
-                current_part.append(char)
-                i += 1
-                continue
-
-            if in_string:
-                current_part.append(char)
-                i += 1
-                continue
-
+        for i, char in _CalcScanner().code_chars(text):
             # Handle brackets
             if char == '[':
                 bracket_depth += 1
-                current_part.append(char)
             elif char == ']':
                 bracket_depth -= 1
-                current_part.append(char)
             # Handle parentheses (for function calls)
             elif char == '(':
                 paren_depth += 1
-                current_part.append(char)
             elif char == ')':
                 paren_depth -= 1
-                current_part.append(char)
             elif char == delimiter and bracket_depth == 0 and paren_depth == 0:
-                # Found delimiter at top level (not inside brackets, parens, or strings)
-                parts.append(''.join(current_part))
-                current_part = []
-            else:
-                current_part.append(char)
-
-            i += 1
+                # Found delimiter at top level
+                parts.append(text[part_start:i])
+                part_start = i + 1
 
         # Add remaining part
-        if current_part:
-            parts.append(''.join(current_part))
+        if part_start < len(text):
+            parts.append(text[part_start:])
 
         return parts
 

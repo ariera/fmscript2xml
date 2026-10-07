@@ -1,0 +1,9 @@
+If [ $a = 1 /* see [ */ ]
+	Set Variable [ $b ; Value: 1 // note: b [c] ]
+End If
+Set Variable [ $c ; Value: /* open [
+	still a comment */ 2 ]
+Set Variable [ $d ; Value: 3 & // keep [ this
+	4 ]
+If [ Get ( WindowMode ) = 1  // in FIND mode ]
+End If
