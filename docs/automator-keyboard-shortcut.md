@@ -1,3 +1,9 @@
+> [!CAUTION]
+> **Superseded.** The [fmscript2xml macOS app](https://github.com/ariera/fmscript2xml-app) replaces this Automator
+> setup: install it and press ⌃⌥⌘F. If you set up the Quick Action below,
+> turn its shortcut off in System Settings → Keyboard → Keyboard Shortcuts →
+> Services so it doesn't collide with the app.
+
 ## macOS: Run `fmscript2xml` via a global keyboard shortcut
 
 On macOS, the most reliable way to bind `fmscript2xml` to a keyboard shortcut is to use an **Automator Quick Action**.  

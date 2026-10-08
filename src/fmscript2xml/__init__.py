@@ -1,6 +1,10 @@
-"""FileMaker Script to XML Parser"""
+"""FileMaker Script to XML Parser.
 
-__version__ = "0.5.3"
+Discontinued: replaced by the fmscript2xml macOS app,
+https://github.com/ariera/fmscript2xml-app
+"""
+
+__version__ = "0.5.4"
 
 from .converter import Converter, UnknownStepError
 from .fmclip import (

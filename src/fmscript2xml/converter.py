@@ -153,6 +153,12 @@ class Converter:
         return len(errors) == 0, errors
 
 
+DISCONTINUED_NOTICE = (
+    "Note: fmscript2xml (Python) is discontinued. "
+    "Use the fmscript2xml macOS app instead: https://github.com/ariera/fmscript2xml-app"
+)
+
+
 def main():
     """Command-line entry point."""
     import sys
@@ -164,6 +170,8 @@ def main():
         description=f'Convert FileMaker script to XML (version {__version__})',
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog=f"""
+{DISCONTINUED_NOTICE}
+
 Examples:
   %(prog)s script.txt              # Creates script.txt.xml
   %(prog)s script.txt -o output.xml # Creates output.xml
@@ -216,6 +224,8 @@ Examples:
     )
 
     args = parser.parse_args()
+
+    print(DISCONTINUED_NOTICE, file=sys.stderr)
 
     if args.from_clipboard:
         if not args.output and not args.no_file:

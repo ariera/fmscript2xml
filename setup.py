@@ -8,9 +8,9 @@ with open("requirements.txt", "r", encoding="utf-8") as fh:
 
 setup(
     name="fmscript2xml",
-    version="0.5.3",
+    version="0.5.4",
     author="EMBO",
-    description="Deterministic parser for converting FileMaker script snippets to XML",
+    description="[DISCONTINUED] Deterministic parser for converting FileMaker script snippets to XML. Replaced by https://github.com/ariera/fmscript2xml-app",
     long_description=long_description,
     long_description_content_type="text/markdown",
     packages=find_packages(where="src"),
@@ -24,13 +24,16 @@ setup(
     py_modules=[],  # We're using packages, not modules
     python_requires=">=3.8",
     install_requires=requirements,
+    project_urls={
+        "Replacement": "https://github.com/ariera/fmscript2xml-app",
+    },
     entry_points={
         "console_scripts": [
             "fmscript2xml=fmscript2xml.converter:main",
         ],
     },
     classifiers=[
-        "Development Status :: 3 - Alpha",
+        "Development Status :: 7 - Inactive",
         "Intended Audience :: Developers",
         "Programming Language :: Python :: 3",
         "Programming Language :: Python :: 3.8",

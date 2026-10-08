@@ -1,3 +1,44 @@
+> [!CAUTION]
+> **This project is discontinued.** The Python package and CLI are no longer
+> maintained. They are replaced by **[fmscript2xml for macOS](https://github.com/ariera/fmscript2xml-app)**, a
+> native menu bar app.
+
+<p align="center">
+  <a href="https://github.com/ariera/fmscript2xml-app"><img src="https://raw.githubusercontent.com/ariera/fmscript2xml-app/main/docs/logo.png" width="96" alt="fmscript2xml logo"></a>
+</p>
+
+<h2 align="center"><a href="https://github.com/ariera/fmscript2xml-app">➡️ Use the new fmscript2xml app</a></h2>
+
+<p align="center">
+  Copy FileMaker script steps as text, press <b>⌃⌥⌘F</b>, paste them into the Script Workspace as real steps.<br>
+  No Python, no Automator, and FileMaker doesn't need to be installed for the conversion.
+</p>
+
+<p align="center">
+  <a href="https://github.com/ariera/fmscript2xml-app/releases/latest"><b>Download the latest release</b></a> ·
+  <a href="https://github.com/ariera/fmscript2xml-app#readme">Documentation</a>
+</p>
+
+<p align="center">
+  <a href="https://github.com/ariera/fmscript2xml-app"><img src="https://raw.githubusercontent.com/ariera/fmscript2xml-app/main/docs/images/workflow.gif" width="640" alt="Copy script steps as text, press ⌃⌥⌘F, paste them into FileMaker as steps"></a>
+</p>
+
+### Moving to the app
+
+| You used… | Now |
+|---|---|
+| The Automator Quick Action with ⌃⌥⌘F | Install the app, then turn the old shortcut off in System Settings → Keyboard → Keyboard Shortcuts → Services so the two don't collide. |
+| `fmscript2xml --from-clipboard --clipboard --no-file` | Press ⌃⌥⌘F. The app also keeps a history of conversions and has an inspector for errors. |
+| The `fmscript2xml` CLI on files | The app repo includes a Swift CLI with the same options: `swift run fmscript2xml script.txt`. |
+| `from fmscript2xml import Converter` | No replacement library. This package keeps working at v0.5.4 but won't get fixes. |
+
+Bug reports and feature requests go to the [new repository](https://github.com/ariera/fmscript2xml-app/issues).
+
+---
+
+<details>
+<summary><b>Legacy documentation (v0.5.4, unmaintained)</b></summary>
+
 # FileMaker Script to XML Parser
 
 A robust, deterministic parser/compiler for converting plain text FileMaker script snippets into valid XML format.
@@ -160,3 +201,5 @@ See `docs/README.md` for more information about the documentation structure.
 
 See parent project license.
 
+
+</details>
